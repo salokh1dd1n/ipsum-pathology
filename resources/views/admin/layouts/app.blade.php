@@ -12,8 +12,12 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body class="c-app">
+
 @include('admin.includes.sidebar')
-@yield('content')
+<div class="c-wrapper c-fixed-components">
+    @include('admin.includes.header')
+    @yield('content')
+</div>
 
 <!-- Optional JavaScript -->
 <!-- Popper.js first, then CoreUI JS -->
