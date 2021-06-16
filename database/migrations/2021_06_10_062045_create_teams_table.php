@@ -15,10 +15,10 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
-            $table->string('role', 50);
+            $table->json('name');
+            $table->json('role');
             $table->integer('phone_number');
-            $table->text('description');
+            $table->json('description');
             $table->string('image');
             $table->timestamps();
         });

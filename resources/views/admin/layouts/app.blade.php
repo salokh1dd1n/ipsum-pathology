@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CoreUI CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/coreui/css/style.css') }}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('dashboard/coreui/css/perfect-scrollbar.min.css') }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body class="c-app">
@@ -16,14 +15,25 @@
 @include('admin.includes.sidebar')
 <div class="c-wrapper c-fixed-components">
     @include('admin.includes.header')
-    @yield('content')
+    <div class="c-body">
+        <main class="c-main">
+            <div class="container-fluid">
+                <div class="fade-in">
+                    @yield('content')
+                </div>
+            </div>
+        </main>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->
 <!-- Popper.js first, then CoreUI JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js"></script>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+<script src="{{ asset('dashboard/coreui/js/coreui.bundle.min.js') }}"></script>
+<script src="{{ asset('dashboard/coreui/js/svgxuse.min.js') }}"></script>
+<script src="{{ asset('dashboard/coreui/js/perfect-scrollbar.min.js') }}"></script>
+{{--<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>--}}
+<script src="{{ asset('dashboard/ckeditor/ckeditor.js') }}"></script>
+@stack('scripts')
 </body>
 </html>
 

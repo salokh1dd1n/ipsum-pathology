@@ -4,6 +4,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\CkeditorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,10 +18,14 @@ use App\Http\Controllers\Admin\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
-
 Auth::routes();
 
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+//Route::get('/news', [NewsController::class, 'index'])->name('news');
+//Route::get('/news/create', [NewsController::class, 'index'])->name('news');
+Route::resource('news', NewsController::class);
+
+Route::post('ckeditor/image_upload', [CkeditorController::class, 'upload'])->name('upload');
 

@@ -13,11 +13,11 @@ class CreateFaqsTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('faqs');
+//        Schema::dropIfExists('faqs');
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
-            $table->text('description');
+            $table->json('title');
+            $table->json('description');
             $table->unsignedBigInteger('tag_id');
             $table->timestamps();
 

@@ -13,15 +13,15 @@ class CreateResearchTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('research');
+//        Schema::dropIfExists('research');
         Schema::create('research', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
-            $table->string('image', 50);
-            $table->string('short_desc');
+            $table->json('title');
+            $table->json('image');
+            $table->json('short_desc');
             $table->unsignedBigInteger('advantage_id');
             $table->unsignedBigInteger('service_id');
-            $table->text('description');
+            $table->json('description');
             $table->timestamps();
 
             $table->foreign('advantage_id')->references('id')->on('advantages');

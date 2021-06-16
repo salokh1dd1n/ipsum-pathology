@@ -8,17 +8,73 @@
         </svg>
     </div>
     <ul class="c-sidebar-nav">
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="colors.html">
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{ route('news.index') }}">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-drop') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-newspaper') }}"></use>
                 </svg>
-                Colors</a>
+                Новости
+            </a>
         </li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="typography.html">
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="colors.html">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-pencil') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-group') }}"></use>
                 </svg>
-                Typography</a>
+                Команда
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="colors.html">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-medical-cross') }}"></use>
+                </svg>
+                Врачи
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-puzzle') }}"></use>
+                </svg>
+                FAQ
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="base/breadcrumb.html">
+                        <span class="c-sidebar-nav-icon"></span> FAQ
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="base/breadcrumb.html">
+                        <span class="c-sidebar-nav-icon"></span> Breadcrumb
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="colors.html">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-medical-cross') }}"></use>
+                </svg>
+                Лабораторные исследования
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="colors.html">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-medical-cross') }}"></use>
+                </svg>
+                Лечение
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="colors.html">
+                <svg class="c-sidebar-nav-icon">
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-medical-cross') }}"></use>
+                </svg>
+                Диагностика
+            </a>
         </li>
         <li class="c-sidebar-nav-title">Components</li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a

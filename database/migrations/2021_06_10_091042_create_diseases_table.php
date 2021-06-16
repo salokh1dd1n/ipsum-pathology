@@ -15,14 +15,17 @@ class CreateDiseasesTable extends Migration
     {
         Schema::create('diseases', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
-            $table->text('description');
+            $table->json('title');
+            $table->json('description');
             $table->unsignedBigInteger('symptom_id');
-            $table->text('symptom_desc');
+            $table->json('symptom_desc');
             $table->unsignedBigInteger('diagnostic_id');
-            $table->text('treatment_desc')->nullable();
-            $table->text('faq_ids');
+            $table->json('treatment_desc')->nullable();
+            $table->json('faq_ids');
             $table->timestamps();
+
+            $table->foreign('symptom_id')->references('id')->on('symptoms');
+            $table->foreign('diagnostic_id')->references('id')->on('diagnostics');
         });
     }
 
