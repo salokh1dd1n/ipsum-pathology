@@ -19,6 +19,7 @@
         <main class="c-main">
             <div class="container-fluid">
                 <div class="fade-in">
+                    @include('admin.includes.alerts')
                     @yield('content')
                 </div>
             </div>

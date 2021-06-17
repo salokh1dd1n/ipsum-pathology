@@ -25,7 +25,8 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 //Route::get('/news', [NewsController::class, 'index'])->name('news');
 //Route::get('/news/create', [NewsController::class, 'index'])->name('news');
-Route::resource('news', NewsController::class);
+Route::resource('news', NewsController::class)
+        ->except('show');
 
 Route::post('ckeditor/image_upload', [CkeditorController::class, 'upload'])->name('upload');
 

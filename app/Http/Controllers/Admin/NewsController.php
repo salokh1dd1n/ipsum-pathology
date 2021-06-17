@@ -4,13 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
-use App\Models\News;
-use CodeZero\UniqueTranslation\UniqueTranslationRule;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
+use App\Http\Requests\NewsUpdateRequest;
+use App\Services\NewsService;
 
 class NewsController extends Controller
 {
+    protected $newsService;
+    protected $redirectRoute;
+
+    public function __construct()
+    {
+        $this->newsService = app(NewsService::class);
+        $this->redirectRoute = 'news.index';
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +26,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('admin.news.index');
+        $news = $this->newsService->getPaginatedNews();
+        return view('admin.news.index', compact('news'));
     }
 
     /**
@@ -29,37 +38,23 @@ class NewsController extends Controller
     public function create()
     {
         return view('admin.news.create');
-
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(NewsRequest $request)
     {
 
-        $imageName = time() . '.' . $request->file('image')->extension();
-        $data = $request->input();
-        $data['image'] = $imageName;
-        $news = News::create($data);
-        if ($news) {
-            $request->file('image')->storeAs('uploads', $imageName);
-        }
+        $file = $request->file('image');
+        $data = $request->only('title', 'description');
+        $result = $this->newsService->insertNewsData($file, $data);
 
-    }
+        return $result;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\News $news
-     * @return \Illuminate\Http\Response
-     */
-    public function show(News $news)
-    {
-        //
     }
 
     /**
@@ -68,9 +63,10 @@ class NewsController extends Controller
      * @param \App\Models\News $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit($id)
     {
-        //
+        $newsItem = $this->newsService->getNews($id);
+        return view('admin.news.edit', compact('newsItem'));
     }
 
     /**
@@ -78,11 +74,16 @@ class NewsController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\News $news
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, News $news)
+    public function update(NewsUpdateRequest $request, $id)
     {
-        //
+        $file = $request->file('image');
+        $data = $request->only('title', 'description');
+        $result = $this->newsService->updateNewsData($id, $file, $data);
+
+        return $result;
+
     }
 
     /**
@@ -91,8 +92,9 @@ class NewsController extends Controller
      * @param \App\Models\News $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        return $this->newsService->deleteNewsData($id);
     }
+
 }
