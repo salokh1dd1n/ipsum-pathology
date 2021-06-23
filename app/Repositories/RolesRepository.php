@@ -2,28 +2,20 @@
 
 namespace App\Repositories;
 
-use App\Models\News as Model;
+use App\Models\Roles as Model;
 
-class NewsRepository extends CoreRepository
+class RolesRepository extends CoreRepository
 {
-
-    /**
-     * NewsRepository constructor.
-     *
-     * @param Model $model
-     */
     public function __construct(Model $model)
     {
         parent::__construct($model);
     }
 
-
-    public function getAllNews()
+    public function getAllTeamRoles()
     {
         $columns = [
             'id',
             'title',
-            'created_at'
         ];
 
         $result = $this
@@ -33,10 +25,10 @@ class NewsRepository extends CoreRepository
         return $result;
     }
 
-    public function getPaginatedNews()
+    public function getPaginatedTeamRoles()
     {
         $result = $this
-            ->getAllNews()
+            ->getAllTeamRoles()
             ->paginate(10);
 
         return $result;

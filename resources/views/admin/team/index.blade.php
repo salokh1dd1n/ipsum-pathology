@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'Новости', 'route' => 'news'])
+    @include('admin.includes.breadcrumb', ['page' => 'Специалисты', 'route' => 'team'])
 @endpush
 @section('content')
     <div class="card">
@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-6"><strong>Новости</strong></div>
                 <div class="col-6">
-                    <a class="btn btn-sm btn-success float-right" href="{{ route('news.create') }}"> Добавить</a>
+                    <a class="btn btn-sm btn-success float-right" href="{{ route('team.create') }}"> Добавить</a>
                 </div>
             </div>
         </div>
@@ -16,18 +16,24 @@
             <table class="table table-responsive-sm">
                 <thead>
                 <tr>
-                    <th>Заголовок</th>
-                    <th>Дата публикации</th>
+                    <th>ФИО</th>
+                    <th>Роль</th>
                     <th>Действия</th>
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($news as $newsItem)
+                @forelse($team as $member)
                     <tr>
-                        <td>{{ $newsItem->title }}</td>
-                        <td>{{ $newsItem->published_at }}</td>
+                        <td>{{ $member->name }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('news.edit', $newsItem->id) }}">
+                            @if($member->role)
+                                {{ $member->role->title }}
+                            @else
+                                -- Без роли --
+                            @endif
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" href="{{ route('team.edit', $member->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-pencil') }}"></use>
@@ -35,20 +41,20 @@
                                 Изменить
                             </a>
                             <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
-                                    data-target="#deleteNewsItem{{ $newsItem->id }}">
+                                    data-target="#deleteNewsItem{{ $member->id }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-trash') }}"></use>
                                 </svg>
                                 Удалить
                             </button>
-                            <div class="modal fade" id="deleteNewsItem{{ $newsItem->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="deleteNewsItem{{ $member->id }}" tabindex="-1" role="dialog"
                                  aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-danger" role="document">
-                                    <form action="{{ route('news.destroy', $newsItem->id) }}" method="POST">
+                                    <form action="{{ route('team.destroy', $member->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <div class="modal-content text-center">
+                                        <div class="modal-content">
                                             <div class="modal-header">
                                                 <h4 class="modal-title">Удаление новости</h4>
                                                 <button class="close" type="button" data-dismiss="modal"
@@ -56,12 +62,22 @@
                                                     <span aria-hidden="true">×</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h5>
-                                                    Заголовок: {{ $newsItem->title }}; <br>
-                                                    Дата публикации {{ $newsItem->published_at }};<br>
-                                                    Вы уверены, что хотите удалить эту новость? <br>
-                                                    После удаления не подлежит восстановлению
-                                                </h5>
+                                                <div class="row">
+                                                    <div class="col-8">
+                                                        <label for="delete_name">ФИО:</label>
+                                                        <p>{{ $member->name }}</p>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="delete_role">Роль:</label>
+                                                        <p>
+                                                            @if($member->role)
+                                                                {{ $member->role->title }}
+                                                            @else
+                                                                -- Без роли --
+                                                            @endif
+                                                        </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">
@@ -79,17 +95,15 @@
                     </tr>
                 @empty
                     <tr>
-                        <th class="text-center text-middle" colspan="3">Новостей не найдено</th>
+                        <th class="text-center text-middle" colspan="3">Специалистов не найдено</th>
                     </tr>
                 @endforelse
                 </tbody>
             </table>
-            @if($news->total() > $news->count())
-                {{ $news->links() }}
+            @if($team->total() > $team->count())
+                {{ $team->links() }}
             @endif
 
         </div>
     </div>
 @endsection
-
-

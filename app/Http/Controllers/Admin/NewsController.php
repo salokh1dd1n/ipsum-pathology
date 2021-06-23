@@ -4,25 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\NewsRequest;
-use App\Http\Requests\NewsUpdateRequest;
 use App\Services\NewsService;
 
 class NewsController extends Controller
 {
     protected $newsService;
-    protected $redirectRoute;
 
+    /**
+     * NewsController constructor.
+     */
     public function __construct()
     {
         $this->newsService = app(NewsService::class);
-        $this->redirectRoute = 'news.index';
     }
 
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -30,20 +28,18 @@ class NewsController extends Controller
         return view('admin.news.index', compact('news'));
     }
 
+
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
         return view('admin.news.create');
     }
 
+
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
+     * @param NewsRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(NewsRequest $request)
@@ -51,17 +47,16 @@ class NewsController extends Controller
 
         $file = $request->file('image');
         $data = $request->only('title', 'description');
-        $result = $this->newsService->insertNewsData($file, $data);
+        $result = $this->newsService->insertDataWithImage($file, $data);
 
         return $result;
 
     }
 
+
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param \App\Models\News $news
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Contracts\View\View
      */
     public function edit($id)
     {
@@ -69,18 +64,17 @@ class NewsController extends Controller
         return view('admin.news.edit', compact('newsItem'));
     }
 
+
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\News $news
+     * @param NewsRequest $request
+     * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(NewsUpdateRequest $request, $id)
+    public function update(NewsRequest $request, $id)
     {
         $file = $request->file('image');
         $data = $request->only('title', 'description');
-        $result = $this->newsService->updateNewsData($id, $file, $data);
+        $result = $this->newsService->updateDataWithImage($id, $file, $data);
 
         return $result;
 
@@ -89,12 +83,12 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\News $news
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {
-        return $this->newsService->deleteNewsData($id);
+        return $this->newsService->deleteData($id);
     }
 
 }

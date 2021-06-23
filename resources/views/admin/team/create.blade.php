@@ -1,15 +1,15 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'Новости', 'action' => 'Добавить новости', 'route' => 'news'])
+    @include('admin.includes.breadcrumb', ['page' => 'Специалисты', 'action' => 'Добавить специалиста', 'route' => 'team'])
 @endpush
 @section('content')
     <div class="card">
         <div class="card-header"><strong>Добавить новости</strong></div>
-        <form class="form-horizontal" action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{ route('team.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-4">
                         <div class="form-group">
                             <label for="image">Фото</label>
                             <div class="custom-file">
@@ -23,6 +23,33 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="phone_number">Телефонный номер</label>
+                            <input class="form-control @error('phone_number') is-invalid @enderror"
+                                   id="phone_number" name="phone_number"
+                                   type="text" value="{{ old('phone_number') }}"
+                                   placeholder="Введите номер телефона">
+                            @error('phone_number')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="role_id">Роль</label>
+                            <select class="form-control @error('role_id') is-invalid @enderror" id="role_id"
+                                    name="role_id">
+                                <option selected value="">-- Без роли --</option selected>
+                                @foreach($roles as $role)
+                                    <option @if (old('role_id') == $role->id) selected  @endif value="{{ $role->id }}">{{ $role->title }}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -65,24 +92,23 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="title">Заголовок ({{ $lang }})</label>
-                                            <input class="form-control @error('title.'.$key) is-invalid @enderror"
-                                                   id="title" name="title[{{ $key }}]"
-                                                   type="text" value="{{ old('title.'.$key) }}"
-                                                   placeholder="Введите заголовок новости">
-                                            @error('title.'.$key)
+                                            <label for="name_{{ $key }}">ФИО ({{ $lang }})</label>
+                                            <input class="form-control @error('name.'.$key) is-invalid @enderror"
+                                                   id="name_{{ $key }}" name="name[{{ $key }}]"
+                                                   type="text" value="{{ old('name.'.$key) }}"
+                                                   placeholder="Введите ФИО">
+                                            @error('name.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="description">Описание ({{ $lang }})</label>
-                                            <textarea
-                                                class="description form-control @error('description.'.$key) is-invalid @enderror"
-                                                id="description" name="description[{{ $key }}]">
-                                                {{ old('description.'.$key) }}
-                                            </textarea>
+                                            <label for="description_{{ $key }}">Описание ({{ $lang }})</label>
+                                            <textarea class="form-control @error('description.'.$key) is-invalid @enderror"
+                                                id="description_{{ $key }}" name="description[{{ $key }}]" rows="9"
+                                                placeholder="Введите описание">{{ old('description.'.$key) }}</textarea>
                                             @error('description.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -103,6 +129,3 @@
     </div>
 @endsection
 
-@push('scripts')
-    @include('admin.includes.ckeditor')
-@endpush

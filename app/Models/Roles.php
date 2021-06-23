@@ -6,22 +6,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
-class Team extends Model
+class Roles extends Model
 {
     use HasFactory, HasTranslations;
-
-    protected $translatable = ['name', 'description'];
+    protected $translatable = ['title'];
 
     protected $fillable = [
-        'name',
-        'role_id',
-        'phone_number',
-        'description',
-        'image'
+        'id',
+        'title'
     ];
 
-    public function role()
+    public function members()
     {
-        return $this->belongsTo(Roles::class);
+        return $this->hasMany(Team::class);
     }
 }

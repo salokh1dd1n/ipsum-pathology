@@ -16,11 +16,13 @@ class CreateTeamsTable extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->json('role');
-            $table->integer('phone_number');
+            $table->unsignedBigInteger('role_id')->nullable();
+            $table->string('phone_number', 12);
             $table->json('description');
             $table->string('image');
             $table->timestamps();
+
+            $table->foreign('role_id')->references('id')->on('roles')->nullOnDelete();
         });
     }
 
@@ -31,6 +33,6 @@ class CreateTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('team');
     }
 }

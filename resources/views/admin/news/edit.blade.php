@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
-
+@push('breadcrumb')
+    @include('admin.includes.breadcrumb', ['page' => 'Новости', 'action' => 'Редактировать новости', 'route' => 'news'])
+@endpush
 @section('content')
     <div class="card">
         <div class="card-header"><strong>Редактировать новости</strong></div>
@@ -13,6 +15,7 @@
                         <div class="form-group">
                             <label for="image">Фото</label>
                             <div class="custom-file">
+                                <input type="hidden" value="{{ $newsItem->id }}" name="id">
                                 <input type="file" accept="image/jpeg,image/png,image/gif"
                                        class="custom-file-input @error('image') is-invalid @enderror" id="image"
                                        name="image" value="{{ $newsItem->image }}">
@@ -103,28 +106,6 @@
     </div>
 @endsection
 
-
 @push('scripts')
-    <script type="text/javascript">
-
-        // CKEDITOR.replace('description', {
-        //     filebrowserBrowseUrl:filemanager.ckBrowseUrl;
-        // });
-        {{--var editor = CKEDITOR.replace('description', {--}}
-        {{--    --}}{{--filebrowserBrowseUrl: "{{ asset('dashboard/ck/ckfinder/ckfinder.html?Type=Files') }}",--}}
-        {{--    --}}{{--filebrowserImageBrowseUrl: "{{ asset('dashboard/ck/ckfinder/ckfinder.html?Type=Images') }}",--}}
-        {{--    --}}{{--filebrowserFlashBrowseUrl: "{{ asset('dashboard/ck/ckfinder/ckfinder.html?Type=Flash') }}",--}}
-        {{--    --}}{{--filebrowserUploadUrl: "{{ asset('dashboard/ck/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}",--}}
-        {{--    --}}{{--filebrowserImageUploadUrl: "{{ asset('dashboard/ck/ckfinder/core/connctor/php/connector.php?command=QuickUpload&type=Images') }}",--}}
-        {{--    --}}{{--filebrowserFlashUploadUrl: "{{ asset('dashboard/ck/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}"--}}
-        {{--});--}}
-        {{--CKFinder.setupCKEditor(editor);--}}
-        @foreach(array_keys(Config::get('app.languages')) as $key)
-        CKEDITOR.replace('description[{{ $key }}]', {
-            defaultLanguage: "en",
-            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form'
-        });
-        @endforeach
-    </script>
+    @include('admin.includes.ckeditor')
 @endpush

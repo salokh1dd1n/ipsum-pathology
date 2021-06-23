@@ -4,7 +4,8 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-abstract class CoreRepository
+
+class CoreRepository
 {
     /**
      * @var Model
@@ -12,7 +13,7 @@ abstract class CoreRepository
     protected $model;
 
     /**
-     * BaseRepository constructor.
+     * CoreRepository constructor.
      *
      * @param Model $model
      */
@@ -24,7 +25,6 @@ abstract class CoreRepository
 
     /**
      * @param array $attributes
-     *
      * @return Model
      */
     public function create(array $attributes)
@@ -32,13 +32,23 @@ abstract class CoreRepository
         return $this->model->create($attributes);
     }
 
+    /**
+     * @param int $id
+     * @param array $attributes
+     * @return Model
+     */
     public function edit(int $id, array $attributes)
     {
-        return $this->model
+        return $this
+            ->model
             ->find($id)
             ->update($attributes);
     }
 
+    /**
+     * @param $id
+     * @return Model
+     */
     public function delete(int $id)
     {
         return $this->model->destroy($id);
@@ -48,7 +58,7 @@ abstract class CoreRepository
      * @param $id
      * @return Model
      */
-    public function find(int $id)
+    public function find($id)
     {
         return $this->model->find($id);
     }

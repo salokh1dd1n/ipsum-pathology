@@ -1,28 +1,57 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'Новости', 'action' => 'Добавить новости', 'route' => 'news'])
+    @include('admin.includes.breadcrumb', ['page' => 'Специалисты', 'action' => 'Редактировать специалиста', 'route' => 'team'])
 @endpush
 @section('content')
     <div class="card">
         <div class="card-header"><strong>Добавить новости</strong></div>
-        <form class="form-horizontal" action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{ route('team.update', $member->id) }}" method="POST" enctype="multipart/form-data">
+            @method('PATCH')
             @csrf
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-4">
                         <div class="form-group">
                             <label for="image">Фото</label>
                             <div class="custom-file">
+                                <input type="hidden" value="{{ $member->id }}">
                                 <input type="file" accept="image/jpeg,image/png,image/gif"
                                        class="custom-file-input @error('image') is-invalid @enderror" id="image"
-                                       name="image" value="{{ old('image') }}" data-buttonText="Salom">
+                                       name="image" value="{{ $member->image }}" data-buttonText="Salom">
                                 <label class="custom-file-label">
-                                    Выбрать файл...
+                                    {{ $member->image }}
                                 </label>
                                 @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="phone_number">Телефонный номер</label>
+                            <input class="form-control @error('phone_number') is-invalid @enderror"
+                                   id="phone_number" name="phone_number"
+                                   type="text" value="{{ $member->phone_number }}"
+                                   placeholder="Введите номер телефона">
+                            @error('phone_number')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="role_id">Роль</label>
+                            <select class="form-control @error('role_id') is-invalid @enderror" id="role_id"
+                                    name="role_id">
+                                <option value="">-- Без роли --</option>
+                                @foreach($roles as $role)
+                                    <option @if ($member->role && $member->role->id == $role->id) selected  @endif value="{{ $role->id }}">{{ $role->title }}</option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -65,23 +94,24 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="title">Заголовок ({{ $lang }})</label>
-                                            <input class="form-control @error('title.'.$key) is-invalid @enderror"
-                                                   id="title" name="title[{{ $key }}]"
-                                                   type="text" value="{{ old('title.'.$key) }}"
-                                                   placeholder="Введите заголовок новости">
-                                            @error('title.'.$key)
+                                            <label for="name_{{ $key }}">ФИО ({{ $lang }})</label>
+                                            <input class="form-control @error('name.'.$key) is-invalid @enderror"
+                                                   id="name_{{ $key }}" name="name[{{ $key }}]"
+                                                   type="text" value="{{ $member->getTranslation('name', $key) }}"
+                                                   placeholder="Введите ФИО">
+                                            @error('name.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="description">Описание ({{ $lang }})</label>
                                             <textarea
-                                                class="description form-control @error('description.'.$key) is-invalid @enderror"
-                                                id="description" name="description[{{ $key }}]">
-                                                {{ old('description.'.$key) }}
+                                                class="form-control @error('description.'.$key) is-invalid @enderror"
+                                                id="description_{{ $key }}" name="description[{{ $key }}]" rows="9" placeholder="Введите описание">
+                                                {{ $member->getTranslation('description', $key) }}
                                             </textarea>
                                             @error('description.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -103,6 +133,3 @@
     </div>
 @endsection
 
-@push('scripts')
-    @include('admin.includes.ckeditor')
-@endpush

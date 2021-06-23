@@ -26,7 +26,13 @@ Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 //Route::get('/news', [NewsController::class, 'index'])->name('news');
 //Route::get('/news/create', [NewsController::class, 'index'])->name('news');
 Route::resource('news', NewsController::class)
-        ->except('show');
+    ->except('show');
+
+Route::resource('team', \App\Http\Controllers\Admin\TeamController::class)
+    ->except('show');
+
+Route::resource('roles', \App\Http\Controllers\Admin\RolesController::class)
+    ->except('show');
 
 Route::post('ckeditor/image_upload', [CkeditorController::class, 'upload'])->name('upload');
 

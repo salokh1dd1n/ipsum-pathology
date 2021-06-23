@@ -32,8 +32,6 @@
 <script src="{{ asset('dashboard/coreui/js/coreui.bundle.min.js') }}"></script>
 <script src="{{ asset('dashboard/coreui/js/svgxuse.min.js') }}"></script>
 <script src="{{ asset('dashboard/coreui/js/perfect-scrollbar.min.js') }}"></script>
-{{--<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>--}}
-<script src="{{ asset('dashboard/ckeditor/ckeditor.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'Новости', 'route' => 'news'])
+    @include('admin.includes.breadcrumb', ['page' => 'Роли', 'route' => 'roles'])
 @endpush
 @section('content')
     <div class="card">
@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-6"><strong>Новости</strong></div>
                 <div class="col-6">
-                    <a class="btn btn-sm btn-success float-right" href="{{ route('news.create') }}"> Добавить</a>
+                    <a class="btn btn-sm btn-success float-right" href="{{ route('roles.create') }}"> Добавить</a>
                 </div>
             </div>
         </div>
@@ -16,18 +16,20 @@
             <table class="table table-responsive-sm">
                 <thead>
                 <tr>
-                    <th>Заголовок</th>
-                    <th>Дата публикации</th>
+                    @foreach(Config::get('app.languages') as $lang)
+                        <th>Заголовок ({{ $lang }})</th>
+                    @endforeach
                     <th>Действия</th>
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($news as $newsItem)
+                @forelse($roles as $role)
                     <tr>
-                        <td>{{ $newsItem->title }}</td>
-                        <td>{{ $newsItem->published_at }}</td>
+                        @foreach(array_keys(Config::get('app.languages')) as $key)
+                            <td>{{ $role->getTranslation('title', $key) }}</td>
+                        @endforeach
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('news.edit', $newsItem->id) }}">
+                            <a class="btn btn-sm btn-primary" href="{{ route('roles.edit', $role->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-pencil') }}"></use>
@@ -35,17 +37,17 @@
                                 Изменить
                             </a>
                             <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
-                                    data-target="#deleteNewsItem{{ $newsItem->id }}">
+                                    data-target="#deleteNewsItem{{ $role->id }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-trash') }}"></use>
                                 </svg>
                                 Удалить
                             </button>
-                            <div class="modal fade" id="deleteNewsItem{{ $newsItem->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="deleteNewsItem{{ $role->id }}" tabindex="-1" role="dialog"
                                  aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-danger" role="document">
-                                    <form action="{{ route('news.destroy', $newsItem->id) }}" method="POST">
+                                    <form action="{{ route('roles.destroy', $role->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <div class="modal-content text-center">
@@ -57,10 +59,9 @@
                                             </div>
                                             <div class="modal-body">
                                                 <h5>
-                                                    Заголовок: {{ $newsItem->title }}; <br>
-                                                    Дата публикации {{ $newsItem->published_at }};<br>
-                                                    Вы уверены, что хотите удалить эту новость? <br>
-                                                    После удаления не подлежит восстановлению
+                                                    @foreach(Config::get('app.languages') as $key => $lang)
+                                                        Заголовок ({{ $lang }}): {{ $role->getTranslation('title', $key) }} <br>
+                                                    @endforeach
                                                 </h5>
                                             </div>
                                             <div class="modal-footer">
@@ -79,17 +80,15 @@
                     </tr>
                 @empty
                     <tr>
-                        <th class="text-center text-middle" colspan="3">Новостей не найдено</th>
+                        <th class="text-center text-middle" colspan="3">Роли не найдено</th>
                     </tr>
                 @endforelse
                 </tbody>
             </table>
-            @if($news->total() > $news->count())
-                {{ $news->links() }}
+            @if($roles->total() > $roles->count())
+                {{ $roles->links() }}
             @endif
 
         </div>
     </div>
 @endsection
-
-

@@ -16,13 +16,27 @@
                 Новости
             </a>
         </li>
-        <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="colors.html">
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-group') }}"></use>
                 </svg>
-                Команда
+                Специалисты
             </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('team.index') }}">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Специалисты
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('roles.index') }}">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Роли
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="colors.html">
@@ -42,12 +56,14 @@
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
                     <a class="c-sidebar-nav-link" href="base/breadcrumb.html">
-                        <span class="c-sidebar-nav-icon"></span> FAQ
+                        <span class="c-sidebar-nav-icon"></span>
+                        FAQ
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="base/breadcrumb.html">
-                        <span class="c-sidebar-nav-icon"></span> Breadcrumb
+                    <a class="c-sidebar-nav-link" href="{{ route('tags') }}">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Теги
                     </a>
                 </li>
             </ul>

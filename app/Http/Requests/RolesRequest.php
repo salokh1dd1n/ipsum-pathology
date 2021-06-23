@@ -2,12 +2,11 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\UniqueRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
-class NewsRequest extends FormRequest
+class RolesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,16 +28,12 @@ class NewsRequest extends FormRequest
         $route = $this->route()->getName();
 
         $rules = [
-            'news.update' => [
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'title.*' => 'required|string|max:250|min:3|unique_translation:news,title,'.$this->get('id'),
-                'description.*' => 'required|'
+            'roles.update' => [
+                'title.*' => 'required|string|max:250|min:3|unique_translation:roles,title,'.$this->get('id'),
             ],
 
-            'news.store' => [
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'title.*' => 'required|string|max:250|min:3|unique_translation:news',
-                'description.*' => 'required|'
+            'roles.store' => [
+                'title.*' => 'required|string|max:250|min:3|unique_translation:roles',
             ],
         ];
         return $rules[$route];
@@ -49,11 +44,9 @@ class NewsRequest extends FormRequest
     {
         $validationRules = [];
         foreach (Config::get('app.languages') as $key => $lang) {
-            $validationRules['title.' . $key] = "Заголовок ($lang)";
-            $validationRules['description.' . $key] = "Описание ($lang)";
+            $validationRules['title.'.$key] = "Заголовок ($lang)";
         }
-        $validationRules['image'] = 'Фото';
+
         return $validationRules;
     }
-
 }

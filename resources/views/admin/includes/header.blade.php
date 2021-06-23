@@ -49,4 +49,5 @@
             </div>
         </li>
     </ul>
+    @stack('breadcrumb')
 </header>
