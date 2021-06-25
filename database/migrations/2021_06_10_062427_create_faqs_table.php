@@ -18,11 +18,7 @@ class CreateFaqsTable extends Migration
             $table->id();
             $table->json('title');
             $table->json('description');
-            $table->unsignedBigInteger('tag_id');
             $table->timestamps();
-
-//            $table->foreignId('tag_id')->constrained('faqtag');
-            $table->foreign('tag_id')->references('id')->on('faq_tags');
         });
     }
 

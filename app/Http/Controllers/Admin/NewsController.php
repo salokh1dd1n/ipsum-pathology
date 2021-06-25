@@ -55,10 +55,10 @@ class NewsController extends Controller
 
 
     /**
-     * @param $id
+     * @param int $id
      * @return \Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         $newsItem = $this->newsService->getNews($id);
         return view('admin.news.edit', compact('newsItem'));
@@ -67,10 +67,10 @@ class NewsController extends Controller
 
     /**
      * @param NewsRequest $request
-     * @param $id
+     * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(NewsRequest $request, $id)
+    public function update(NewsRequest $request, int $id)
     {
         $file = $request->file('image');
         $data = $request->only('title', 'description');
@@ -83,10 +83,10 @@ class NewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param $id
+     * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         return $this->newsService->deleteData($id);
     }

@@ -42,7 +42,7 @@
                             <label for="role_id">Роль</label>
                             <select class="form-control @error('role_id') is-invalid @enderror" id="role_id"
                                     name="role_id">
-                                <option selected value="">-- Без роли --</option selected>
+                                <option selected value="">-- Без роли --</option>
                                 @foreach($roles as $role)
                                     <option @if (old('role_id') == $role->id) selected  @endif value="{{ $role->id }}">{{ $role->title }}</option>
                                 @endforeach
@@ -88,7 +88,7 @@
                     </ul>
                     <div class="tab-content">
                         @foreach(Config::get('app.languages') as $key => $lang)
-                            <div class="tab-pane @if($key == 'ru') active  @endif" id="{{ $key }}" role="tabpanel">
+                            <div class="tab-pane @if($key == 'ru') active @endif" id="{{ $key }}" role="tabpanel">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">

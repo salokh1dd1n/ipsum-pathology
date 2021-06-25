@@ -7,6 +7,7 @@ use App\Repositories\RolesRepository;
 
 class RolesService extends CoreService
 {
+    protected object $repository;
 
     /**
      * RolesService constructor.
@@ -16,6 +17,7 @@ class RolesService extends CoreService
     public function __construct(RolesRepository $repository, $prefix = 'roles')
     {
         parent::__construct($repository, $prefix);
+        $this->repository = $repository;
     }
 
     public function getPaginatedTeamRoles()

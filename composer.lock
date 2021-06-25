@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fafef9eb73b3882459b311fd058cd4c7",
+    "content-hash": "4cdac80428fa08c8e5a1d1b38c97a91c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -973,6 +973,76 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.8.2"
             },
             "time": "2021-04-26T09:17:50+00:00"
+        },
+        {
+            "name": "jackmartin/laravel-yandex-geocode",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/martinjack/laravel-yandex-geocoding.git",
+                "reference": "a3d90d72080f461eb6703b25cb98432df4b95a1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/martinjack/laravel-yandex-geocoding/zipball/a3d90d72080f461eb6703b25cb98432df4b95a1d",
+                "reference": "a3d90d72080f461eb6703b25cb98432df4b95a1d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yandex\\Geocode\\YandexGeocodeServiceProvider"
+                    ],
+                    "aliases": {
+                        "YaGeo": "Yandex\\Geocode\\Facades\\YandexGeocodeFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yandex\\Geocode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgen Kytonin",
+                    "email": "killfess@gmail.com"
+                }
+            ],
+            "description": "Simply service laravel Yandex Geocoding",
+            "homepage": "https://github.com/martinjack/laravel-yandex-geocoding",
+            "keywords": [
+                "address",
+                "api",
+                "geocode",
+                "geocoding",
+                "laravel",
+                "latitude",
+                "longitude",
+                "yandex"
+            ],
+            "support": {
+                "source": "https://github.com/martinjack/laravel-yandex-geocoding/tree/laravel"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/martinjack",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/martinjack",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-03-06T08:55:07+00:00"
         },
         {
             "name": "laravel/framework",

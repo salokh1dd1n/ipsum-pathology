@@ -55,26 +55,46 @@
             </a>
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="base/breadcrumb.html">
+                    <a class="c-sidebar-nav-link" href="{{ route('faq.index') }}">
                         <span class="c-sidebar-nav-icon"></span>
                         FAQ
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="{{ route('tags') }}">
+                    <a class="c-sidebar-nav-link" href="{{ route('tags.index') }}">
                         <span class="c-sidebar-nav-icon"></span>
                         Теги
                     </a>
                 </li>
             </ul>
         </li>
-        <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="colors.html">
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-medical-cross') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-chart-line') }}"></use>
                 </svg>
-                Лабораторные исследования
+                Исследования
             </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('researches.index') }}">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Лабораторные исследования
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('advantages.index') }}">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Преимущества
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('services.index') }}">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Услуги
+                    </a>
+                </li>
+            </ul>
         </li>
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="colors.html">
@@ -83,41 +103,6 @@
                 </svg>
                 Лечение
             </a>
-        </li>
-        <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="colors.html">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-medical-cross') }}"></use>
-                </svg>
-                Диагностика
-            </a>
-        </li>
-        <li class="c-sidebar-nav-title">Components</li>
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a
-                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-puzzle') }}"></use>
-                </svg>
-                Base</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="base/breadcrumb.html">
-                        <span class="c-sidebar-nav-icon"></span> Breadcrumb
-                    </a>
-                </li>
-            </ul>
-        </li>
-        <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('logout') }}"
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-pencil') }}"></use>
-                </svg>
-                Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-            </form>
         </li>
     </ul>
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"

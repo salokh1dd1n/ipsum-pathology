@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class CkeditorController extends Controller
 {
+    /**
+     * @param Request $request
+     */
     public function upload(Request $request)
     {
         if ($request->hasFile('upload')) {

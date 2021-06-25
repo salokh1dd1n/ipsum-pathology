@@ -10,7 +10,7 @@ class CoreRepository
     /**
      * @var Model
      */
-    protected $model;
+    protected object $model;
 
     /**
      * CoreRepository constructor.

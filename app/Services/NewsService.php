@@ -8,10 +8,18 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsService extends CoreService
 {
+    protected object $repository;
+
+    /**
+     * NewsService constructor.
+     * @param NewsRepository $repository
+     * @param string $prefix
+     */
 
     public function __construct(NewsRepository $repository, $prefix = 'news')
     {
-        parent::__construct($repository, $prefix);
+        $this->repository = $repository;
+        parent::__construct($this->repository, $prefix);
     }
 
     public function getPaginatedNews()

@@ -17,15 +17,11 @@ class CreateResearchTable extends Migration
         Schema::create('research', function (Blueprint $table) {
             $table->id();
             $table->json('title');
-            $table->json('image');
+            $table->string('image');
             $table->json('short_desc');
-            $table->unsignedBigInteger('advantage_id');
-            $table->unsignedBigInteger('service_id');
             $table->json('description');
             $table->timestamps();
 
-            $table->foreign('advantage_id')->references('id')->on('advantages');
-            $table->foreign('service_id')->references('id')->on('services');
         });
     }
 

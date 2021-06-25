@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFaqTagsTable extends Migration
+class CreateClinicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateFaqTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('faq_tags', function (Blueprint $table) {
+        Schema::create('clinics', function (Blueprint $table) {
             $table->id();
             $table->json('title');
+            $table->json('address');
+            $table->string('phone_number', 12);
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateFaqTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq_tags');
+        Schema::dropIfExists('clinics');
     }
 }

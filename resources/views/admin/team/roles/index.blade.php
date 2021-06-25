@@ -58,11 +58,16 @@
                                                     <span aria-hidden="true">×</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h5>
+                                                <div class="row">
                                                     @foreach(Config::get('app.languages') as $key => $lang)
-                                                        Заголовок ({{ $lang }}): {{ $role->getTranslation('title', $key) }} <br>
+                                                        <div class="col-4">
+                                                            <label>Заголовок ({{ $lang }}):</label>
+                                                            <p>
+                                                                {{ $role->getTranslation('title', $key) }}
+                                                            </p>
+                                                        </div>
                                                     @endforeach
-                                                </h5>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">

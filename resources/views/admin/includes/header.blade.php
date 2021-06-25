@@ -20,34 +20,45 @@
         <li class="c-header-nav-item px-3"><a class="c-header-nav-link">{{ auth()->user()->name }}</a></li>
     </ul>
     <ul class="c-header-nav ml-auto mr-4">
-        <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#"
-                                                  role="button" aria-haspopup="true" aria-expanded="false">
-                <div class="c-avatar"><img class="c-avatar-img"
-                                           src="{{ asset('dashboard/assets/img/avatars/6.jpg') }}"
-                                           alt="user@email.com"></div>
+        <li class="c-header-nav-item d-md-down-none mx-2">
+            <a class="c-header-nav-link" type="button" data-toggle="modal" data-target="#logout">
+                <svg class="c-icon">
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-account-logout') }}"></use>
+                </svg>
             </a>
-            <div class="dropdown-menu dropdown-menu-right pt-0">
-                <div class="dropdown-header bg-light py-2"><strong>Settings</strong></div>
-                <a class="dropdown-item" href="#">
-                    <svg class="c-icon mr-2">
-                        <use
-                            xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-lock-locked') }}"></use>
-                    </svg>
-                    Lock Account
-                </a>
-                <a class="dropdown-item" href="{{ route('logout') }}"
+        </li>
+    </ul>
+    @stack('breadcrumb')
+</header>
+<div class="modal fade" id="logout" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-primary" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h5 class="modal-title">Выйти из системы</h5>
+                <button class="close" type="button" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <h5>
+                    Вы действительно хотите выйти из системы?
+                </h5>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">
+                    Отменить
+                </button>
+                <a class="btn btn-primary" href="{{ route('logout') }}"
                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <svg class="c-icon mr-2">
-                        <use
-                            xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-account-logout') }}"></use>
-                    </svg>
-                    Logout
+                    Выйти
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
             </div>
-        </li>
-    </ul>
-    @stack('breadcrumb')
-</header>
+        </div>
+        <!-- /.modal-content-->
+    </div>
+    <!-- /.modal-dialog-->
+</div>

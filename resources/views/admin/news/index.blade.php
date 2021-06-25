@@ -48,7 +48,7 @@
                                     <form action="{{ route('news.destroy', $newsItem->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <div class="modal-content text-center">
+                                        <div class="modal-content">
                                             <div class="modal-header">
                                                 <h4 class="modal-title">Удаление новости</h4>
                                                 <button class="close" type="button" data-dismiss="modal"
@@ -56,12 +56,16 @@
                                                     <span aria-hidden="true">×</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                <h5>
-                                                    Заголовок: {{ $newsItem->title }}; <br>
-                                                    Дата публикации {{ $newsItem->published_at }};<br>
-                                                    Вы уверены, что хотите удалить эту новость? <br>
-                                                    После удаления не подлежит восстановлению
-                                                </h5>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <label>Заголовок:</label>
+                                                        <p>{{ $newsItem->title }}</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label>Дата публикации:</label>
+                                                        <p>{{ $newsItem->published_at }}</p>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">
