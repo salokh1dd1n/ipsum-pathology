@@ -41,7 +41,7 @@
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="colors.html">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-medical-cross') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-hospital') }}"></use>
                 </svg>
                 Врачи
             </a>
@@ -49,7 +49,7 @@
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
             <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-puzzle') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-chat-bubble') }}"></use>
                 </svg>
                 FAQ
             </a>
@@ -71,7 +71,7 @@
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
             <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-chart-line') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-filter') }}"></use>
                 </svg>
                 Исследования
             </a>
@@ -99,7 +99,7 @@
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="colors.html">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-medical-cross') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-book') }}"></use>
                 </svg>
                 Лечение
             </a>
