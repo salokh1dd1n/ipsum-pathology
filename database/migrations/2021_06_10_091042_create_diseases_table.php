@@ -17,15 +17,9 @@ class CreateDiseasesTable extends Migration
             $table->id();
             $table->json('title');
             $table->json('description');
-            $table->unsignedBigInteger('symptom_id');
             $table->json('symptom_desc');
-            $table->unsignedBigInteger('diagnostic_id');
             $table->json('treatment_desc')->nullable();
-            $table->json('faq_ids');
             $table->timestamps();
-
-            $table->foreign('symptom_id')->references('id')->on('symptoms');
-            $table->foreign('diagnostic_id')->references('id')->on('diagnostics');
         });
     }
 

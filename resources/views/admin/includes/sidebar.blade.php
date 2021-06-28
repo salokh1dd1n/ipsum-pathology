@@ -96,13 +96,33 @@
                 </li>
             </ul>
         </li>
-        <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="colors.html">
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+            <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-book') }}"></use>
                 </svg>
-                Лечение
+                Болезни
             </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="#">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Болезни
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="{{ route('symptoms.index') }}">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Симптомы
+                    </a>
+                </li>
+                <li class="c-sidebar-nav-item">
+                    <a class="c-sidebar-nav-link" href="#">
+                        <span class="c-sidebar-nav-icon"></span>
+                        Диагностика
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"
