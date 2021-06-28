@@ -53,7 +53,7 @@
                                             <input class="form-control @error('title.'.$key) is-invalid @enderror"
                                                    id="title" name="title[{{ $key }}]"
                                                    type="text" value="{{ $symptom->getTranslation('title', $key) }}"
-                                                   placeholder="Введите заголовок новости">
+                                                   placeholder="Введите заголовок">
                                             @error('title.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

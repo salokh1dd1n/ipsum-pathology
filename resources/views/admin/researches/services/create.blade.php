@@ -65,7 +65,7 @@
                                             <input class="form-control @error('title.'.$key) is-invalid @enderror"
                                                    id="title_{{ $key }}" name="title[{{ $key }}]"
                                                    type="text" value="{{ old('title.'.$key) }}"
-                                                   placeholder="Введите заголовок новости">
+                                                   placeholder="Введите заголовок">
                                             @error('title.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

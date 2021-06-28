@@ -1,28 +1,24 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'Новости', 'action' => 'Добавить новости', 'route' => 'news'])
+    @include('admin.includes.breadcrumb', ['page' => 'Диагностика', 'action' => 'Добавить диагностику', 'route' => 'diagnostics'])
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить новости</strong></div>
-        <form class="form-horizontal" action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
+        <div class="card-header"><strong>Добавить диагностику</strong></div>
+        <form class="form-horizontal" action="{{ route('diagnostics.store') }}" method="POST">
             @csrf
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
-                            <label for="image">Фото</label>
-                            <div class="custom-file">
-                                <input type="file" accept="image/jpeg,image/png,image/gif"
-                                       class="custom-file-input @error('image') is-invalid @enderror" id="image"
-                                       name="image" value="{{ old('image') }}" data-buttonText="Salom">
-                                <label class="custom-file-label">
-                                    Выбрать файл...
-                                </label>
-                                @error('image')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
+                            <label for="price">Цена</label>
+                            <input class="form-control @error('price') is-invalid @enderror"
+                                   id="price" name="price"
+                                   type="number" value="{{ old('price') }}"
+                                   placeholder="Введите цену">
+                            @error('price')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -65,9 +61,9 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="title">Заголовок ({{ $lang }})</label>
+                                            <label for="title_{{ $key }}">Заголовок ({{ $lang }})</label>
                                             <input class="form-control @error('title.'.$key) is-invalid @enderror"
-                                                   id="title" name="title[{{ $key }}]"
+                                                   id="title_{{ $key }}" name="title[{{ $key }}]"
                                                    type="text" value="{{ old('title.'.$key) }}"
                                                    placeholder="Введите заголовок">
                                             @error('title.'.$key)
@@ -77,12 +73,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="description">Описание ({{ $lang }})</label>
-                                            <textarea
-                                                class="description form-control @error('description.'.$key) is-invalid @enderror"
-                                                id="description" name="description[{{ $key }}]">
-                                                {{ old('description.'.$key) }}
-                                            </textarea>
+                                            <label for="description_{{ $key }}">Описание ({{ $lang }})</label>
+                                            <textarea class="form-control @error('description.'.$key) is-invalid @enderror"
+                                                id="description_{{ $key }}" name="description[{{ $key }}]" rows="9"
+                                                placeholder="Введите описание">{{ old('description.'.$key) }}</textarea>
                                             @error('description.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -102,7 +96,3 @@
         </form>
     </div>
 @endsection
-
-@push('scripts')
-    @include('admin.includes.ckeditor')
-@endpush

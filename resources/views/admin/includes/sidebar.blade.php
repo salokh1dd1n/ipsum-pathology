@@ -117,7 +117,7 @@
                     </a>
                 </li>
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="#">
+                    <a class="c-sidebar-nav-link" href="{{ route('diagnostics.index')}}">
                         <span class="c-sidebar-nav-icon"></span>
                         Диагностика
                     </a>
