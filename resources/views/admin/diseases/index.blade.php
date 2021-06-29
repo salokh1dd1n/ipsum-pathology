@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'Симптомы', 'route' => 'symptoms'])
+    @include('admin.includes.breadcrumb', ['page' => 'Болезни', 'route' => 'diseases'])
 @endpush
 @section('content')
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-6"><strong>Симптомы</strong></div>
+                <div class="col-6"><strong>Болезни</strong></div>
                 <div class="col-6">
-                    <a class="btn btn-sm btn-success float-right" href="{{ route('symptoms.create') }}"> Добавить</a>
+                    <a class="btn btn-sm btn-success float-right" href="{{ route('diseases.create') }}"> Добавить</a>
                 </div>
             </div>
         </div>
@@ -17,17 +17,33 @@
                 <thead>
                 <tr>
                     <th>Заголовок</th>
-                    <th>Описание</th>
+                    <th>Симптомы</th>
+                    <th>Диагностика</th>
+                    <th>Часто задаваемые вопросы</th>
                     <th>Действия</th>
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($symptoms as $symptom)
+                @forelse($diseases as $disease)
                     <tr>
-                        <td>{{ $symptom->title }}</td>
-                        <td>{{ $symptom->desc_part }}</td>
+                        <td>{{ $disease->title }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('symptoms.edit', $symptom->id) }}">
+                            @foreach($disease->symptoms as $symptom)
+                                <span class="badge badge-primary">{{ $symptom->title }}</span>
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach($disease->diagnostics as $diagnostic)
+                                <span class="badge badge-success">{{ $diagnostic->title }}</span>
+                            @endforeach
+                        </td>
+                        <td>
+                            @foreach($disease->faq as $faq)
+                                <span class="badge badge-secondary">{{ $faq->title }}</span>
+                            @endforeach
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" href="{{ route('diseases.edit', $disease->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-pencil') }}"></use>
@@ -35,39 +51,35 @@
                                 Изменить
                             </a>
                             <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
-                                    data-target="#deleteNewsItem{{ $symptom->id }}">
+                                    data-target="#deleteNewsItem{{ $disease->id }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-trash') }}"></use>
                                 </svg>
                                 Удалить
                             </button>
-                            <div class="modal fade" id="deleteNewsItem{{ $symptom->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="deleteNewsItem{{ $disease->id }}" tabindex="-1" role="dialog"
                                  aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-danger" role="document">
-                                    <form action="{{ route('symptoms.destroy', $symptom->id) }}" method="POST">
+                                    <form action="{{ route('diseases.destroy', $disease->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <div class="modal-content text-center">
+                                        <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Удаление новости</h5>
+                                                <h4 class="modal-title">Удаление новости</h4>
                                                 <button class="close" type="button" data-dismiss="modal"
                                                         aria-label="Close">
                                                     <span aria-hidden="true">×</span></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col-6">
-                                                        <label>Заголовок:</label>
-                                                        <p>
-                                                            {{ $symptom->title }}
-                                                        </p>
+                                                    <div class="col-8">
+                                                        <label for="delete_name">Заголовок:</label>
+                                                        <p>{{ $disease->title }}</p>
                                                     </div>
-                                                    <div class="col-6">
-                                                        <label>Описание:</label>
-                                                        <p>
-                                                            {{ $symptom->description }}
-                                                        </p>
+                                                    <div class="col-4">
+                                                        <label for="delete_role">Описание:</label>
+                                                        <p>{{ $disease->description }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,13 +99,13 @@
                     </tr>
                 @empty
                     <tr>
-                        <th class="text-center text-middle" colspan="3">Симптомов не найдено</th>
+                        <th class="text-center text-middle" colspan="3">Болезней не найдены</th>
                     </tr>
                 @endforelse
                 </tbody>
             </table>
-            @if($symptoms->total() > $symptoms->count())
-                {{ $symptoms->links() }}
+            @if($diseases->total() > $diseases->count())
+                {{ $diseases->links() }}
             @endif
 
         </div>

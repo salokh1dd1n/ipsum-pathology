@@ -15,7 +15,7 @@ class Symptom extends Model
 
     protected $fillable = ['title', 'description'];
 
-    public function getTruncatedDescAttribute()
+    public function getDescPartAttribute()
     {
         $result = Str::limit($this->description, 100);
         return $result.'...';

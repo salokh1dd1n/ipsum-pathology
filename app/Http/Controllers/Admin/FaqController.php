@@ -44,8 +44,8 @@ class FaqController extends Controller
     public function store(FaqRequest $request)
     {
         $data = $request->only('title', 'description');
-        $tag = $request->has('tag_id') ? $request->input('tag_id') : NULL;
-        return $this->faqService->insertFaqData($data, $tag);
+        $tags = $request->input('tag_id');
+        return $this->faqService->insertFaqData($data, $tags);
     }
 
     /**
@@ -67,8 +67,7 @@ class FaqController extends Controller
     public function update(FaqRequest $request, int $id)
     {
         $data = $request->only('title', 'description');
-        $tag_ids = $request->input('tag_id');
-        $tags = is_null($tag_ids[0]) ? NULL : $tag_ids;
+        $tags = $request->input('tag_id');
         return $this->faqService->updateFaqData($id, $data, $tags);
     }
 

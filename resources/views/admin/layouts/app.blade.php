@@ -8,6 +8,7 @@
     <!-- CoreUI CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/coreui/css/style.css') }}" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('dashboard/coreui/css/perfect-scrollbar.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body class="c-app">

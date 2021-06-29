@@ -49,6 +49,9 @@ Route::resource('advantages', \App\Http\Controllers\Admin\AdvantagesController::
 Route::resource('services', \App\Http\Controllers\Admin\ServiceController::class)
     ->except('show');
 
+Route::resource('diseases', \App\Http\Controllers\Admin\DiseasesController::class)
+    ->except('show');
+
 Route::resource('symptoms', \App\Http\Controllers\Admin\SymptomsController::class)
     ->except('show');
 

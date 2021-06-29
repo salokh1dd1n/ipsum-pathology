@@ -1,74 +1,65 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'Лабораторные исследования', 'action' => 'Редактировать исследование', 'route' => 'researches'])
+    @include('admin.includes.breadcrumb', ['page' => 'Болезни', 'action' => 'Добавить болезнь', 'route' => 'diseases'])
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить новости</strong></div>
-        <form class="form-horizontal" action="{{ route('researches.update', $research->id) }}" method="POST"
+        <div class="card-header"><strong>Добавить болезнь</strong></div>
+        <form class="form-horizontal" action="{{ route('diseases.store') }}" method="POST"
               enctype="multipart/form-data">
-            @method('PATCH')
             @csrf
             <div class="card-body">
                 <div class="nav-tabs-boxed">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-4">
                             <div class="form-group">
-                                <label for="image">Фото</label>
-                                <div class="custom-file">
-                                    <input type="hidden" name="id" value="{{ $research->id }}">
-                                    <input type="file" accept="image/jpeg,image/png,image/gif"
-                                           class="custom-file-input @error('image') is-invalid @enderror" id="image"
-                                           name="image" value="{{ $research->image }}" data-buttonText="Salom">
-                                    <label class="custom-file-label">
-                                        {{ $research->image }}
-                                    </label>
-                                    @error('image')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="service_id">Выберите услуги</label>
-                                <select multiple class="form-control @error('service_id.*') is-invalid @enderror"
-                                        id="service_id" name="service_id[]" size="6">
-                                    <option value="" hidden selected></option>
-                                    @foreach($services as $service)
-                                        <option value="{{ $service->id }}"
-                                                @foreach($research->services as $serviceItem)
-                                                @if($serviceItem->id == $service->id)
-                                                selected
-                                            @endif
-                                            @endforeach>
-                                            {{ $service->title }}
+                                <label for="symptom_id">Выберите симптомы</label>
+                                <select multiple class="form-control @error('symptom_id.*') is-invalid @enderror"
+                                        id="symptom_id" name="symptom_id[]" size="6">
+                                    @foreach($symptoms as $symptom)
+                                        <option value="{{ $symptom->id }}"
+                                                @if(old('symptom_id.*') == $symptom->id) selected @endif>
+                                            {{ $symptom->title }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('service_id.*')
+                                @error('symptom_id.*')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="form-group">
-                                <label for="advantage_id">Выберите преимущество</label>
-                                <select multiple class="form-control @error('advantage_id.*') is-invalid @enderror"
-                                        id="advantage_id" name="advantage_id[]" size="6">
-                                    <option value="" hidden selected></option>
-                                    @foreach($advantages as $advantage)
-                                        <option value="{{ $advantage->id }}"
-                                                @foreach($research->advantages as $advantageItem)
-                                                    @if($advantageItem->id == $advantage->id)
-                                                    selected
-                                                    endif
-                                                @endforeach>
-                                            {{ $advantage->title }}
+                                <label for="diagnostic_id">Выберите диагностику</label>
+                                <select multiple class="form-control @error('diagnostic_id.*') is-invalid @enderror"
+                                        id="diagnostic_id" name="diagnostic_id[]" size="6">
+                                    <option value="" selected hidden></option>
+                                    @foreach($diagnostics as $diagnostic)
+                                        <option value="{{ $diagnostic->id }}"
+                                                @if(old('diagnostic_id.*') == $diagnostic->id) selected @endif>
+                                            {{ $diagnostic->title }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('advantage_id.*')
+                                @error('diagnostic_id.*')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="faq_id">Выберите FAQ</label>
+                                <select multiple class="form-control @error('faq_id.*') is-invalid @enderror"
+                                        id="faq_id" name="faq_id[]" size="6">
+                                    <option value="" selected hidden></option>
+                                    @foreach($faqs as $faq)
+                                        <option value="{{ $faq->id }}"
+                                                @if(old('faq_id.*') == $faq->id) selected @endif>
+                                            {{ $faq->title }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('faq_id.*')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -118,22 +109,36 @@
                                             <input
                                                 class="form-control @error('title.'.$key) is-invalid @enderror"
                                                 id="title_{{ $key }}" name="title[{{ $key }}]"
-                                                type="text" value="{{ $research->getTranslation('title', $key) }}"
-                                                placeholder="Введите Заголовок">
+                                                type="text" value="{{ old('title.'.$key) }}"
+                                                placeholder="Введите заголовок">
                                             @error('title.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <div class="form-group">
-                                            <label for="short_desc_{{ $key }}">Краткое описание ({{ $lang }})</label>
+                                            <label for="symptom_desc_{{ $key }}">Описание симптома ({{ $lang }})</label>
                                             <textarea
-                                                class="form-control @error('short_desc.'.$key) is-invalid @enderror"
-                                                id="short_desc_{{ $key }}" name="short_desc[{{ $key }}]"
-                                                rows="3"
-                                                placeholder="Введите краткое описание">{{ $research->getTranslation('short_desc', $key) }}</textarea>
-                                            @error('short_desc.'.$key)
+                                                class="form-control @error('symptom_desc.'.$key) is-invalid @enderror"
+                                                id="symptom_desc_{{ $key }}" name="symptom_desc[{{ $key }}]"
+                                                rows="9"
+                                                placeholder="Введите описание симптома">{{ old('symptom_desc.'.$key) }}</textarea>
+                                            @error('symptom_desc.'.$key)
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="treatment_desc_{{ $key }}">Описание лечения ({{ $lang }}
+                                                )</label>
+                                            <textarea
+                                                class="form-control @error('treatment_desc.'.$key) is-invalid @enderror"
+                                                id="treatment_desc_{{ $key }}" name="treatment_desc[{{ $key }}]"
+                                                rows="9"
+                                                placeholder="Введите описание лечения">{{ old('treatment_desc.'.$key) }}</textarea>
+                                            @error('treatment_desc.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
@@ -142,10 +147,10 @@
                                         <div class="form-group">
                                             <label for="description_{{ $key }}">Описание ({{ $lang }})</label>
                                             <textarea
-                                                class="form-control @error('description.'.$key) is-invalid @enderror"
-                                                id="description_{{ $key }}" name="description[{{ $key }}]"
-                                                rows="9"
-                                                placeholder="Введите описание">{{ $research->getTranslation('description', $key) }}</textarea>
+                                                class="description form-control @error('description.'.$key) is-invalid @enderror"
+                                                id="description_{{ $key }}" name="description[{{ $key }}]">
+                                                {{ old('description.'.$key) }}
+                                            </textarea>
                                             @error('description.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -165,4 +170,8 @@
         </form>
     </div>
 @endsection
+
+@push('scripts')
+    @include('admin.includes.ckeditor')
+@endpush
 

@@ -45,11 +45,7 @@ class FaqService extends CoreService
 
     public function updateFaqData($id, $data, $tags)
     {
-        if ($tags != null) {
-            $result = $this->repository->upadateFaqDataWithTags($id, $data, $tags);
-        } else {
-            $result = $this->repository->updateFaqDataWithoutTags($id, $data);
-        }
+        $result = $this->repository->updateFaqData($id, $data, $tags);
         return $this->redirectWithAlert($result, $this->prefix . '.edit', 'update', $id);
     }
 

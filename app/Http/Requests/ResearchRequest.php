@@ -30,7 +30,7 @@ class ResearchRequest extends FormRequest
         $rules = [
             'researches.update' => [
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'title.*' => 'required|string|max:250|min:3unique_translation:research,title,'.$this->get('id'),
+                'title.*' => 'required|string|max:250|min:3|unique_translation:research,title,'.$this->get('id'),
                 'service_id.*' => 'required|exists:services,id',
                 'advantage_id.*' => 'required|exists:advantages,id',
                 'short_desc.*' => 'required',
@@ -39,7 +39,7 @@ class ResearchRequest extends FormRequest
 
             'researches.store' => [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'title.*' => 'required|string|max:250|min:3unique_translation:research',
+                'title.*' => 'required|string|max:250|min:3|unique_translation:research',
                 'service_id.*' => 'required|exists:services,id',
                 'advantage_id.*' => 'required|exists:advantages,id',
                 'short_desc.*' => 'required',

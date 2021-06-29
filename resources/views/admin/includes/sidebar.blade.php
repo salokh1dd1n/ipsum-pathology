@@ -105,7 +105,7 @@
             </a>
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link" href="#">
+                    <a class="c-sidebar-nav-link" href="{{ route('diseases.index') }}">
                         <span class="c-sidebar-nav-icon"></span>
                         Болезни
                     </a>

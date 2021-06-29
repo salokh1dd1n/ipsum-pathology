@@ -35,7 +35,7 @@
                                     <option value="" selected hidden></option>
                                     @foreach($services as $service)
                                         <option value="{{ $service->id }}"
-                                                @if(old('service_id.*') == $service->id) selected @endif>
+                                                {{ multiOptionSelected('service_id', $service->id) }}>
                                             {{ $service->title }}
                                         </option>
                                     @endforeach
@@ -48,12 +48,12 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="advantage_id">Выберите преимущество</label>
-                                <select multiple class="form-control @error('advantage_id.*') is-invalid @enderror"
-                                        id="advantage_id" name="advantage_id[]" size="6">
+                                <select class="form-control @error('advantage_id.*') is-invalid @enderror"
+                                        id="advantage_id" name="advantage_id[]" size="6" multiple>
                                     <option value="" selected hidden></option>
                                     @foreach($advantages as $advantage)
                                         <option value="{{ $advantage->id }}"
-                                                @if(old('advantage_id.*') == $advantage->id) selected @endif>
+                                                {{ multiOptionSelected('advantage_id', $advantage->id) }}>
                                             {{ $advantage->title }}
                                         </option>
                                     @endforeach
