@@ -58,5 +58,8 @@ Route::resource('symptoms', \App\Http\Controllers\Admin\SymptomsController::clas
 Route::resource('diagnostics', \App\Http\Controllers\Admin\DiagnosticsController::class)
     ->except('show');
 
+Route::resource('clinics', \App\Http\Controllers\Admin\ClinicsController::class)
+    ->except('show');
+
 Route::post('ckeditor/image_upload', [\App\Http\Controllers\Admin\CkeditorController::class, 'upload'])->name('upload');
 

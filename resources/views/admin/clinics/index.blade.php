@@ -1,14 +1,14 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'Услуги', 'route' => 'services'])
+    @include('admin.includes.breadcrumb', ['page' => 'К кому обратиться', 'route' => 'clinics'])
 @endpush
 @section('content')
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-6"><strong>Услуги</strong></div>
+                <div class="col-6"><strong>Новости</strong></div>
                 <div class="col-6">
-                    <a class="btn btn-sm btn-success float-right" href="{{ route('services.create') }}"> Добавить</a>
+                    <a class="btn btn-sm btn-success float-right" href="{{ route('clinics.create') }}"> Добавить</a>
                 </div>
             </div>
         </div>
@@ -17,17 +17,17 @@
                 <thead>
                 <tr>
                     <th>Заголовок</th>
-                    <th>Цена</th>
+                    <th>Телефонный номер</th>
                     <th>Действия</th>
                 </tr>
                 </thead>
                 <tbody>
-                @forelse($services as $service)
+                @forelse($clinics as $clinic)
                     <tr>
-                        <td>{{ $service->title }}</td>
-                        <td>{{ formatedPrice($service->price) }}</td>
+                        <td>{{ $clinic->title }}</td>
+                        <td>{{ formatedPhoneNumber($clinic->phone_number) }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('services.edit', $service->id) }}">
+                            <a class="btn btn-sm btn-primary" href="{{ route('clinics.edit', $clinic->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-pencil') }}"></use>
@@ -35,35 +35,35 @@
                                 Изменить
                             </a>
                             <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
-                                    data-target="#deleteNewsItem{{ $service->id }}">
+                                    data-target="#deleteNewsItem{{ $clinic->id }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-trash') }}"></use>
                                 </svg>
                                 Удалить
                             </button>
-                            <div class="modal fade" id="deleteNewsItem{{ $service->id }}" tabindex="-1" role="dialog"
+                            <div class="modal fade" id="deleteNewsItem{{ $clinic->id }}" tabindex="-1" role="dialog"
                                  aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-danger" role="document">
-                                    <form action="{{ route('services.destroy', $service->id) }}" method="POST">
+                                    <form action="{{ route('clinics.destroy', $clinic->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Удаление услуги</h4>
+                                                <h4 class="modal-title">Удаление новости</h4>
                                                 <button class="close" type="button" data-dismiss="modal"
                                                         aria-label="Close">
                                                     <span aria-hidden="true">×</span></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="row">
-                                                    <div class="col-6">
-                                                        <label>Заголовок:</label>
-                                                        <p>{{ $service->title }}</p>
+                                                    <div class="col-8">
+                                                        <label for="delete_name">Phone number:</label>
+                                                        <p>{{ $clinic->title }}</p>
                                                     </div>
-                                                    <div class="col-6">
-                                                        <label>Цена:</label>
-                                                        <p>{{ formatedPrice($service->price) }}</p>
+                                                    <div class="col-4">
+                                                        <label for="delete_role">Телефонный номер:</label>
+                                                        <p>{{ $clinic->phone_number }}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,17 +83,15 @@
                     </tr>
                 @empty
                     <tr>
-                        <th class="text-center text-middle" colspan="3">Услуги не найдены</th>
+                        <th class="text-center text-middle" colspan="3">Организации не найдена</th>
                     </tr>
                 @endforelse
                 </tbody>
             </table>
-            @if($services->total() > $services->count())
-                {{ $services->links() }}
+            @if($clinics->total() > $clinics->count())
+                {{ $clinics->links() }}
             @endif
 
         </div>
     </div>
 @endsection
-
-

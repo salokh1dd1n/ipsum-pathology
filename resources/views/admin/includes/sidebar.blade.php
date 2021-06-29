@@ -39,11 +39,11 @@
             </ul>
         </li>
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="colors.html">
+            <a class="c-sidebar-nav-link" href="{{ route('clinics.index') }}">
                 <svg class="c-sidebar-nav-icon">
                     <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-hospital') }}"></use>
                 </svg>
-                Врачи
+                К кому обратиться
             </a>
         </li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">

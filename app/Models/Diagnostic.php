@@ -13,9 +13,4 @@ class Diagnostic extends Model
     protected $translatable  = ['title', 'description'];
 
     protected $fillable = ['title', 'description', 'price'];
-
-    public function getFormatedPriceAttribute()
-    {
-        return number_format($this->price, 0, '', ' ');
-    }
 }

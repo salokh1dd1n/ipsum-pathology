@@ -13,9 +13,4 @@ class Service extends Model
     protected $translatable = ['title', 'description'];
 
     protected $fillable = ['price', 'title', 'description'];
-
-    public function getFormatedPriceAttribute()
-    {
-        return number_format($this->price, 0, '', ' ');
-    }
 }
