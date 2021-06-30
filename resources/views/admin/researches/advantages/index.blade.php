@@ -85,7 +85,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <th class="text-center text-middle" colspan="3">Преимущества не найдено</th>
+                        <th class="text-center text-middle" colspan="4">Преимущества не найдено</th>
                     </tr>
                 @endforelse
                 </tbody>

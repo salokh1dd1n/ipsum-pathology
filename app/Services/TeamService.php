@@ -2,13 +2,10 @@
 
 namespace App\Services;
 
-
 use App\Repositories\TeamRepository;
-use App\Repositories\RolesRepository;
 
 class TeamService extends CoreService
 {
-    protected $rolesRepository;
     protected object $repository;
 
     /**
@@ -19,7 +16,6 @@ class TeamService extends CoreService
     public function __construct(TeamRepository $repository, $prefix = 'team')
     {
         parent::__construct($repository, $prefix);
-        $this->rolesRepository = app(RolesRepository::class);
         $this->repository = $repository;
 
     }
@@ -30,12 +26,6 @@ class TeamService extends CoreService
 
         return $result;
     }
-
-    public function getAllTeamRoles()
-    {
-        return $this->rolesRepository->getAllTeamRoles()->get();
-    }
-
 
     public function getMember($id)
     {

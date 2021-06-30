@@ -32,14 +32,13 @@ class TeamController extends Controller
      */
     public function create()
     {
-        $roles = $this->teamService->getAllTeamRoles();
-        return view('admin.team.create', compact('roles'));
+        return view('admin.team.create');
     }
 
     public function store(TeamRequest $request)
     {
         $file = $request->file('image');
-        $data = $request->only('phone_number', 'name', 'role_id', 'description');
+        $data = $request->only('phone_number', 'name', 'role', 'description');
 
         return $this->teamService->insertDataWithImage($file, $data);
     }
@@ -51,8 +50,7 @@ class TeamController extends Controller
     public function edit(int $id)
     {
         $member = $this->teamService->getMember($id);
-        $roles = $this->teamService->getAllTeamRoles();
-        return view('admin.team.edit', compact('member', 'roles'));
+        return view('admin.team.edit', compact('member'));
     }
 
     /**
@@ -63,7 +61,7 @@ class TeamController extends Controller
     public function update(TeamRequest $request, int $id)
     {
         $file = $request->file('image');
-        $data = $request->only('phone_number', 'name', 'role_id', 'description');
+        $data = $request->only('phone_number', 'name', 'role', 'description');
 
         return $this->teamService->updateDataWithImage($id, $file, $data);
     }

@@ -22,7 +22,8 @@ class TeamRepository extends CoreRepository
         $columns = [
             'id',
             'name',
-            'role_id'
+            'role',
+            'phone_number'
         ];
 
         $result = $this
@@ -46,7 +47,7 @@ class TeamRepository extends CoreRepository
         $columns = [
             'id',
             'name',
-            'role_id',
+            'role',
             'phone_number',
             'description',
             'image'
@@ -55,7 +56,6 @@ class TeamRepository extends CoreRepository
             ->model
             ->select($columns)
             ->where('id', $id)
-            ->with(['role:id,title'])
             ->first();
 
         return $result;

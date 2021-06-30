@@ -10,17 +10,26 @@ class DiseasesController extends Controller
 {
     protected $diseasesService;
 
+    /**
+     * DiseasesController constructor.
+     */
     public function __construct()
     {
         $this->diseasesService = app(DiseasesService::class);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\View
+     */
     public function index()
     {
         $diseases = $this->diseasesService->getPaginatedDiseases();
         return view('admin.diseases.index', compact('diseases'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\View
+     */
     public function create()
     {
         $symptoms = $this->diseasesService->getAllSymptoms();
@@ -29,6 +38,10 @@ class DiseasesController extends Controller
         return view('admin.diseases.create', compact('symptoms', 'diagnostics', 'faqs'));
     }
 
+    /**
+     * @param DiseasesRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(DiseasesRequest $request)
     {
         $data = $request->only('title', 'description', 'symptom_desc', 'treatment_desc');
@@ -38,6 +51,10 @@ class DiseasesController extends Controller
         return $this->diseasesService->insertDiseaseData($data, $symptoms, $diagnostics, $faq);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\View
+     */
     public function edit($id)
     {
         $disease = $this->diseasesService->getDisease($id);
@@ -47,6 +64,11 @@ class DiseasesController extends Controller
         return view('admin.diseases.edit', compact('disease', 'symptoms', 'diagnostics', 'faqs'));
     }
 
+    /**
+     * @param DiseasesRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function update(DiseasesRequest $request, $id)
     {
         $data = $request->only('title', 'description', 'symptom_desc', 'treatment_desc');
@@ -56,6 +78,10 @@ class DiseasesController extends Controller
         return $this->diseasesService->updateDiseaseData($id, $data, $symptoms, $diagnostics, $faq);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function destroy($id)
     {
         return $this->diseasesService->deleteData($id);

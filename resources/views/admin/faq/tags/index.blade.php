@@ -85,7 +85,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <th class="text-center text-middle" colspan="3">Роли не найдено</th>
+                        <th class="text-center text-middle" colspan="4">Роли не найдено</th>
                     </tr>
                 @endforelse
                 </tbody>

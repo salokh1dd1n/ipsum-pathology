@@ -99,7 +99,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <th class="text-center text-middle" colspan="3">Болезней не найдены</th>
+                        <th class="text-center text-middle" colspan="5">Болезней не найдены</th>
                     </tr>
                 @endforelse
                 </tbody>

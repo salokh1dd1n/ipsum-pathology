@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Advantage as Model;
+use Illuminate\Database\Eloquent\Collection;
 
 class AdvantagesRepository extends CoreRepository
 {

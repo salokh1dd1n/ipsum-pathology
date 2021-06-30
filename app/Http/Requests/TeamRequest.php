@@ -33,7 +33,7 @@ class TeamRequest extends FormRequest
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'name.*' => 'required|string|max:250|min:3',
                 'description.*' => 'required',
-                'role_id' => 'exists:roles,id|nullable',
+                'role.*' => 'required|string|max:250|min:3',
                 'phone_number' => ['required', 'string', 'max:12', new PhoneNumberRule],
             ],
 
@@ -41,7 +41,7 @@ class TeamRequest extends FormRequest
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'name.*' => 'required|string|max:250|min:3',
                 'description.*' => 'required',
-                'role_id' => 'exists:roles,id|nullable',
+                'role.*' => 'required|string|max:250|min:3',
                 'phone_number' => ['required', 'string', 'max:12', new PhoneNumberRule],
             ],
         ];
@@ -54,9 +54,9 @@ class TeamRequest extends FormRequest
         foreach (Config::get('app.languages') as $key => $lang) {
             $validationRules['name.' . $key] = "ФИО ($lang)";
             $validationRules['description.' . $key] = "Описание ($lang)";
+            $validationRules['role.' . $key] = "Роль ($lang)";
         }
         $validationRules['image'] = 'Фото';
-        $validationRules['role_id'] = 'Роль';
         $validationRules['phone_number'] = 'Телефонный номер';
         return $validationRules;
     }

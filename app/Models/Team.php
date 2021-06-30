@@ -10,18 +10,13 @@ class Team extends Model
 {
     use HasFactory, HasTranslations;
 
-    protected $translatable = ['name', 'description'];
+    protected $translatable = ['name', 'description', 'role'];
 
     protected $fillable = [
         'name',
-        'role_id',
+        'role',
         'phone_number',
         'description',
         'image'
     ];
-
-    public function role()
-    {
-        return $this->belongsTo(Roles::class);
-    }
 }
