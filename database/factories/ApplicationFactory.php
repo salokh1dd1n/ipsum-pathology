@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\News;
+use App\Models\Application;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class NewsFactory extends CoreFactory
+class ApplicationFactory extends CoreFactory
 {
-
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = News::class;
+    protected $model = Application::class;
 
     /**
      * Define the model's default state.
@@ -21,11 +21,9 @@ class NewsFactory extends CoreFactory
      */
     public function definition()
     {
-        $attributes['title'] = $this->multiLang($this->title());
-        $attributes['description'] = $this->multiLang($this->descriptionHTML());
-        $attributes['image'] = $this->image();
+        $attributes['fio'] = $this->faker->name;
+        $attributes['phone_number'] = $this->phone();
 
         return $attributes;
     }
-
 }

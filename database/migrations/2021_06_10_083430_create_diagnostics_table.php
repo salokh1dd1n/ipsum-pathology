@@ -16,7 +16,7 @@ class CreateDiagnosticsTable extends Migration
         Schema::create('diagnostics', function (Blueprint $table) {
             $table->id();
             $table->json('title');
-            $table->integer('price');
+            $table->string('price');
             $table->json('description');
             $table->timestamps();
         });

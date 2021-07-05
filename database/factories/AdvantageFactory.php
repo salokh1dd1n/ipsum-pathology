@@ -2,17 +2,16 @@
 
 namespace Database\Factories;
 
-use App\Models\News;
+use App\Models\Advantage;
 
-class NewsFactory extends CoreFactory
+class AdvantageFactory extends CoreFactory
 {
-
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = News::class;
+    protected $model = Advantage::class;
 
     /**
      * Define the model's default state.
@@ -21,11 +20,9 @@ class NewsFactory extends CoreFactory
      */
     public function definition()
     {
-        $attributes['title'] = $this->multiLang($this->title());
-        $attributes['description'] = $this->multiLang($this->descriptionHTML());
         $attributes['image'] = $this->image();
+        $attributes['title'] = $this->multiLang($this->title());
 
         return $attributes;
     }
-
 }
