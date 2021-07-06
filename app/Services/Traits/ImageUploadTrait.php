@@ -20,30 +20,31 @@ trait ImageUploadTrait
         $this->repository = $repository;
     }
 
-    /**
-     * @param int $id
-     * @return bool
-     */
+
     private function deleteCheckedImage(int $id)
     {
-        $checkImage = $this->checkImageExists($id);
-        $newsItem = $this->repository->find($id);
+        $image = $this->checkImageExists($id);
 
-        if ($checkImage) {
-            $old_file = 'uploads/images/' . $newsItem->image;
+        if ($image) {
+            $old_file = 'uploads/images/' . $image->image;
             return Storage::delete($old_file);
         }
     }
 
-    private function checkImageExists($id)
+    /**
+     * @param int $id
+     * @return bool|\Illuminate\Database\Eloquent\Model
+     */
+    private function checkImageExists(int $id)
     {
         $item = $this->repository->find($id);
         $isExists = Storage::exists('uploads/images/' . $item->image);
 
-        $result = ($item->image && $isExists);
-        $result ? true : false;
-
-        return $result;
+        if ($item->image && $isExists) {
+            return $item;
+        } else {
+            return false;
+        }
     }
 
     private function uploadRenamedImage($file)

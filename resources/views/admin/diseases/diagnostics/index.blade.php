@@ -25,7 +25,7 @@
                 @forelse($diagnostics as $diagnostic)
                     <tr>
                         <td>{{ $diagnostic->title }}</td>
-                        <td>{{ formatedPrice($diagnostic->price) }}</td>
+                        <td>{{ formattedPrice($diagnostic->price) }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('diagnostics.edit', $diagnostic->id) }}">
                                 <svg class="c-icon mr-1">
@@ -66,7 +66,7 @@
                                                         <div class="col-6">
                                                             <label>Цена :</label>
                                                             <p>
-                                                                {{ formatedPrice($diagnostic->price) }}
+                                                                {{ formattedPrice($diagnostic->price) }}
                                                             </p>
                                                         </div>
                                                 </div>

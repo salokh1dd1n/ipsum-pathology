@@ -25,7 +25,7 @@
                 @forelse($clinics as $clinic)
                     <tr>
                         <td>{{ $clinic->title }}</td>
-                        <td>{{ formatedPhoneNumber($clinic->phone_number) }}</td>
+                        <td>{{ formattedPhoneNumber($clinic->phone_number) }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('clinics.edit', $clinic->id) }}">
                                 <svg class="c-icon mr-1">

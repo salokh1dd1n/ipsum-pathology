@@ -30,13 +30,13 @@ class FaqRequest extends FormRequest
         $rules = [
             'faq.update' => [
                 'title.*' => 'required|string|max:250|min:3',
-                'tag_id.*' => 'exists:tags,id|nullable',
+                'tag_id' => 'exists:tags,id|nullable',
                 'description.*' => 'required'
             ],
 
             'faq.store' => [
                 'title.*' => 'required|string|max:250|min:3',
-                'tag_id.*' => 'exists:tags,id|nullable',
+                "tag_id" => "exists:tags,id|nullable",
                 'description.*' => 'required'
             ],
         ];
@@ -50,7 +50,7 @@ class FaqRequest extends FormRequest
             $validationRules['title.' . $key] = "Заголовок ($lang)";
             $validationRules['description.' . $key] = "Описание ($lang)";
         }
-        $validationRules['tag_id.*'] = 'Теги';
+        $validationRules['tag_id'] = 'Теги';
         return $validationRules;
     }
 }

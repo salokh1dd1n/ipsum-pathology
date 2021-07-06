@@ -14,16 +14,17 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="symptom_id">Выберите симптомы</label>
-                                <select multiple class="form-control @error('symptom_id.*') is-invalid @enderror"
-                                        id="symptom_id" name="symptom_id[]" size="6">
+                                <select class="form-control @error('symptom_id') is-invalid @enderror"
+                                        id="symptom_id" name="symptom_id[]"
+                                        multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($symptoms as $symptom)
                                         <option value="{{ $symptom->id }}"
-                                                @if(old('symptom_id.*') == $symptom->id) selected @endif>
+                                                {{ multiOptionSelected(old('symptom_id'), $symptom->id) }}>
                                             {{ $symptom->title }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('symptom_id.*')
+                                @error('symptom_id')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -31,17 +32,17 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="diagnostic_id">Выберите диагностику</label>
-                                <select multiple class="form-control @error('diagnostic_id.*') is-invalid @enderror"
-                                        id="diagnostic_id" name="diagnostic_id[]" size="6">
-                                    <option value="" selected hidden></option>
+                                <select class="form-control @error('diagnostic_id') is-invalid @enderror"
+                                        id="diagnostic_id" name="diagnostic_id[]"
+                                        multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($diagnostics as $diagnostic)
                                         <option value="{{ $diagnostic->id }}"
-                                                @if(old('diagnostic_id.*') == $diagnostic->id) selected @endif>
+                                                {{ multiOptionSelected(old('diagnostic_id'), $diagnostic->id) }}>
                                             {{ $diagnostic->title }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('diagnostic_id.*')
+                                @error('diagnostic_id')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -49,17 +50,17 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="faq_id">Выберите FAQ</label>
-                                <select multiple class="form-control @error('faq_id.*') is-invalid @enderror"
-                                        id="faq_id" name="faq_id[]" size="6">
-                                    <option value="" selected hidden></option>
+                                <select class="form-control @error('faq_id') is-invalid @enderror"
+                                        id="faq_id" name="faq_id[]"
+                                        multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($faqs as $faq)
                                         <option value="{{ $faq->id }}"
-                                                @if(old('faq_id.*') == $faq->id) selected @endif>
+                                                {{ multiOptionSelected(old('faq_id'), $faq->id) }}>
                                             {{ $faq->title }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('faq_id.*')
+                                @error('faq_id')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

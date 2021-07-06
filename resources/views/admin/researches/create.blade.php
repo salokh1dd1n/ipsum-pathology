@@ -30,17 +30,16 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="service_id">Выберите услуги</label>
-                                <select multiple class="form-control @error('service_id.*') is-invalid @enderror"
-                                        id="service_id" name="service_id[]" size="6">
-                                    <option value="" selected hidden></option>
+                                <select class="form-control @error('service_id') is-invalid @enderror"
+                                        id="service_id" name="service_id[]"  multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($services as $service)
                                         <option value="{{ $service->id }}"
-                                                {{ multiOptionSelected('service_id', $service->id) }}>
+                                            {{ multiOptionSelected(old('service_id'), $service->id) }}>
                                             {{ $service->title }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('service_id.*')
+                                @error('service_id')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -48,17 +47,16 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="advantage_id">Выберите преимущество</label>
-                                <select class="form-control @error('advantage_id.*') is-invalid @enderror"
-                                        id="advantage_id" name="advantage_id[]" size="6" multiple>
-                                    <option value="" selected hidden></option>
+                                <select class="form-control @error('advantage_id') is-invalid @enderror"
+                                        id="advantage_id" name="advantage_id[]" size="6" multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($advantages as $advantage)
                                         <option value="{{ $advantage->id }}"
-                                                {{ multiOptionSelected('advantage_id', $advantage->id) }}>
+                                            {{ multiOptionSelected(old('advantage_id'), $advantage->id) }}>
                                             {{ $advantage->title }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('advantage_id.*')
+                                @error('advantage_id')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -155,4 +153,12 @@
         </form>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('#selectpicker').selectpicker();
+
+    </script>
+@endpush
+
 

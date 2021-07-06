@@ -103,12 +103,11 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label for="description">Описание ({{ $lang }})</label>
+                                            <label for="description_{{ $key }}">Описание ({{ $lang }})</label>
                                             <textarea
                                                 class="form-control @error('description.'.$key) is-invalid @enderror"
-                                                id="description_{{ $key }}" name="description[{{ $key }}]" rows="9" placeholder="Введите описание">
-                                                {{ $member->getTranslation('description', $key) }}
-                                            </textarea>
+                                                id="description_{{ $key }}" name="description[{{ $key }}]"
+                                                rows="9" placeholder="Введите описание">{{ $member->getTranslation('description', $key) }}</textarea>
                                             @error('description.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

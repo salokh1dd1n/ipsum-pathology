@@ -4,12 +4,27 @@
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить новости</strong></div>
+        <div class="card-header"><strong>Редактировать часто задаваемые вопросы</strong></div>
         <form class="form-horizontal" action="{{ route('faq.update', $faq->id) }}" method="POST"
               enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             <div class="card-body">
+                <div class="form-group">
+                    <label for="tag_id">Выберите теги</label>
+                    <select class="form-control @error('tag_id') is-invalid @enderror"
+                            id="tag_id" name="tag_id[]" search-placeholder="sdf" multiple multiselect-search="true">
+                        @foreach($tags as $tag)
+                            <option value="{{ $tag->id }}"
+                                    {{ multiOptionSelected(old('tag_id'), $tag->id, $faq->tags) }}>
+                                {{ $tag->title }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('tag_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
                 <div class="nav-tabs-boxed">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
@@ -41,16 +56,6 @@
                                         xlink:href="{{ asset('dashboard/@coreui/icons/sprites/flag.svg#cif-us') }}"></use>
                                 </svg>
                                 English
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tags" role="tab"
-                               aria-controls="messages" aria-selected="true">
-                                <svg class="c-icon">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-tags') }}"></use>
-                                </svg>
-                                Теги
                             </a>
                         </li>
                     </ul>
@@ -90,28 +95,6 @@
 
                             </div>
                         @endforeach
-                        <div class="tab-pane" id="tags" role="tabpanel">
-                            <div class="form-group">
-                                <label for="tag_id">Выберите теги</label>
-                                <select multiple class="form-control @error('tag_id.*') is-invalid @enderror"
-                                        id="tag_id" name="tag_id[]" size="10">
-                                    <option @if($faq->tags == '[]') selected @endif value="">-- Без тега --</option>
-                                    @foreach($tags as $tagKey => $tag)
-                                        <option value="{{ $tag->id }}"
-                                                @foreach($faq->tags as $faqTag)
-                                                    @if($faqTag->id == $tag->id)
-                                                        selected
-                                                    @endif
-                                                @endforeach>
-                                            {{ $tag->title }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('tag_id.*')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
 
                     </div>
                 </div>

@@ -19,7 +19,7 @@
                 @forelse($applications as $application)
                     <tr>
                         <td>{{ $application->fio }}</td>
-                        <td>{{ formatedPhoneNumber($application->phone_number) }}</td>
+                        <td>{{ formattedPhoneNumber($application->phone_number) }}</td>
                         <td><span
                                 class="badge badge-{{customStatus($application->status)->type}}">{{ customStatus($application->status)->text }}</span>
                         </td>
@@ -68,7 +68,7 @@
                                                     </div>
                                                     <div class="col-4">
                                                         <label for="delete_role">Телефонный номер:</label>
-                                                        <p>{{ formatedPhoneNumber($application->phone_number) }}</p>
+                                                        <p>{{ formattedPhoneNumber($application->phone_number) }}</p>
                                                     </div>
                                                 </div>
                                             </div>

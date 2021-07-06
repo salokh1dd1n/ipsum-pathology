@@ -7,6 +7,7 @@
 
     <!-- CoreUI CSS -->
     <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('dashboard/coreui/css/style.css') }}" crossorigin="anonymous">
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body class="c-app flex-row align-items-center">

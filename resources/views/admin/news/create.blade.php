@@ -15,7 +15,7 @@
                             <div class="custom-file">
                                 <input type="file" accept="image/jpeg,image/png,image/gif"
                                        class="custom-file-input @error('image') is-invalid @enderror" id="image"
-                                       name="image" value="{{ old('image') }}" data-buttonText="Salom">
+                                       name="image" value="{{ old('image') }}">
                                 <label class="custom-file-label">
                                     Выбрать файл...
                                 </label>

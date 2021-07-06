@@ -60,18 +60,16 @@ class FaqRepository extends CoreRepository
 
     public function insertFaqData($data, $tag)
     {
-        $tag_ids = is_null($tag[0]) ? NULL : $tag;
         $result = $this->create($data);
-        $result->tags()->sync((array)$tag_ids);
+        $result->tags()->sync((array)$tag);
         return $result;
     }
 
     public function updateFaqData($id, $data, $tag)
     {
-        $tag_ids = is_null($tag[0]) ? NULL : $tag;
         $faq = $this->find($id);
         $faq->update($data);
-        $faq->tags()->sync((array)$tag_ids);
+        $faq->tags()->sync((array)$tag);
         return $faq;
     }
 

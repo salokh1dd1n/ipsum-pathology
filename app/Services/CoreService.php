@@ -42,20 +42,23 @@ class CoreService
     public function insertData($data)
     {
         $result = $this->repository->create($data);
-        return $this->redirectWithAlert($result, $this->prefix.'.edit', 'update', $result->id);
+        return $this->redirectWithAlert($result, $this->prefix . '.edit', 'update', $result->id);
     }
 
     public function updateData(int $id, $data)
     {
         $result = $this->repository->edit($id, $data);
-        return $this->redirectWithAlert($result, $this->prefix.'.edit', 'update', $id);
+        return $this->redirectWithAlert($result, $this->prefix . '.edit', 'update', $id);
     }
 
     public function deleteData(int $id)
     {
-        $this->deleteCheckedImage($id);
-        $result = $this->repository->delete($id);
-        return $this->redirectWithAlert($result, $this->prefix.'.index', 'delete', null, 'warning');
+        $item = $this->repository->find($id);
+        if ($item->image) {
+            $this->deleteCheckedImage($id);
+        }
+        $result = $item->delete($id);
+        return $this->redirectWithAlert($result, $this->prefix . '.index', 'delete', null, 'warning');
     }
 
 }

@@ -25,7 +25,7 @@
                 @forelse($services as $service)
                     <tr>
                         <td>{{ $service->title }}</td>
-                        <td>{{ formatedPrice($service->price) }}</td>
+                        <td>{{ formattedPrice($service->price) }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('services.edit', $service->id) }}">
                                 <svg class="c-icon mr-1">
@@ -63,7 +63,7 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <label>Цена:</label>
-                                                        <p>{{ formatedPrice($service->price) }}</p>
+                                                        <p>{{ formattedPrice($service->price) }}</p>
                                                     </div>
                                                 </div>
                                             </div>

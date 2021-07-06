@@ -27,7 +27,7 @@
                     <tr>
                         <td>{{ $member->name }}</td>
                         <td>{{ $member->role }}</td>
-                        <td>{{ formatedPhoneNumber($member->phone_number) }}</td>
+                        <td>{{ formattedPhoneNumber($member->phone_number) }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('team.edit', $member->id) }}">
                                 <svg class="c-icon mr-1">

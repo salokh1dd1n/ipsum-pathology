@@ -7,8 +7,8 @@
 
     <!-- CoreUI CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/coreui/css/style.css') }}" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('dashboard/coreui/css/perfect-scrollbar.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="{{ asset('dashboard/coreui/css/perfect-scrollbar.min.css') }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body class="c-app">
@@ -33,6 +33,7 @@
 <script src="{{ asset('dashboard/coreui/js/coreui.bundle.min.js') }}"></script>
 <script src="{{ asset('dashboard/coreui/js/svgxuse.min.js') }}"></script>
 <script src="{{ asset('dashboard/coreui/js/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('dashboard/coreui/js/multiselect-dropdown.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

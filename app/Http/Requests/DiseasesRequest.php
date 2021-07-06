@@ -33,9 +33,9 @@ class DiseasesRequest extends FormRequest
                 'description.*' => 'required',
                 'symptom_desc.*' => 'required',
                 'treatment_desc.*' => 'required',
-                'symptom_id.*' => 'required|array|min:1',
-                'diagnostic_id.*' => 'required|exists:diagnostics,id',
-                'faq_id.*' => 'exists:faqs,id',
+                'symptom_id' => 'required|exists:symptoms,id',
+                'diagnostic_id' => 'required|exists:diagnostics,id',
+                'faq_id' => 'required|exists:faqs,id',
             ],
 
             'diseases.store' => [
@@ -43,9 +43,9 @@ class DiseasesRequest extends FormRequest
                 'description.*' => 'required',
                 'symptom_desc.*' => 'required',
                 'treatment_desc.*' => 'required',
-                'symptom_id.*' => 'required|array|min:1',
-                'diagnostic_id.*' => 'required|exists:diagnostics,id',
-                'faq_id.*' => 'required|exists:faqs,id',
+                'symptom_id' => 'required|exists:symptoms,id',
+                'diagnostic_id' => 'required|exists:diagnostics,id',
+                'faq_id' => 'required|exists:faqs,id',
             ],
         ];
         return $rules[$route];
@@ -60,9 +60,9 @@ class DiseasesRequest extends FormRequest
             $validationRules['symptom_desc.' . $key] = "Описание симптома ($lang)";
             $validationRules['treatment_desc.' . $key] = "Описание лечения ($lang)";
         }
-        $validationRules['faq_id.*'] = 'Часто задаваемые вопросы';
-        $validationRules['symptom_id.*'] = 'Симптомы';
-        $validationRules['diagnostic_id.*'] = 'Диагностика';
+        $validationRules['faq_id'] = 'Часто задаваемые вопросы';
+        $validationRules['symptom_id'] = 'Симптомы';
+        $validationRules['diagnostic_id'] = 'Диагностика';
         return $validationRules;
     }
 }

@@ -1,18 +1,26 @@
 <?php
-
-
-function multiOptionSelected($old_name, $input)
+function multiOptionSelected($old_inputs, $value, $inputs = null)
 {
-    if (old($old_name) != null) {
-        foreach (old($old_name) as $old) {
-            if ($old == $input) {
-                return "selected";
+    $result = null;
+    if ($old_inputs) {
+        foreach ($old_inputs as $old_input) {
+            if ($old_input == $value) {
+                $result = "selected";
+            }
+        }
+    } else {
+        if ($inputs != null) {
+            foreach ($inputs as $input) {
+                if ($input->id == $value) {
+                    $result = "selected";
+                }
             }
         }
     }
+    return $result;
 }
 
-function formatedPhoneNumber($phone_number)
+function formattedPhoneNumber($phone_number)
 {
     $statement = preg_match('/^(998)\s*(\d{2})\s*(\d{3})\s*(\d{2})\s*(\d{2})$/', $phone_number, $matches);
     if ($statement) {
@@ -21,7 +29,7 @@ function formatedPhoneNumber($phone_number)
     }
 }
 
-function formatedPrice($price)
+function formattedPrice($price)
 {
     return number_format($price, 0, '', ' ');
 }
