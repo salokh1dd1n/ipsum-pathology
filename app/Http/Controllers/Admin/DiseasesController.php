@@ -15,6 +15,7 @@ class DiseasesController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('auth');
         $this->diseasesService = app(DiseasesService::class);
     }
 

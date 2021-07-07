@@ -8,13 +8,14 @@ use App\Services\ServicesService;
 
 class ServiceController extends Controller
 {
-    protected object $serviceService;
+    protected $serviceService;
 
     /**
      * ServiceController constructor.
      */
     public function __construct()
     {
+        $this->middleware('auth');
         $this->serviceService = app(ServicesService::class);
     }
 

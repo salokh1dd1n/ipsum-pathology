@@ -15,6 +15,7 @@ class AdvantagesController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('auth');
         $this->advantagesService = app(AdvantagesService::class);
     }
 

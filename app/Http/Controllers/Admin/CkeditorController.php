@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CkeditorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * @param Request $request
      */

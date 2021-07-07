@@ -15,6 +15,7 @@ class TagsController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('auth');
         $this->tagsService = app(TagsService::class);
     }
 

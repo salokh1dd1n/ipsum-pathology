@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeamRequest;
 use App\Services\TeamService;
+use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
@@ -15,6 +16,7 @@ class TeamController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('auth');
         $this->teamService = app(TeamService::class);
     }
 
@@ -35,10 +37,12 @@ class TeamController extends Controller
         return view('admin.team.create');
     }
 
-    public function store(TeamRequest $request)
+    public function store(Request $request)
     {
         $file = $request->file('image');
-        $data = $request->only('phone_number', 'name', 'role', 'description');
+        $data = $request->only('name', 'role', 'description');
+        $phone_number = $request->input('phone_number');
+        $data['phone_number'] = reFormatPhoneNumber($phone_number);
 
         return $this->teamService->insertDataWithImage($file, $data);
     }

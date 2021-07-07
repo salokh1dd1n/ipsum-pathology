@@ -12,6 +12,7 @@ class ApplicationsController extends Controller
 
     public function __construct()
     {
+        $this->middleware('auth');
         $this->applicationsService = app(ApplicationService::class);
     }
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FaqRequest;
 use App\Services\FaqService;
-use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
@@ -16,6 +15,7 @@ class FaqController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('auth');
         $this->faqService = app(FaqService::class);
     }
 
