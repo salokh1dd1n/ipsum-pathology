@@ -1,17 +1,17 @@
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
     <div class="c-sidebar-brand d-lg-down-none">
-        <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('dashboard/assets/brand/coreui.svg#full') }}"></use>
+        <svg class="c-sidebar-brand-full" width="118" height="46">
+            <use xlink:href="{{ asset('dashboard/icons/coreui.svg#full') }}"></use>
         </svg>
-        <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('dashboard/assets/brand/coreui.svg#signet') }}"></use>
+        <svg class="c-sidebar-brand-minimized" width="46" height="46">
+            <use xlink:href="{{ asset('dashboard/icons/coreui.svg#signet') }}"></use>
         </svg>
     </div>
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('news.index') }}">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-newspaper') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-newspaper') }}"></use>
                 </svg>
                 Новости
             </a>
@@ -19,7 +19,7 @@
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('applications.index') }}">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-share-boxed') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-share-boxed') }}"></use>
                 </svg>
                 Заявки
             </a>
@@ -27,7 +27,7 @@
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('team.index') }}">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-group') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-group') }}"></use>
                 </svg>
                 Специалисты
             </a>
@@ -35,7 +35,7 @@
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('clinics.index') }}">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-hospital') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-hospital') }}"></use>
                 </svg>
                 К кому обратиться
             </a>
@@ -43,7 +43,7 @@
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
             <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-chat-bubble') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-chat-bubble') }}"></use>
                 </svg>
                 FAQ
             </a>
@@ -65,7 +65,7 @@
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
             <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-filter') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-filter') }}"></use>
                 </svg>
                 Исследования
             </a>
@@ -93,7 +93,7 @@
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
             <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
                 <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-book') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-book') }}"></use>
                 </svg>
                 Болезни
             </a>

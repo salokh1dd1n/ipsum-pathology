@@ -15,7 +15,7 @@
                                aria-selected="false">
                                 <svg class="c-icon">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/flag.svg#cif-ru') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-ru') }}"></use>
                                 </svg>
                                 Русский
                             </a>
@@ -25,7 +25,7 @@
                                aria-selected="false">
                                 <svg class="c-icon">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/flag.svg#cif-uz') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-uz') }}"></use>
                                 </svg>
                                 O'zbek
                             </a>
@@ -35,7 +35,7 @@
                                aria-controls="messages" aria-selected="true">
                                 <svg class="c-icon">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/flag.svg#cif-us') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-us') }}"></use>
                                 </svg>
                                 English
                             </a>

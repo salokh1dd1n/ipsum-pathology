@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index']);
-Route::get('/dashboard', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('dashboard');
+Route::get('/', [\App\Http\Controllers\Admin\ApplicationsController::class, 'index']);
 
 Route::resource('news', \App\Http\Controllers\Admin\NewsController::class)
     ->except('show');

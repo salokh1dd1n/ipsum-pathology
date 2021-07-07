@@ -29,7 +29,7 @@
                                    onclick="event.preventDefault(); document.getElementById('application-done').submit();">
                                     <svg class="c-icon mr-1">
                                         <use
-                                            xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-task') }}"></use>
+                                            xlink:href="{{ asset('dashboard/icons/free.svg#cil-task') }}"></use>
                                     </svg>
                                     Завершено
                                 </a>
@@ -42,48 +42,11 @@
                                     data-target="#deleteNewsItem{{ $application->id }}">
                                 <svg class="c-icon mr-1">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-trash') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-trash') }}"></use>
                                 </svg>
                                 Удалить
                             </button>
-                            <div class="modal fade" id="deleteNewsItem{{ $application->id }}" tabindex="-1"
-                                 role="dialog"
-                                 aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-danger" role="document">
-                                    <form action="{{ route('applications.destroy', $application->id) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Удаление новости</h4>
-                                                <button class="close" type="button" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">×</span></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-8">
-                                                        <label for="delete_name">ФИО:</label>
-                                                        <p>{{ $application->fio }}</p>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <label for="delete_role">Телефонный номер:</label>
-                                                        <p>{{ formattedPhoneNumber($application->phone_number) }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                                                    Отменить
-                                                </button>
-                                                <button class="btn btn-danger" type="submit">Удалить</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <!-- /.modal-content-->
-                                </div>
-                                <!-- /.modal-dialog-->
-                            </div>
+                            @include('admin.includes.deleteModel', ['route' => 'applications', 'id' => $application->id])
                         </td>
                     </tr>
                 @empty

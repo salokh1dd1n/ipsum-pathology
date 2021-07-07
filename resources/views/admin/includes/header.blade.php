@@ -2,18 +2,18 @@
     <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar"
             data-class="c-sidebar-show">
         <svg class="c-icon c-icon-lg">
-            <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-menu') }}"></use>
+            <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-menu') }}"></use>
         </svg>
     </button>
     <a class="c-header-brand d-lg-none" href="#">
         <svg width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('dashboard/assets/brand/coreui.svg#full') }}"></use>
+            <use xlink:href="{{ asset('dashboard/icons/coreui.svg#full') }}"></use>
         </svg>
     </a>
     <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar"
             data-class="c-sidebar-lg-show" responsive="true">
         <svg class="c-icon c-icon-lg">
-            <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-menu') }}"></use>
+            <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-menu') }}"></use>
         </svg>
     </button>
     <ul class="c-header-nav d-md-down-none">
@@ -23,7 +23,7 @@
         <li class="c-header-nav-item d-md-down-none mx-2">
             <a class="c-header-nav-link" type="button" data-toggle="modal" data-target="#logout">
                 <svg class="c-icon">
-                    <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-account-logout') }}"></use>
+                    <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-account-logout') }}"></use>
                 </svg>
             </a>
         </li>

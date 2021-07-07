@@ -12,7 +12,7 @@
                     <div class="input-group-prepend">
                     <span class="input-group-text">
                       <svg class="c-icon">
-                        <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-user') }}"></use>
+                        <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-user') }}"></use>
                       </svg>
                     </span>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="input-group-prepend">
                     <span class="input-group-text">
                       <svg class="c-icon">
-                        <use xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-lock-locked') }}"></use>
+                        <use xlink:href="{{ asset('dashboard/icons/free.svg#cil-lock-locked') }}"></use>
                       </svg>
                     </span>
                     </div>

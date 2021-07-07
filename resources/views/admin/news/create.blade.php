@@ -16,9 +16,8 @@
                                 <input type="file" accept="image/jpeg,image/png,image/gif"
                                        class="custom-file-input @error('image') is-invalid @enderror" id="image"
                                        name="image" value="{{ old('image') }}">
-                                <label class="custom-file-label">
-                                    Выбрать файл...
-                                </label>
+                                <label class="custom-file-label" for="image" data-browse="Загрузить">Выбрать файл...</label>
+
                                 @error('image')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -33,7 +32,7 @@
                                aria-selected="false">
                                 <svg class="c-icon">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/flag.svg#cif-ru') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-ru') }}"></use>
                                 </svg>
                                 Русский
                             </a>
@@ -43,7 +42,7 @@
                                aria-selected="false">
                                 <svg class="c-icon">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/flag.svg#cif-uz') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-uz') }}"></use>
                                 </svg>
                                 O'zbek
                             </a>
@@ -53,7 +52,7 @@
                                aria-controls="messages" aria-selected="true">
                                 <svg class="c-icon">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/flag.svg#cif-us') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-us') }}"></use>
                                 </svg>
                                 English
                             </a>

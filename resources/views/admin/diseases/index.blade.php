@@ -43,10 +43,10 @@
                             @endforeach
                         </td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('diseases.edit', $disease->id) }}">
+                            <a class="btn btn-sm btn-primary mb-2" href="{{ route('diseases.edit', $disease->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-pencil') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
                                 </svg>
                                 Изменить
                             </a>
@@ -54,47 +54,11 @@
                                     data-target="#deleteNewsItem{{ $disease->id }}">
                                 <svg class="c-icon mr-1">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-trash') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-trash') }}"></use>
                                 </svg>
                                 Удалить
                             </button>
-                            <div class="modal fade" id="deleteNewsItem{{ $disease->id }}" tabindex="-1" role="dialog"
-                                 aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-danger" role="document">
-                                    <form action="{{ route('diseases.destroy', $disease->id) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Удаление новости</h4>
-                                                <button class="close" type="button" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">×</span></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-8">
-                                                        <label for="delete_name">Заголовок:</label>
-                                                        <p>{{ $disease->title }}</p>
-                                                    </div>
-                                                    <div class="col-4">
-                                                        <label for="delete_role">Описание:</label>
-                                                        <p>{{ $disease->description }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                                                    Отменить
-                                                </button>
-                                                <button class="btn btn-danger" type="submit">Удалить</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <!-- /.modal-content-->
-                                </div>
-                                <!-- /.modal-dialog-->
-                            </div>
+                            @include('admin.includes.deleteModel', ['route' => 'diseases', 'id' => $disease->id])
                         </td>
                     </tr>
                 @empty

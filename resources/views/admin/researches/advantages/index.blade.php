@@ -32,7 +32,7 @@
                             <a class="btn btn-sm btn-primary" href="{{ route('advantages.edit', $advantage->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-pencil') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
                                 </svg>
                                 Изменить
                             </a>
@@ -40,47 +40,11 @@
                                     data-target="#deleteNewsItem{{ $advantage->id }}">
                                 <svg class="c-icon mr-1">
                                     <use
-                                        xlink:href="{{ asset('dashboard/@coreui/icons/sprites/free.svg#cil-trash') }}"></use>
+                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-trash') }}"></use>
                                 </svg>
                                 Удалить
                             </button>
-                            <div class="modal fade" id="deleteNewsItem{{ $advantage->id }}" tabindex="-1" role="dialog"
-                                 aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-danger" role="document">
-                                    <form action="{{ route('advantages.destroy', $advantage->id) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <div class="modal-content text-center">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title">Удаление преимущество</h5>
-                                                <button class="close" type="button" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                    <span aria-hidden="true">×</span></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    @foreach(Config::get('app.languages') as $key => $lang)
-                                                        <div class="col-4">
-                                                            <label>Заголовок ({{ $lang }}):</label>
-                                                            <p>
-                                                                {{ $advantage->getTranslation('title', $key) }}
-                                                            </p>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button class="btn btn-secondary" type="button" data-dismiss="modal">
-                                                    Отменить
-                                                </button>
-                                                <button class="btn btn-danger" type="submit">Удалить</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <!-- /.modal-content-->
-                                </div>
-                                <!-- /.modal-dialog-->
-                            </div>
+                            @include('admin.includes.deleteModel', ['route' => 'advantages', 'id' => $advantage->id])
                         </td>
                     </tr>
                 @empty

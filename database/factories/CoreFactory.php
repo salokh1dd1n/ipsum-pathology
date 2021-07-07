@@ -32,7 +32,7 @@ abstract class CoreFactory extends Factory
 
     protected function phone()
     {
-        $phone = '998' . $this->faker->numberBetween(90, 99) . $this->faker->numberBetween(1000000, 9999999);
+        $phone = $this->faker->numberBetween(90, 99) . $this->faker->numberBetween(1000000, 9999999);
         return $phone;
     }
 

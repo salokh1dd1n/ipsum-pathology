@@ -1,4 +1,4 @@
-<script src="{{ asset('dashboard/coreui/js/inputmask.min.js') }}"></script>
+<script src="{{ asset('dashboard/js/inputmask.min.js') }}"></script>
 <script>
     let selector = document.getElementById("price");
 
