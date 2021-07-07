@@ -22,8 +22,8 @@ class ClinicFactory extends CoreFactory
     public function definition()
     {
         $attributes['phone_number'] = $this->phone();
-        $attributes['title'] = $this->title();
-        $attributes['address'] = $this->faker->address;
+        $attributes['title'] = $this->multiLang($this->title());
+        $attributes['address'] = $this->multiLang($this->faker->address);
 
         return $attributes;
     }

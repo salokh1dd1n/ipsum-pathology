@@ -32,7 +32,7 @@
                             <label for="phone_number">Телефонный номер</label>
                             <input class="form-control @error('phone_number') is-invalid @enderror"
                                    id="phone_number" name="phone_number"
-                                   type="text" value="{{ $member->phone_number }}"
+                                   type="text" value="{{ formattedPhoneNumber($member->phone_number) }}"
                                    placeholder="Введите номер телефона">
                             @error('phone_number')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -127,4 +127,6 @@
         </form>
     </div>
 @endsection
-
+@push('scripts')
+    @include('admin.includes.phoneNumberMask')
+@endpush

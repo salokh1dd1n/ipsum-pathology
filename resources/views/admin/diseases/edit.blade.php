@@ -14,12 +14,12 @@
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="symptom_id">Выберите симптомы</label>
-                                <select  class="form-control @error('symptom_id') is-invalid @enderror"
+                                <select class="form-control @error('symptom_id') is-invalid @enderror"
                                         id="symptom_id" name="symptom_id[]"
                                         multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($symptoms as $symptom)
                                         <option value="{{ $symptom->id }}"
-                                                {{ multiOptionSelected(old('symptom_id'), $symptom->id, $disease->symptoms) }}>
+                                            {{ multiOptionSelected(old('symptom_id'), $symptom->id, $disease->symptoms) }}>
                                             {{ $symptom->title }}
                                         </option>
                                     @endforeach
@@ -55,7 +55,7 @@
                                         multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($faqs as $faq)
                                         <option value="{{ $faq->id }}"
-                                                {{ multiOptionSelected(old('faq_id'), $faq->id, $disease->faq) }}>
+                                            {{ multiOptionSelected(old('faq_id'), $faq->id, $disease->faq) }}>
                                             {{ $faq->title }}
                                         </option>
                                     @endforeach
@@ -174,5 +174,6 @@
 
 @push('scripts')
     @include('admin.includes.ckeditor')
+    <script src="{{ asset('dashboard/coreui/js/multiselect-dropdown.js') }}"></script>
 @endpush
 

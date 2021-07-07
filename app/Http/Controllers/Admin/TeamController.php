@@ -37,7 +37,7 @@ class TeamController extends Controller
         return view('admin.team.create');
     }
 
-    public function store(Request $request)
+    public function store(TeamRequest $request)
     {
         $file = $request->file('image');
         $data = $request->only('name', 'role', 'description');
@@ -65,7 +65,9 @@ class TeamController extends Controller
     public function update(TeamRequest $request, int $id)
     {
         $file = $request->file('image');
-        $data = $request->only('phone_number', 'name', 'role', 'description');
+        $data = $request->only('name', 'role', 'description');
+        $phone_number = $request->input('phone_number');
+        $data['phone_number'] = reFormatPhoneNumber($phone_number);
 
         return $this->teamService->updateDataWithImage($id, $file, $data);
     }

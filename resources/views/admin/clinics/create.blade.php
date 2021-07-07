@@ -14,7 +14,7 @@
                             <label for="phone_number">Телефонный номер</label>
                             <input class="form-control @error('phone_number') is-invalid @enderror"
                                    id="phone_number" name="phone_number"
-                                   type="text" value="{{ old('phone_number') }}"
+                                   type="text" value="@if(old('phone_number')) {{ old('phone_number') }} @else +998 @endif"
                                    placeholder="Введите номер телефона">
                             @error('phone_number')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -76,8 +76,8 @@
                                         <div class="form-group">
                                             <label for="address_{{ $key }}">Адрес ({{ $lang }})</label>
                                             <textarea class="form-control @error('address.'.$key) is-invalid @enderror"
-                                                id="address_{{ $key }}" name="address[{{ $key }}]" rows="9"
-                                                placeholder="Введите адрес">{{ old('address.'.$key) }}</textarea>
+                                                      id="address_{{ $key }}" name="address[{{ $key }}]" rows="9"
+                                                      placeholder="Введите адрес">{{ old('address.'.$key) }}</textarea>
                                             @error('address.'.$key)
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -97,4 +97,8 @@
         </form>
     </div>
 @endsection
+@push('scripts')
+    @include('admin.includes.phoneNumberMask')
+@endpush
+
 

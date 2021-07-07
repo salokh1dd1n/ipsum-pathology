@@ -25,7 +25,7 @@ class PhoneNumberRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        return preg_match("#^998\s*\d{2}\s*\d{3}\s*\d{2}\s*\d{2}$#", $value);
+        return preg_match("#^\+998\s*\S?\d{2}\S?\s*\d{3}\S?\s*\d{2}\S?\s*\d{2}$#", $value);
     }
 
     /**
@@ -35,6 +35,6 @@ class PhoneNumberRule implements Rule
      */
     public function message()
     {
-        return 'Номер телефона не подходит. Должно быть похоже 9989********';
+        return 'Номер телефона не подходит. Должно быть похоже +998 (**) ***-**-**';
     }
 }

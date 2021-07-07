@@ -155,10 +155,7 @@
 @endsection
 
 @push('scripts')
-    <script>
-        $('#selectpicker').selectpicker();
-
-    </script>
+    <script src="{{ asset('dashboard/coreui/js/multiselect-dropdown.js') }}"></script>
 @endpush
 
 

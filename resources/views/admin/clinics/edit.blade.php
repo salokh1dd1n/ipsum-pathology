@@ -15,7 +15,7 @@
                             <label for="phone_number">Телефонный номер</label>
                             <input class="form-control @error('phone_number') is-invalid @enderror"
                                    id="phone_number" name="phone_number"
-                                   type="text" value="{{ $clinic->phone_number }}"
+                                   type="text" value="{{ formattedPhoneNumber($clinic->phone_number) }}"
                                    placeholder="Введите номер телефона">
                             @error('phone_number')
                             <div class="invalid-feedback">{{ $message }}</div>

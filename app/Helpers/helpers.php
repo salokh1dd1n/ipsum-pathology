@@ -22,9 +22,18 @@ function multiOptionSelected($old_inputs, $value, $inputs = null)
 
 function formattedPhoneNumber($phone_number)
 {
-    $statement = preg_match('/^(998)\s*(\d{2})\s*(\d{3})\s*(\d{2})\s*(\d{2})$/', $phone_number, $matches);
+    $statement = preg_match('/^(\d{2})(\d{3})(\d{2})(\d{2})$/', $phone_number, $matches);
     if ($statement) {
-        $result = '+' . $matches[1] . ' (' . $matches[2] . ') ' . $matches[3] . '-' . $matches[4] . '-' . $matches[5];
+        $result = '+998 (' . $matches[1] . ') ' . $matches[2] . '-' . $matches[3] . '-' . $matches[4];
+        return $result;
+    }
+}
+
+function reFormatPhoneNumber($phone_number)
+{
+    $statement = preg_match('/^(\+998)\s*\S?(\d{2})\S?\s*(\d{3})\S?\s*(\d{2})\S?\s*(\d{2})$/', $phone_number, $matches);
+    if ($statement) {
+        $result = $matches[2] . $matches[3] . $matches[4] . $matches[5];
         return $result;
     }
 }

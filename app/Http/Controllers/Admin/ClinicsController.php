@@ -43,7 +43,10 @@ class ClinicsController extends Controller
      */
     public function store(ClinicsRequest $request)
     {
-        $data = $request->only('title', 'phone_number', 'address');
+        $data = $request->only('title', 'address');
+        $phone_number = $request->input('phone_number');
+        $data['phone_number'] = reFormatPhoneNumber($phone_number);
+
         return $this->clinicsService->insertData($data);
     }
 
@@ -64,7 +67,10 @@ class ClinicsController extends Controller
      */
     public function update(ClinicsRequest $request, int $id)
     {
-        $data = $request->only('title', 'phone_number', 'address');
+        $data = $request->only('title', 'address');
+        $phone_number = $request->input('phone_number');
+        $data['phone_number'] = reFormatPhoneNumber($phone_number);
+
         return $this->clinicsService->updateData($id, $data);
     }
 

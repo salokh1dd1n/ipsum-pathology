@@ -14,7 +14,7 @@
                             id="tag_id" name="tag_id[]" placeholder="Выберите теги" multiple multiselect-search="true">
                         @foreach($tags as $tag)
                             <option value="{{ $tag->id }}"
-                                    {{ multiOptionSelected(old('tag_id'), $tag->id) }}>
+                                {{ multiOptionSelected(old('tag_id'), $tag->id) }}>
                                 {{ $tag->title }}
                             </option>
                         @endforeach
@@ -102,4 +102,7 @@
         </form>
     </div>
 @endsection
+@push('scripts')
+    <script src="{{ asset('dashboard/coreui/js/multiselect-dropdown.js') }}"></script>
+@endpush
 

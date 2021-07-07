@@ -105,4 +105,7 @@
         </form>
     </div>
 @endsection
+@push('scripts')
+    <script src="{{ asset('dashboard/coreui/js/multiselect-dropdown.js') }}"></script>
+@endpush
 

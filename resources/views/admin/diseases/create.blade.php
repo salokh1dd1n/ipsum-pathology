@@ -19,7 +19,7 @@
                                         multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($symptoms as $symptom)
                                         <option value="{{ $symptom->id }}"
-                                                {{ multiOptionSelected(old('symptom_id'), $symptom->id) }}>
+                                            {{ multiOptionSelected(old('symptom_id'), $symptom->id) }}>
                                             {{ $symptom->title }}
                                         </option>
                                     @endforeach
@@ -37,7 +37,7 @@
                                         multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($diagnostics as $diagnostic)
                                         <option value="{{ $diagnostic->id }}"
-                                                {{ multiOptionSelected(old('diagnostic_id'), $diagnostic->id) }}>
+                                            {{ multiOptionSelected(old('diagnostic_id'), $diagnostic->id) }}>
                                             {{ $diagnostic->title }}
                                         </option>
                                     @endforeach
@@ -55,7 +55,7 @@
                                         multiple multiselect-search="true" multiselect-max-items>
                                     @foreach($faqs as $faq)
                                         <option value="{{ $faq->id }}"
-                                                {{ multiOptionSelected(old('faq_id'), $faq->id) }}>
+                                            {{ multiOptionSelected(old('faq_id'), $faq->id) }}>
                                             {{ $faq->title }}
                                         </option>
                                     @endforeach
@@ -174,5 +174,6 @@
 
 @push('scripts')
     @include('admin.includes.ckeditor')
+    <script src="{{ asset('dashboard/coreui/js/multiselect-dropdown.js') }}"></script>
 @endpush
 

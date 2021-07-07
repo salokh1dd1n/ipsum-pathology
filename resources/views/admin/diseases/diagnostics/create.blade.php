@@ -14,7 +14,7 @@
                             <label for="price">Цена</label>
                             <input class="form-control @error('price') is-invalid @enderror"
                                    id="price" name="price"
-                                   type="number" value="{{ old('price') }}"
+                                   type="text" value="{{ old('price') }}"
                                    placeholder="Введите цену">
                             @error('price')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -96,3 +96,6 @@
         </form>
     </div>
 @endsection
+@push('scripts')
+    @include('admin.includes.priceMask')
+@endpush

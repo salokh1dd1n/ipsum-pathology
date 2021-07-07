@@ -27,7 +27,7 @@ class ClinicsRequest extends FormRequest
     public function rules()
     {
         $rules = [
-            'phone_number' => ['required', 'string', 'max:12', new PhoneNumberRule()],
+            'phone_number' => ['required', 'string', new PhoneNumberRule()],
             'title.*' => 'required|string|max:250|min:3',
             'address.*' => 'required|string|max:250|min:3'
         ];

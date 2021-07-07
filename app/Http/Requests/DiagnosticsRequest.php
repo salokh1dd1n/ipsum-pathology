@@ -18,6 +18,13 @@ class DiagnosticsRequest extends FormRequest
         return Auth::check();
     }
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'price' => preg_replace("/\s+/", "", $this->get('price'))
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *

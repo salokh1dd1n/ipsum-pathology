@@ -33,7 +33,6 @@
 <script src="{{ asset('dashboard/coreui/js/coreui.bundle.min.js') }}"></script>
 <script src="{{ asset('dashboard/coreui/js/svgxuse.min.js') }}"></script>
 <script src="{{ asset('dashboard/coreui/js/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('dashboard/coreui/js/multiselect-dropdown.js') }}"></script>
 @stack('scripts')
 </body>
 </html>

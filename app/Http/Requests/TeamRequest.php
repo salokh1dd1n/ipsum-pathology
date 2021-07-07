@@ -34,7 +34,7 @@ class TeamRequest extends FormRequest
                 'name.*' => 'required|string|max:250|min:3',
                 'description.*' => 'required',
                 'role.*' => 'required|string|max:250|min:3',
-                'phone_number' => ['required', 'string', 'max:12', new PhoneNumberRule],
+                'phone_number' => ['required', 'string', new PhoneNumberRule],
             ],
 
             'team.store' => [
@@ -42,7 +42,7 @@ class TeamRequest extends FormRequest
                 'name.*' => 'required|string|max:250|min:3',
                 'description.*' => 'required',
                 'role.*' => 'required|string|max:250|min:3',
-                'phone_number' => ['required', 'string', 'max:12', new PhoneNumberRule],
+                'phone_number' => ['required', 'string', new PhoneNumberRule],
             ],
         ];
         return $rules[$route];
