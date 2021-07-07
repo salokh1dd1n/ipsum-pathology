@@ -4,7 +4,7 @@
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить новости</strong></div>
+        <div class="card-header"><strong>Редактировать услугу</strong></div>
         <form class="form-horizontal" action="{{ route('services.update', $service->id) }}" method="POST">
             @method('PATCH')
             @csrf

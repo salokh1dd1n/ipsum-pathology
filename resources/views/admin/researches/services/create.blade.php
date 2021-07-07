@@ -4,7 +4,7 @@
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить новости</strong></div>
+        <div class="card-header"><strong>Добавить услугу</strong></div>
         <form class="form-horizontal" action="{{ route('services.store') }}" method="POST">
             @csrf
             <div class="card-body">

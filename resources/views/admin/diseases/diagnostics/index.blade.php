@@ -27,14 +27,14 @@
                         <td>{{ $diagnostic->title }}</td>
                         <td>{{ formattedPrice($diagnostic->price) }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('diagnostics.edit', $diagnostic->id) }}">
+                            <a class="btn btn-sm btn-primary mb-1" href="{{ route('diagnostics.edit', $diagnostic->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
                                 </svg>
                                 Изменить
                             </a>
-                            <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
+                            <button class="btn btn-sm btn-danger mb-1" type="button" data-toggle="modal"
                                     data-target="#deleteNewsItem{{ $diagnostic->id }}">
                                 <svg class="c-icon mr-1">
                                     <use

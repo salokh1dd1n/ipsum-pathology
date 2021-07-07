@@ -4,7 +4,7 @@
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить тег</strong></div>
+        <div class="card-header"><strong>Редактировать тег</strong></div>
         <form class="form-horizontal" action="{{ route('tags.update', $tag->id) }}" method="POST">
             @method('PATCH')
             @csrf

@@ -25,7 +25,7 @@
                         </td>
                         <td>
                             @if(!$application->status)
-                                <a class="btn btn-sm btn-success" href="#"
+                                <a class="btn btn-sm btn-success mb-1" href="#"
                                    onclick="event.preventDefault(); document.getElementById('application-done').submit();">
                                     <svg class="c-icon mr-1">
                                         <use
@@ -38,7 +38,7 @@
                                     @csrf
                                 </form>
                             @endif
-                            <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
+                            <button class="btn btn-sm btn-danger mb-1" type="button" data-toggle="modal"
                                     data-target="#deleteNewsItem{{ $application->id }}">
                                 <svg class="c-icon mr-1">
                                     <use

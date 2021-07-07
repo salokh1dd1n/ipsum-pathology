@@ -1,10 +1,10 @@
 @extends('admin.layouts.app')
 @push('breadcrumb')
-    @include('admin.includes.breadcrumb', ['page' => 'FAQ', 'action' => 'Добавить часто задаваемые вопросы', 'route' => 'faq'])
+    @include('admin.includes.breadcrumb', ['page' => 'FAQ', 'action' => 'Добавить FAQ', 'route' => 'faq'])
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить часто задаваемые вопросы</strong></div>
+        <div class="card-header"><strong>Добавить FAQ</strong></div>
         <form class="form-horizontal" action="{{ route('faq.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">

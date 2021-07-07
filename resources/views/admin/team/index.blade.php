@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col-6"><strong>Новости</strong></div>
+                <div class="col-6"><strong>Специалисты</strong></div>
                 <div class="col-6">
                     <a class="btn btn-sm btn-success float-right" href="{{ route('team.create') }}"> Добавить</a>
                 </div>
@@ -29,14 +29,14 @@
                         <td>{{ $member->role }}</td>
                         <td>{{ formattedPhoneNumber($member->phone_number) }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('team.edit', $member->id) }}">
+                            <a class="btn btn-sm btn-primary mb-1" href="{{ route('team.edit', $member->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
                                         xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
                                 </svg>
                                 Изменить
                             </a>
-                            <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
+                            <button class="btn btn-sm btn-danger mb-1" type="button" data-toggle="modal"
                                     data-target="#deleteNewsItem{{ $member->id }}">
                                 <svg class="c-icon mr-1">
                                     <use

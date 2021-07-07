@@ -4,7 +4,7 @@
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить болезнь</strong></div>
+        <div class="card-header"><strong>Редактировать болезнь</strong></div>
         <form class="form-horizontal" action="{{ route('diseases.update', $disease->id) }}" method="POST">
             @method('PATCH')
             @csrf

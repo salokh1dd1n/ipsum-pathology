@@ -4,7 +4,7 @@
 @endpush
 @section('content')
     <div class="card">
-        <div class="card-header"><strong>Добавить новости</strong></div>
+        <div class="card-header"><strong>Редактировать специалиста</strong></div>
         <form class="form-horizontal" action="{{ route('team.update', $member->id) }}" method="POST" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
