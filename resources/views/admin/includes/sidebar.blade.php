@@ -1,11 +1,13 @@
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
     <div class="c-sidebar-brand d-lg-down-none">
-        <svg class="c-sidebar-brand-full" width="118" height="46">
-            <use xlink:href="{{ asset('dashboard/icons/coreui.svg#full') }}"></use>
-        </svg>
-        <svg class="c-sidebar-brand-minimized" width="46" height="46">
-            <use xlink:href="{{ asset('dashboard/icons/coreui.svg#signet') }}"></use>
-        </svg>
+        <a class="c-sidebar-brand-full" href="{{ route('dashboard') }}">
+            <img src="{{ asset('dashboard/icons/logo.svg') }}" alt="Ipsum Pathology"
+                 width="118" height="46">
+        </a>
+        <a class="c-sidebar-brand-minimized" href="{{ route('dashboard') }}">
+            <img src="{{ asset('dashboard/icons/logo.svg') }}" alt="Ipsum Pathology"
+                 width="46" height="46">
+        </a>
     </div>
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">

@@ -7,7 +7,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- CoreUI CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/css/style.css') }}" crossorigin="anonymous">
-{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">--}}
     <link rel="stylesheet" href="{{ asset('dashboard/css/perfect-scrollbar.min.css') }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
