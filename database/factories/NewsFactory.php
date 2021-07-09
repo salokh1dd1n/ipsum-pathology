@@ -21,15 +21,10 @@ class NewsFactory extends CoreFactory
      */
     public function definition()
     {
-        $images = [];
-        for ($i = 1; $i <= 5; $i = $i + 2) {
-            $images[] = 'news' . $i . '.png';
-        }
         $attributes['title'] = $this->multiLang($this->title());
         $attributes['short_desc'] = $this->multiLang($this->title());
         $attributes['description'] = $this->multiLang($this->descriptionHTML());
-        $attributes['image'] = $this->faker->randomElement($images);
-//        $attributes['image'] = $this->image();
+        $attributes['image'] = $this->image();
 
         return $attributes;
     }

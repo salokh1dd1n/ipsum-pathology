@@ -13,12 +13,23 @@ class Disease extends Model
     /**
      * @var string[]
      */
-    protected $translatable = ['title', 'description', 'symptom_desc', 'treatment_desc'];
+    protected $translatable = [
+        'title',
+        'description',
+        'symptom_desc',
+        'treatment_desc',
+    ];
 
     /**
      * @var string[]
      */
-    protected $fillable = ['title', 'description', 'symptom_desc', 'treatment_desc'];
+    protected $fillable = [
+        'image',
+        'title',
+        'description',
+        'symptom_desc',
+        'treatment_desc'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

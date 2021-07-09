@@ -24,7 +24,7 @@ class DiseasesController extends Controller
      */
     public function index()
     {
-        $diseases = $this->diseasesService->getPaginatedDiseases();
+        $diseases = $this->diseasesService->getPaginatedDiseases(10);
         return view('admin.diseases.index', compact('diseases'));
     }
 
@@ -45,11 +45,12 @@ class DiseasesController extends Controller
      */
     public function store(DiseasesRequest $request)
     {
+        $file = $request->file('image');
         $data = $request->only('title', 'description', 'symptom_desc', 'treatment_desc');
         $symptoms = $request->input('symptom_id');
         $diagnostics = $request->input('diagnostic_id');
         $faq = $request->input('faq_id');
-        return $this->diseasesService->insertDiseaseData($data, $symptoms, $diagnostics, $faq);
+        return $this->diseasesService->insertDiseaseData($data, $file, $symptoms, $diagnostics, $faq);
     }
 
     /**
@@ -72,11 +73,12 @@ class DiseasesController extends Controller
      */
     public function update(DiseasesRequest $request, $id)
     {
+        $file = $request->file('image');
         $data = $request->only('title', 'description', 'symptom_desc', 'treatment_desc');
         $symptoms = $request->input('symptom_id');
         $diagnostics = $request->input('diagnostic_id');
         $faq = $request->input('faq_id');
-        return $this->diseasesService->updateDiseaseData($id, $data, $symptoms, $diagnostics, $faq);
+        return $this->diseasesService->updateDiseaseData($id, $data, $file, $symptoms, $diagnostics, $faq);
     }
 
     /**

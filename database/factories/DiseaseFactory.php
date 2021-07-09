@@ -20,6 +20,7 @@ class DiseaseFactory extends CoreFactory
      */
     public function definition()
     {
+        $attributes['image'] = $this->image();
         $attributes['title'] = $this->multiLang($this->title());
         $attributes['symptom_desc'] = $this->multiLang($this->faker->text(250));
         $attributes['treatment_desc'] = $this->multiLang($this->faker->text(250));

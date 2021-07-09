@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Storage;
 
 abstract class CoreFactory extends Factory
 {
@@ -12,6 +14,7 @@ abstract class CoreFactory extends Factory
 
     protected function image()
     {
+        Storage::makeDirectory('uploads/images');
         return $this->faker->image('public/storage/uploads/images', 640, 480, null, false);
     }
 
@@ -25,6 +28,7 @@ abstract class CoreFactory extends Factory
     {
         return $this->faker->realText(100);
     }
+
     protected function descriptionHTML()
     {
         return $this->faker->randomHtml();

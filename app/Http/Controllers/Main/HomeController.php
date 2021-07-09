@@ -9,6 +9,7 @@ use App\Services\ApplicationService;
 use App\Services\NewsService;
 use App\Services\TeamService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller

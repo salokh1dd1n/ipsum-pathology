@@ -5,8 +5,7 @@
 @section('content')
     <div class="card">
         <div class="card-header"><strong>Редактировать FAQ</strong></div>
-        <form class="form-horizontal" action="{{ route('faq.update', $faq->id) }}" method="POST"
-              enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{ route('faq.update', $faq->id) }}" method="POST">
             @method('PATCH')
             @csrf
             <div class="card-body">

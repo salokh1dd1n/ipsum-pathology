@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
         <div class="card-header"><strong>Добавить FAQ</strong></div>
-        <form class="form-horizontal" action="{{ route('faq.store') }}" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{ route('faq.store') }}" method="POST">
             @csrf
             <div class="card-body">
                 <div class="form-group">

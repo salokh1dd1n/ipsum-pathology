@@ -78,6 +78,12 @@
   margin-bottom: 27px;
 }
 
+.block__card-pagination .uk-active span {
+  color: #fff;
+  border-radius: 20px;
+  background: #fe5e7a;
+}
+
 .accordion__btns > li {
   margin-top: 5px;
 }
@@ -105,7 +111,7 @@
 .accordion__items-element .accordion__item-title:hover {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  font-size: 21.4732px;
+  font-size: 21px;
   line-height: 130%;
   color: #1b1139;
 }
@@ -114,6 +120,26 @@
 .accordion__items-element .accordion__item-title:focus::before,
 .accordion__items-element .accordion__item-title:hover::before {
   float: left;
+  margin: 0 5px 0 0;
+  background-image: url("../img/plus-icon.svg");
+  background-size: contain;
+}
+
+.accordion__items-element .uk-open > .accordion__item-title::before {
+  background-image: url("../img/minus-icon.svg");
+}
+
+.accordion__items-element .accordion__item-content {
+  font-size: 17px;
+  line-height: 150.7%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 0.12px;
+  color: #363049;
 }
 
 section,
@@ -15642,6 +15668,10 @@ iframe.uk-cover {
   color: #fff;
 }
 
+.header__lang-list > .uk-list > .uk-link-reset > .header__nav-link img {
+  border-radius: 50%;
+}
+
 .header__lang-changer:focus {
   outline: none;
 }
@@ -15666,6 +15696,10 @@ iframe.uk-cover {
   -webkit-transition: background .5s linear;
   -o-transition: background .5s linear;
   transition: background .5s linear;
+}
+
+.header__lang-btn img {
+  border-radius: 50%;
 }
 
 .header__lang-btn:hover {
@@ -15998,7 +16032,7 @@ iframe.uk-cover {
 .form__wrapper {
   height: 461px;
   border-radius: 34px;
-  background: #FE5E7A;
+  background: #fe5e7a;
   -webkit-box-shadow: 0 5px 30px #fe5e7a;
           box-shadow: 0 5px 30px #fe5e7a;
   position: relative;
@@ -16018,7 +16052,7 @@ iframe.uk-cover {
 
 .form__fields {
   border-radius: 34px;
-  padding: 93px 65px 113px 65px;
+  padding: 56px 65px 113px 65px;
 }
 
 .form__content {
@@ -16035,7 +16069,7 @@ iframe.uk-cover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 35px;
@@ -16046,39 +16080,35 @@ iframe.uk-cover {
 .form__title {
   font-weight: bold;
   font-size: 45px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 35px;
   text-align: center;
 }
 
 .form__subtitle {
   font-size: 35px;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-bottom: 75px;
   text-align: center;
 }
 
 .form__inputs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 100%;
 }
 
 .form__input {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
+  height: 70px;
+  margin-right: 10px;
+  font-family: "DM Sans", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
   line-height: 99.33%;
-  height: 70px;
   letter-spacing: -0.025em;
-  margin-right: 26px;
   color: #000000;
 }
 
@@ -16107,21 +16137,21 @@ iframe.uk-cover {
 }
 
 .form__btn {
-  background: #0D1026;
+  background: #0d1026;
   border-radius: 8px;
-  font-family: 'Roboto', sans-serif;
+  border: none;
+  -webkit-transition-property: background;
+  -o-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 30.6714px;
   line-height: 128.69%;
-  border: none;
-  color: #FFFFFF;
-  -webkit-transition-property: background;
-  -o-transition-property: background;
-  transition-property: background;
-  -webkit-transition-duration: .5s;
-       -o-transition-duration: .5s;
-          transition-duration: .5s;
+  color: #ffffff;
 }
 
 .form__btn:hover {
@@ -16143,6 +16173,47 @@ iframe.uk-cover {
   z-index: 2;
   width: 457px;
   height: auto;
+}
+
+.form__input-tel,
+.form__input-name {
+  position: relative;
+}
+
+.form__input-sended {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 10px;
+  -webkit-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  opacity: 0;
+  font-size: 0;
+}
+
+.form__input-sended._sended {
+  opacity: 1;
+  font-size: 19px;
+}
+
+.form__input-error {
+  background: #333;
+  border-radius: 12px;
+  color: #fff;
+  -webkit-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+  opacity: 0;
+  font-size: 0;
+  position: absolute;
+  top: -18px;
+  right: 30px;
+  padding: 0 5px;
+}
+
+.form__input-error._error {
+  font-size: 20px;
+  opacity: 1;
 }
 
 .news__swiper {
@@ -16505,6 +16576,57 @@ iframe.uk-cover {
   position: absolute;
   top: -125px;
   right: -70px;
+}
+
+.our-location {
+  padding-bottom: 130px;
+}
+
+.our-location .anim__background-mask {
+  top: -105px;
+  left: -140px;
+}
+
+.our-location__map {
+  border-radius: 23px;
+  position: relative;
+}
+
+.our-location__map .desc__map {
+  max-width: 587px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 24px 113px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 24px 113px rgba(0, 0, 0, 0.3);
+  padding: 40px 25px 40px 25px;
+  border-radius: 12px;
+  z-index: 1;
+  position: absolute;
+  bottom: 64px;
+  right: 47px;
+}
+
+.our-location__map .desc__map-wrapper {
+  margin-left: 0;
+}
+
+.our-location__map .desc__map-wrapper .cont__map {
+  font-family: "Poppins", sans-serif;
+}
+
+.our-location__map .desc__map-wrapper .cont__map-icon {
+  margin-right: 10px;
+}
+
+.our-location__map .desc__map-wrapper .cont__map-title {
+  font-size: 20px;
+  line-height: 30px;
+  color: #fe5e7a;
+}
+
+.our-location__map .desc__map-wrapper .cont__map-text {
+  font-size: 17px;
+  line-height: 25px;
+  color: #000000;
 }
 
 .footer__content {
@@ -18252,6 +18374,12 @@ iframe.uk-cover {
   }
 }
 
+@media (max-width: 1450px) {
+  .form__subtitle {
+    margin-bottom: 40px;
+  }
+}
+
 @media (max-width: 1367px) {
   .uk-navbar-right > .uk-navbar-nav > li > a {
     height: 43px;
@@ -18274,7 +18402,7 @@ iframe.uk-cover {
   }
 
   .form__fields {
-    padding: 60px 10px 40px 10px;
+    padding: 40px 10px 40px 10px;
   }
 
   .form__title {
@@ -18299,6 +18427,11 @@ iframe.uk-cover {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+
+  .form__inputs > .form__input-name,
+  .form__inputs .form__input-tel {
+    width: 100%;
   }
 
   .form__input {
@@ -18637,6 +18770,26 @@ iframe.uk-cover {
   }
 }
 
+@media (max-width: 1023.9px) {
+  .our-location__map .desc__map {
+    padding: 20px;
+    max-width: 100%;
+    position: initial;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 0;
+    -webkit-box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
 @media (max-width: 998px) {
   .block__title {
     font-size: 28px;
@@ -18762,12 +18915,27 @@ iframe.uk-cover {
 }
 
 @media (max-width: 768px) {
+  .block__wrapper {
+    padding: 25px 25px 40px 25px;
+  }
+
   .block__card-subtitle {
     font-size: 14px;
   }
 
   .block__card-description {
     font-size: 14px;
+  }
+
+  .accordion__items-element .accordion__item-title,
+  .accordion__items-element .accordion__item-title:focus,
+  .accordion__items-element .accordion__item-title:hover {
+    font-size: 18px;
+  }
+
+  .accordion__items-element .accordion__item-content {
+    font-size: 14px;
+    line-height: 1.1;
   }
 
   .anim__background-mask {
@@ -18921,6 +19089,14 @@ iframe.uk-cover {
   .form__background-arm {
     width: 157px;
     bottom: -95px;
+  }
+}
+
+@media (max-width: 425px) {
+  .accordion__items-element .accordion__item-title,
+  .accordion__items-element .accordion__item-title:focus,
+  .accordion__items-element .accordion__item-title:hover {
+    font-size: 15px;
   }
 }
 

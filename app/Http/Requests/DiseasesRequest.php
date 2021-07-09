@@ -29,6 +29,7 @@ class DiseasesRequest extends FormRequest
 
         $rules = [
             'diseases.update' => [
+                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'title.*' => 'required|string|max:250|min:3',
                 'description.*' => 'required',
                 'symptom_desc.*' => 'required',
@@ -39,6 +40,7 @@ class DiseasesRequest extends FormRequest
             ],
 
             'diseases.store' => [
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'title.*' => 'required|string|max:250|min:3',
                 'description.*' => 'required',
                 'symptom_desc.*' => 'required',
@@ -63,6 +65,7 @@ class DiseasesRequest extends FormRequest
         $validationRules['faq_id'] = 'Часто задаваемые вопросы';
         $validationRules['symptom_id'] = 'Симптомы';
         $validationRules['diagnostic_id'] = 'Диагностика';
+        $validationRules['image'] = 'Фото';
         return $validationRules;
     }
 }

@@ -8,11 +8,12 @@ use App\Repositories\DiseasesRepository;
 use App\Repositories\FaqRepository;
 use App\Repositories\SymptomsRepository;
 use App\Repositories\TagsRepository;
+use App\Services\Traits\ImageUploadTrait;
 use App\Services\Traits\RedirectTrait;
 
 class DiseasesService extends CoreService
 {
-    use RedirectTrait;
+    use ImageUploadTrait, RedirectTrait;
 
     protected object $repository;
     protected $faqRepository;
@@ -28,9 +29,9 @@ class DiseasesService extends CoreService
         $this->repository = $repository;
     }
 
-    public function getPaginatedDiseases()
+    public function getPaginatedDiseases($number)
     {
-        return $this->repository->getPaginatedDiseases();
+        return $this->repository->getPaginatedDiseases($number);
     }
 
     public function getAllFaq()
@@ -54,16 +55,27 @@ class DiseasesService extends CoreService
         return $this->repository->getDisease($id);
     }
 
-    public function insertDiseaseData($data, $symptoms, $diagnostics, $faq)
+    public function insertDiseaseData($data, $file, $symptoms, $diagnostics, $faq)
     {
+        $data['image'] = $this->uploadRenamedImage($file);
         $result = $this->repository->insertDiseaseData($data, $symptoms, $diagnostics, $faq);
         return $this->redirectWithAlert($result, $this->prefix . '.edit', 'create', $result->id);
     }
 
-    public function updateDiseaseData($id, $data, $symptoms, $diagnostics, $faq)
+    public function updateDiseaseData($id, $data, $file, $symptoms, $diagnostics, $faq)
     {
-        $result = $this->repository->upadateDiseaseData($id, $data, $symptoms, $diagnostics, $faq);
-        return $this->redirectWithAlert($result, $this->prefix . '.edit', 'update', $id);
+        if (isset($file) and $file != null) {
+            // Delete Image
+            $this->deleteCheckedImage($id);
+
+            $data['image'] = $this->uploadRenamedImage($file);
+
+            $result = $this->repository->upadateDiseaseData($id, $data, $symptoms, $diagnostics, $faq);
+            return $this->redirectWithAlert($result, $this->prefix . '.edit', 'update', $id);
+        } else {
+            $result = $this->repository->upadateDiseaseData($id, $data, $symptoms, $diagnostics, $faq);
+            return $this->redirectWithAlert($result, $this->prefix . '.edit', 'update', $id);
+        }
     }
 
 }

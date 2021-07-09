@@ -72,7 +72,7 @@
                     <!-- 3rd row intro of table -->
                     <div class="intro__row row__bottomSection uk-child-width-1-1 uk-child-width-1-3@m" uk-grid>
                         <div class="row__bottomSection-Clm">
-                            <a href="#">
+                            <a href="{{ route('treatments', app()->getLocale()) }}">
                                 <div class="row__bottomSection-item uk-card uk-card-default uk-card-body">
                                     <p>Как поставить диагноз и вылечить рак</p>
                                 </div>

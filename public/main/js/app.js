@@ -5288,9 +5288,45 @@ if (tel) {
     tel.value = "+998(";
     mask.updateValue();
   };
+  tel.oninput = function() {
+    if (tel.value == "9") {
+      tel.value = "+998(9";
+    } else if (tel.value == "+") {
+      tel.value = "+998(";
+    } else if (tel.value == "8") {
+      tel.value = "+998(8";
+    }
+  };
   var mask = IMask(tel, maskOptions);
 }
 
+// // валидация формы
+// let formReq = document.querySelectorAll('._req');
+// let error = 0;
+// for (let i=0;i<formReq.length;i++) {
+//   const input = formReq[i];
+//   formRemoveError(input);
+//   input.addEventListener("blur", formValidate)
+
+//   function formValidate(element) {
+//     if (input.value === '') {
+//       formAddError(input);
+//       error++;
+//     } else if (input.classList.contains('._tel').value === '+998(') {
+//       formAddError(input);
+//       error++;
+//     }
+//     else {
+//       formRemoveError(input);
+//     };
+//   }
+//   function formAddError(input) {
+//     input.classList.add('_error');
+//   };
+//   function formRemoveError(input) {
+//     input.classList.remove('_error');
+//   };
+// };
 
 
 // adaptive accordion in Footer 

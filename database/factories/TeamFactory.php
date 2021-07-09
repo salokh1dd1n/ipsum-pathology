@@ -20,12 +20,7 @@ class TeamFactory extends CoreFactory
      */
     public function definition()
     {
-        $experts = [];
-        for ($i = 1; $i <= 5; $i = $i + 2) {
-            $experts[] = 'expert' . $i . '.png';
-        }
-//        $attributes['image'] = $this->image();
-        $attributes['image'] = $this->faker->randomElement($experts);
+        $attributes['image'] = $this->image();
         $attributes['phone_number'] = $this->phone();
         $attributes['name'] = $this->multiLang($this->faker->name);
         $attributes['role'] = $this->multiLang($this->faker->text(10));

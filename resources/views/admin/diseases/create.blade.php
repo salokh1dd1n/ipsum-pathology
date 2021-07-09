@@ -11,6 +11,22 @@
             <div class="card-body">
                 <div class="nav-tabs-boxed">
                     <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="image">Фото</label>
+                                <div class="custom-file">
+                                    <input type="file" accept="image/jpeg,image/png,image/gif"
+                                           class="custom-file-input @error('image') is-invalid @enderror" id="image"
+                                           name="image" value="{{ old('image') }}">
+                                    <label class="custom-file-label" for="image" data-browse="Загрузить">Выбрать
+                                        файл...</label>
+
+                                    @error('image')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-4">
                             <div class="form-group">
                                 <label for="symptom_id">Выберите симптомы</label>

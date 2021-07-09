@@ -22,6 +22,7 @@ class DiseasesRepository extends CoreRepository
         $columns = [
             'id',
             'title',
+            'image',
         ];
 
         $result = $this
@@ -34,11 +35,11 @@ class DiseasesRepository extends CoreRepository
         return $result;
     }
 
-    public function getPaginatedDiseases()
+    public function getPaginatedDiseases($number)
     {
         $result = $this
             ->getAllDiseases()
-            ->paginate(10);
+            ->paginate($number);
 
         return $result;
     }
@@ -47,6 +48,7 @@ class DiseasesRepository extends CoreRepository
     {
         $columns = [
             'id',
+            'image',
             'title',
             'description',
             'symptom_desc',
