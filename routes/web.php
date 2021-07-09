@@ -12,10 +12,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+$settings = [
+    'prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],
+    'middleware' => 'setLocale'
+];
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(app()->getLocale());
 });
-
-//Auth::routes();
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group($settings, function () {
+    Route::get('/', [\App\Http\Controllers\Main\HomeController::class, 'index'])->name('index');
+});
+Route::post('/application/store', [\App\Http\Controllers\Main\HomeController::class, 'storeApplication'])->name('application.store');

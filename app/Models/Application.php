@@ -10,7 +10,7 @@ class Application extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'fio',
         'phone_number'
     ];
 }

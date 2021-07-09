@@ -23,7 +23,7 @@ abstract class CoreFactory extends Factory
 
     protected function description()
     {
-        return $this->faker->realText(400);
+        return $this->faker->realText(100);
     }
     protected function descriptionHTML()
     {

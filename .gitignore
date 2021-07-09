@@ -15,3 +15,4 @@ yarn-error.log
 /.vscode
 routes.txt
 /resources/frontend
+/public/main/img

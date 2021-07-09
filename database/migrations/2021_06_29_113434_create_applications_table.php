@@ -16,7 +16,7 @@ class CreateApplicationsTable extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('fio');
-            $table->string('phone_number', 12);
+            $table->string('phone_number', 9);
             $table->string('status', 1)->default(0);
             $table->timestamps();
         });

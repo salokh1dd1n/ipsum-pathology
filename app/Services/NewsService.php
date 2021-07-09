@@ -22,6 +22,11 @@ class NewsService extends CoreService
         parent::__construct($this->repository, $prefix);
     }
 
+    public function getAllNews($number)
+    {
+        return $this->repository->getAllNews()->addSelect(['image', 'short_desc'])->take($number)->get();
+    }
+
     public function getPaginatedNews()
     {
         return $this->repository->getPaginatedNews();

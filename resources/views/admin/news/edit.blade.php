@@ -80,6 +80,19 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
+                                            <label for="short_desc_{{ $key }}">Краткое описание ({{ $lang }})</label>
+                                            <textarea
+                                                class="form-control @error('short_desc.'.$key) is-invalid @enderror"
+                                                id="short_desc_{{ $key }}" name="short_desc[{{ $key }}]"
+                                                rows="3"
+                                                placeholder="Введите краткое описание">{{ $newsItem->getTranslation('short_desc', $key) }}</textarea>
+                                            @error('short_desc.'.$key)
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
                                             <label for="description_{{ $key }}">Описание ({{ $lang }})</label>
                                             <textarea
                                                 class="description form-control @error('description.'.$key) is-invalid @enderror"

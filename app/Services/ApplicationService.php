@@ -4,9 +4,12 @@ namespace App\Services;
 
 use App\Repositories\ApplicationsRepository;
 use App\Repositories\TeamRepository;
+use App\Services\Traits\RedirectTrait;
 
 class ApplicationService extends CoreService
 {
+    use RedirectTrait;
+
     protected object $repository;
 
     /**
@@ -34,6 +37,19 @@ class ApplicationService extends CoreService
             return redirect()
                 ->route('applications.index')
                 ->with(['success' => 'Успешно завершено']);
+        } else {
+            return back()
+                ->with(['error' => 'Ошибка, Свяжитесь с администратором'])
+                ->withInput();
+        }
+    }
+
+    public function insertData($data)
+    {
+        $result = $this->repository->create($data);
+        if ($result) {
+            return redirect(url()->route('index') . '#applicationForm')
+                ->with(['applicationCreate' => 'Successfully created']);
         } else {
             return back()
                 ->with(['error' => 'Ошибка, Свяжитесь с администратором'])

@@ -58,3 +58,12 @@ function customStatus($status)
     }
     return (object)$result;
 }
+
+function getLangWithoutExisting()
+{
+    $languages = array_keys(\Illuminate\Support\Facades\Config::get('app.languages'));
+    $key = array_search(app()->getLocale(), $languages);
+    unset($languages[$key]);
+
+    return $languages;
+}
