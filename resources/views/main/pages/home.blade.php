@@ -1,4 +1,7 @@
 @extends('main.layouts.app')
+@push('langSwitcher')
+    @include('main.includes.langSwitcher')
+@endpush
 @section('content')
     <div class="content">
         <section class="intro">
@@ -152,8 +155,8 @@
                                 <img src="{{ asset('storage/uploads/images/'.$newsItem->image) }}" alt="">
                             </picture>
                             <a href="#" class="">
-                                <h3 class="uk-card-title">{{ $newsItem->getTranslation('title', app()->getLocale()) }}</h3>
-                                <p>{{ getShortDesc($newsItem->getTranslation('description', app()->getLocale())) }}</p>
+                                <h3 class="uk-card-title">{{ $newsItem->title }}</h3>
+                                <p>{{ getShortDesc($newsItem->description) }}</p>
                             </a>
                         </div>
                     </div>
@@ -183,11 +186,11 @@
                                 <img src="{{ asset('storage/uploads/images/'.$member->image) }}" alt=""/></picture>
                             <div class="uk-card experts__swiper-content">
                                 <div
-                                    class="experts__swiper-position">{{ $member->getTranslation('role', app()->getLocale()) }}</div>
+                                    class="experts__swiper-position">{{ $member->role }}</div>
                                 <div
-                                    class="experts__swiper-name">{{ $member->getTranslation('name', app()->getLocale()) }}</div>
+                                    class="experts__swiper-name">{{ $member->name }}</div>
                                 <div class="experts__swiper-description">
-                                    {{ $member->getTranslation('description', app()->getLocale()) }}
+                                    {{ $member->description }}
                                 </div>
                             </div>
                         </div>

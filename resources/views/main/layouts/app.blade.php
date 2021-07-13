@@ -9,12 +9,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('main/css/style.min.css') }}">
     <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&family=Roboto&family=Work+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet"/>
-    <!-- <link rel="stylesheet" href="./fonts/stylesheet.css" /> -->
+    <link rel="stylesheet" href="{{ asset('main/fonts/stylesheet.css') }}"/>
 </head>
 <body>
 <div class="wrapper">

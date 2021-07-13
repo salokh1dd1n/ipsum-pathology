@@ -25,7 +25,7 @@ class HomeController extends Controller
         $this->applicationService = app(ApplicationService::class);
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $news = $this->newsService->getAllNews(5);
         $team = $this->teamService->getAllTeam(5);

@@ -17,6 +17,7 @@ class DiseasesService extends CoreService
 
     protected object $repository;
     protected $faqRepository;
+    protected $tagsRepository;
     protected $symptomsRepository;
     protected $diagnosticsRepository;
 
@@ -24,6 +25,7 @@ class DiseasesService extends CoreService
     {
         parent::__construct($repository, $prefix);
         $this->faqRepository = app(FaqRepository::class);
+        $this->tagsRepository = app(TagsRepository::class);
         $this->symptomsRepository = app(SymptomsRepository::class);
         $this->diagnosticsRepository = app(DiagnosticsRepository::class);
         $this->repository = $repository;
@@ -39,10 +41,15 @@ class DiseasesService extends CoreService
         return $this->faqRepository->getAllFaq()->get();
     }
 
+    public function getRelatedFaqTags($ids)
+    {
+        return $this->tagsRepository->getRelatedFaqTags($ids);
+    }
     public function getAllSymptoms()
     {
         return $this->symptomsRepository->getAllSymptoms()->get();
     }
+
 
     public function getAllDiagnostics()
     {

@@ -47,30 +47,18 @@
                 <div class="uk-inline header__lang-changer">
                     <button type="button" class="header__lang-btn uk-text-capitalize">
                         <picture>
-                            <source srcset="{{ asset('main/img/englang.webp') }}" type="image/webp">
                             <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
                         {{ app()->getLocale() }}
                         <picture>
-                            <source srcset="{{ asset('main/img/arrowDown.svg') }}" type="image/webp">
                             <img src="{{ asset('main/img/arrowDown.svg') }}" alt=""/></picture>
                     </button>
                     <div class="header__lang-list" type="button" uk-dropdown="mode:click">
                         <ul class="uk-list">
-                            @foreach (getLangWithoutExisting() as $langKey)
-                                <li class="uk-link-reset">
-                                    <a class="header__nav-link uk-text-capitalize"
-                                       href="{{ route(currentRouteName(), $langKey) }}">
-                                        <picture>
-                                            <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
-                                        {{ $langKey }}
-                                    </a>
-                                </li>
-                            @endforeach
+                            @stack('langSwitcher')
                         </ul>
                     </div>
                     <div class="anim-bg3">
                         <picture>
-                            <source srcset="{{ asset('main/img/Cursor.webp') }}" type="image/webp">
                             <img src="{{ asset('main/img/Cursor.png') }}" alt="" class="header__cursor"/></picture>
                     </div>
                 </div>
@@ -106,42 +94,14 @@
             <div class="uk-inline">
                 <button type="button" class="header__lang-btn">
                     <picture>
-                        <source srcset="{{ asset('main/img/englang.webp') }}" type="image/webp">
                         <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
-                    En
+                    {{ app()->getLocale() }}
                     <picture>
-                        <source srcset="{{ asset('main/img/arrowDown.svg') }}" type="image/webp">
                         <img src="{{ asset('main/img/arrowDown.svg') }}" alt=""/></picture>
                 </button>
                 <div class="header__lang-list" type="button" uk-dropdown="mode:click">
                     <ul class="uk-list">
-                        @foreach (getLangWithoutExisting() as $langKey)
-                            <li class="uk-link-reset">
-                                <a class="header__nav-link" href="{{ route(currentRouteName(), $langKey) }}">
-                                    <picture>
-                                        <source srcset="{{ asset('main/img/englang.webp') }}" type="image/webp">
-                                        <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
-                                    {{ $langKey }}
-                                </a>
-                            </li>
-                            <li class="uk-link-reset">
-                                <a class="header__nav-link uk-text-capitalize"
-                                   href="{{ route(currentRouteName(), $langKey) }}">
-                                    <picture>
-                                        <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
-                                    {{ $langKey }}
-                                </a>
-                            </li>
-                        @endforeach
-
-                        <li class="uk-link-reset">
-                            <a class="header__nav-link" href="#">
-                                <picture>
-                                    <source srcset="{{ asset('main/img/englang.webp') }}" type="image/webp">
-                                    <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
-                                Uz
-                            </a>
-                        </li>
+                        @stack('langSwitcher')
                     </ul>
                 </div>
             </div>

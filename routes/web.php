@@ -28,8 +28,8 @@ Route::group($settings, function () {
     Route::get('/', [\App\Http\Controllers\Main\HomeController::class, 'index'])->name('index');
 
     Route::get('/treatments', [\App\Http\Controllers\Main\DiseasesController::class, 'index'])->name('treatments');
-    Route::get('/treatments/{id}', [\App\Http\Controllers\Main\DiseasesController::class, 'show'])->name('treatments.show');
+    Route::get('/treatments/{id}', [\App\Http\Controllers\Main\DiseasesController::class, 'showTreatment'])->name('treatments.show');
 
     Route::get('/diagnostics', [\App\Http\Controllers\Main\DiseasesController::class, 'index'])->name('diagnostics');
-    Route::get('/diagnostics/{id}', [\App\Http\Controllers\Main\DiseasesController::class, 'show'])->name('diagnostics.show');
+    Route::get('/diagnostics/{id}', [\App\Http\Controllers\Main\DiseasesController::class, 'showDiagnostics'])->name('diagnostics.show');
 });

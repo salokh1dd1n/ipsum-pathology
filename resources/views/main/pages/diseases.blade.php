@@ -1,4 +1,7 @@
 @extends('main.layouts.app')
+@push('langSwitcher')
+    @include('main.includes.langSwitcher')
+@endpush
 @section('content')
     <div class="content">
         <section class="treatment-nav">
@@ -28,10 +31,10 @@
                                         </picture>
                                     </div>
                                     <div class="block__card-title">
-                                        {{ $disease->getTranslation('title', app()->getLocale()) }}
+                                        {{ $disease->title }}
                                     </div>
                                     <div class="block__card-description">
-                                        {{ getShortDesc($disease->getTranslation('description', app()->getLocale())) }}
+                                        {{ getShortDesc($disease->description) }}
                                     </div>
                                     <a href="{{ routeWithLocale(currentRouteName().'.show', $disease->id) }}"
                                        class="block__card-btn btn">Подробнее</a>

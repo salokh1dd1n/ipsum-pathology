@@ -55,13 +55,16 @@ class DiseasesRepository extends CoreRepository
             'symptom_desc',
             'treatment_desc',
         ];
+        
         $result = $this
             ->model
             ->select($columns)
             ->where('id', $id)
-            ->with(['symptoms:id,title'])
-            ->with(['diagnostics:id,title'])
-            ->with(['faq:id,title'])
+            ->with([
+                'symptoms:id,title,description',
+                'diagnostics:id,title,price,description',
+                'faq:id,title,description'
+            ])
             ->first();
 
         return $result;

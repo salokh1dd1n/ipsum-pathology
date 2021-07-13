@@ -35,4 +35,14 @@ class TagsRepository extends CoreRepository
         return $result;
     }
 
+    public function getRelatedFaqTags($ids)
+    {
+
+        $result = $this
+            ->getAllFaqTags()
+            ->whereIn('id', $ids)
+            ->get();
+
+        return $result;
+    }
 }

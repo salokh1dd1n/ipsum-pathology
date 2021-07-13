@@ -21,9 +21,23 @@ class DiseasesController extends Controller
         return view('main.pages.diseases', compact('diseases'));
     }
 
-    public function show($id)
+    public function showTreatment($lang, $id)
+    {
+        $disease = $this->diseaseService->getDisease($id);
+
+
+        $ids = [];
+        foreach ($disease->faq as $faq) {
+            foreach ($faq->tags as $tag) {
+                $ids[] = $tag->id;
+            }
+        }
+        $tags = $this->diseaseService->getRelatedFaqTags($ids);
+        return view('main.pages.treatment', compact('disease', 'tags'));
+    }
+
+    public function showDiagnostics($id)
     {
         dd(__METHOD__, $id);
     }
-
 }
