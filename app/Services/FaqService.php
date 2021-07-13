@@ -21,6 +21,11 @@ class FaqService extends CoreService
         $this->repository = $repository;
     }
 
+    public function getAllFaq()
+    {
+        return $this->repository->getAllFaq()->get();
+    }
+
     public function getPaginatedFaq()
     {
         return $this->repository->getPaginatedFaq();
@@ -29,6 +34,11 @@ class FaqService extends CoreService
     public function getAllFaqTags()
     {
         return $this->tagsRepository->getAllFaqTags()->get();
+    }
+
+    public function getRelatedFaqTags($faqs)
+    {
+        return $this->repository->getRelatedFaqTags($faqs);
     }
 
 

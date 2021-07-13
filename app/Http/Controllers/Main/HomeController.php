@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Main;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ApplicationsRequest;
 use App\Services\ApplicationService;
+use App\Services\FaqService;
 use App\Services\NewsService;
 use App\Services\TeamService;
 
@@ -12,12 +13,14 @@ class HomeController extends Controller
 {
     protected $newsService;
     protected $teamService;
+    protected $faqService;
     protected $applicationService;
 
     public function __construct()
     {
         $this->newsService = app(NewsService::class);
         $this->teamService = app(TeamService::class);
+        $this->faqService = app(FaqService::class);
         $this->applicationService = app(ApplicationService::class);
     }
 
@@ -32,6 +35,14 @@ class HomeController extends Controller
     {
         $team = $this->teamService->getPaginatedTeam(6);
         return view('main.pages.team', compact('team'));
+    }
+
+    public function faq()
+    {
+        $faqs = $this->faqService->getAllFaq();
+        $tags = $this->faqService->getRelatedFaqTags($faqs);
+
+        return view('main.pages.faq', compact('faqs', 'tags'));
     }
 
     public function storeApplication(ApplicationsRequest $request, $lang)

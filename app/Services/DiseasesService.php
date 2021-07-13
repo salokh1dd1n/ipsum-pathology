@@ -7,7 +7,6 @@ use App\Repositories\DiagnosticsRepository;
 use App\Repositories\DiseasesRepository;
 use App\Repositories\FaqRepository;
 use App\Repositories\SymptomsRepository;
-use App\Repositories\TagsRepository;
 use App\Services\Traits\ImageUploadTrait;
 use App\Services\Traits\RedirectTrait;
 
@@ -17,7 +16,6 @@ class DiseasesService extends CoreService
 
     protected object $repository;
     protected $faqRepository;
-    protected $tagsRepository;
     protected $symptomsRepository;
     protected $diagnosticsRepository;
 
@@ -25,7 +23,6 @@ class DiseasesService extends CoreService
     {
         parent::__construct($repository, $prefix);
         $this->faqRepository = app(FaqRepository::class);
-        $this->tagsRepository = app(TagsRepository::class);
         $this->symptomsRepository = app(SymptomsRepository::class);
         $this->diagnosticsRepository = app(DiagnosticsRepository::class);
         $this->repository = $repository;
@@ -60,15 +57,7 @@ class DiseasesService extends CoreService
 
     public function getRelatedFaqTags($faqs)
     {
-        $tags = [];
-        foreach ($faqs as $faq) {
-            foreach ($faq->tags as $tag) {
-                $tags[$tag->id] = $tag->title;
-            }
-        }
-        ksort($tags);
-
-        return $tags;
+        return $this->faqRepository->getRelatedFaqTags($faqs);
     }
 
     public function insertDiseaseData($data, $file, $symptoms, $diagnostics, $faq)

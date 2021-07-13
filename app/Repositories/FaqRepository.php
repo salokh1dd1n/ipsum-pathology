@@ -22,6 +22,7 @@ class FaqRepository extends CoreRepository
         $columns = [
             'id',
             'title',
+            'description'
         ];
 
         $result = $this
@@ -40,6 +41,19 @@ class FaqRepository extends CoreRepository
             ->paginate(10);
 
         return $result;
+    }
+
+    public function getRelatedFaqTags($faqs)
+    {
+        $tags = [];
+        foreach ($faqs as $faq) {
+            foreach ($faq->tags as $tag) {
+                $tags[$tag->id] = $tag->title;
+            }
+        }
+        ksort($tags);
+
+        return $tags;
     }
 
     public function getFAQ($id)
