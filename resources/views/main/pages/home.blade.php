@@ -53,7 +53,7 @@
                     <!-- Middle Section  -->
                     <div class="intro__row row__middleSection uk-child-width-1-1 uk-child-width-1-2@l" uk-grid>
                         <div class="row__middleSection-Clm">
-                            <a href="#">
+                            <a href="{{ routeWithLocale('diagnostics') }}">
                                 <div class="row__middleSection-item uk-card uk-card-default uk-card-body">
                                     <p>Диагностика Заболеваний</p>
                                 </div>
@@ -72,7 +72,7 @@
                     <!-- 3rd row intro of table -->
                     <div class="intro__row row__bottomSection uk-child-width-1-1 uk-child-width-1-3@m" uk-grid>
                         <div class="row__bottomSection-Clm">
-                            <a href="{{ route('treatments', app()->getLocale()) }}">
+                            <a href="{{ routeWithLocale('treatments') }}">
                                 <div class="row__bottomSection-item uk-card uk-card-default uk-card-body">
                                     <p>Как поставить диагноз и вылечить рак</p>
                                 </div>
@@ -102,14 +102,30 @@
                     <form class="form__fields" action="{{ route('application.store') }}" method="POST">
                         @csrf
                         <fieldset class="uk-fieldset form__content">
+                            <div class="form__content-notifications">
+                                @if ($message = Session::get('applicationMsg'))
+                                    <div class="form__input-sended _sended">{{ $message }}</div>
+                                @endif
+                            </div>
                             <label class="uk-form-label form__title">Остались вопросы, но нет ответов?</label>
-                            <label class="uk-form-label form__subtitle">Свяжитесь с нами по телефону +998 9* *** ****
-                                или
-                                оставьте заявку</label>
-                            <div class="uk-margin form__inputs">
-                                <input class="uk-input form__input" type="text" placeholder="Имя" name="fio" id="fio">
-                                <input class="uk-input form__input" type="tel" placeholder="Телефон: +998(__)-___-__-__"
-                                       name="phone_number" id="tel">
+                            <label class="uk-form-label form__subtitle">Свяжитесь с нами по телефону +998 (**) *** ** **
+                                или оставьте заявку</label>
+                            <div class="uk-margin form__inputs uk-flex uk-flex-center">
+                                <div class="form__input-name uk-width-1-3 uk-margin-small-right">
+                                    <input class="uk-input form__input" id="fio" name="fio" placeholder="Имя"
+                                           type="text" value="{{ old('fio') }}">
+                                    @error('fio')
+                                    <div class="form__input-error _error">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form__input-tel uk-width-1-3 uk-margin-small-right">
+                                    <input class="uk-input form__input" id="tel"
+                                           name="phone_number" placeholder="Телефон: +998(__)-___-__-__" type="tel"
+                                           value="{{ old('phone_number') }}">
+                                    @error('phone_number')
+                                    <div class="form__input-error _error">{{ $message }}</div>
+                                    @enderror
+                                </div>
                                 <button class="uk-button uk-button-default form__btn" type="submit">Отправить</button>
                             </div>
                         </fieldset>
@@ -118,9 +134,9 @@
                 </div>
             </div>
             <picture>
-                <source srcset="{{ asset('main/img/longArm.webp') }}" type="image/webp">
                 <img src="{{ asset('main/img/longArm.png') }}" alt="" class="form__background-arm"></picture>
         </section>
+
 
         <section class="news__swiper">
             <!-- Slider main container -->
@@ -137,7 +153,7 @@
                             </picture>
                             <a href="#" class="">
                                 <h3 class="uk-card-title">{{ $newsItem->getTranslation('title', app()->getLocale()) }}</h3>
-                                <p>{{ $newsItem->getTranslation('short_desc', app()->getLocale()) }}</p>
+                                <p>{{ getShortDesc($newsItem->getTranslation('description', app()->getLocale())) }}</p>
                             </a>
                         </div>
                     </div>
@@ -166,17 +182,19 @@
                             <picture>
                                 <img src="{{ asset('storage/uploads/images/'.$member->image) }}" alt=""/></picture>
                             <div class="uk-card experts__swiper-content">
-                                <div class="experts__swiper-position">{{ $member->getTranslation('role', app()->getLocale()) }}</div>
-                                <div class="experts__swiper-name">{{ $member->getTranslation('name', app()->getLocale()) }}</div>
+                                <div
+                                    class="experts__swiper-position">{{ $member->getTranslation('role', app()->getLocale()) }}</div>
+                                <div
+                                    class="experts__swiper-name">{{ $member->getTranslation('name', app()->getLocale()) }}</div>
                                 <div class="experts__swiper-description">
                                     {{ $member->getTranslation('description', app()->getLocale()) }}
                                 </div>
                             </div>
                         </div>
                     </div>
-                @endforeach
+            @endforeach
 
-                <!-- If we need navigation buttons -->
+            <!-- If we need navigation buttons -->
                 <!-- <div class="experts__swiper-button-prev swiper-button-prev"></div> -->
                 <!-- <div class="experts__swiper-button-next swiper-button-next"></div> -->
 

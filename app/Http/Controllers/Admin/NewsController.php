@@ -47,7 +47,7 @@ class NewsController extends Controller
     {
 
         $file = $request->file('image');
-        $data = $request->only('title', 'short_desc', 'description');
+        $data = $request->only('title', 'description');
         $result = $this->newsService->insertDataWithImage($file, $data);
 
         return $result;
@@ -74,7 +74,7 @@ class NewsController extends Controller
     public function update(NewsRequest $request, int $id)
     {
         $file = $request->file('image');
-        $data = $request->only('title', 'short_desc', 'description');
+        $data = $request->only('title', 'description');
         $result = $this->newsService->updateDataWithImage($id, $file, $data);
 
         return $result;

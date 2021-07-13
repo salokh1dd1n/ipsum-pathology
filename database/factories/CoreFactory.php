@@ -50,7 +50,7 @@ abstract class CoreFactory extends Factory
         $attribute = [];
 
         foreach (array_keys(Config::get('app.languages')) as $key) {
-            $attribute[$key] = $value;
+            $attribute[$key] = $key.' '.$value;
         }
         return $attribute;
     }

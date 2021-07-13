@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Repositories\ApplicationsRepository;
-use App\Repositories\TeamRepository;
 use App\Services\Traits\RedirectTrait;
 
 class ApplicationService extends CoreService
@@ -48,12 +47,10 @@ class ApplicationService extends CoreService
     {
         $result = $this->repository->create($data);
         if ($result) {
-            return redirect(url()->route('index') . '#applicationForm')
-                ->with(['applicationCreate' => 'Successfully created']);
+            return redirect(url()->route('index', app()->getLocale()) . '#applicationForm')
+                ->with(['applicationMsg' => 'Отправлено! Спасибо за ожидание скоро с вами свяжутся']);
         } else {
-            return back()
-                ->with(['error' => 'Ошибка, Свяжитесь с администратором'])
-                ->withInput();
+            return abort(500);
         }
     }
 

@@ -4,7 +4,7 @@
             <div class="uk-navbar-left header__logo">
                 <ul class="uk-navbar-nav">
                     <li class="uk-active">
-                        <a href="#">
+                        <a href="{{ routeWithLocale('index') }}">
                             <picture>
                                 <source srcset="{{ asset('main/img/logo.webp') }}" type="image/webp">
                                 <img src="{{ asset('main/img/logo.png') }}" alt=""/></picture>
@@ -58,9 +58,9 @@
                         <ul class="uk-list">
                             @foreach (getLangWithoutExisting() as $langKey)
                                 <li class="uk-link-reset">
-                                    <a class="header__nav-link uk-text-capitalize" href="{{ route('index', $langKey) }}">
+                                    <a class="header__nav-link uk-text-capitalize"
+                                       href="{{ route(currentRouteName(), $langKey) }}">
                                         <picture>
-                                            <source srcset="{{ asset('main/img/englang.webp') }}" type="image/webp">
                                             <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
                                         {{ $langKey }}
                                     </a>
@@ -115,14 +115,25 @@
                 </button>
                 <div class="header__lang-list" type="button" uk-dropdown="mode:click">
                     <ul class="uk-list">
-                        <li class="uk-link-reset">
-                            <a class="header__nav-link" href="#">
-                                <picture>
-                                    <source srcset="{{ asset('main/img/englang.webp') }}" type="image/webp">
-                                    <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
-                                Ru
-                            </a>
-                        </li>
+                        @foreach (getLangWithoutExisting() as $langKey)
+                            <li class="uk-link-reset">
+                                <a class="header__nav-link" href="{{ route(currentRouteName(), $langKey) }}">
+                                    <picture>
+                                        <source srcset="{{ asset('main/img/englang.webp') }}" type="image/webp">
+                                        <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
+                                    {{ $langKey }}
+                                </a>
+                            </li>
+                            <li class="uk-link-reset">
+                                <a class="header__nav-link uk-text-capitalize"
+                                   href="{{ route(currentRouteName(), $langKey) }}">
+                                    <picture>
+                                        <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
+                                    {{ $langKey }}
+                                </a>
+                            </li>
+                        @endforeach
+
                         <li class="uk-link-reset">
                             <a class="header__nav-link" href="#">
                                 <picture>

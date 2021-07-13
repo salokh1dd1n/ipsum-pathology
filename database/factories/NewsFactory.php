@@ -22,7 +22,6 @@ class NewsFactory extends CoreFactory
     public function definition()
     {
         $attributes['title'] = $this->multiLang($this->title());
-        $attributes['short_desc'] = $this->multiLang($this->title());
         $attributes['description'] = $this->multiLang($this->descriptionHTML());
         $attributes['image'] = $this->image();
 

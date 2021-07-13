@@ -30,4 +30,12 @@ class ApplicationsRequest extends FormRequest
             'phone_number' => ['required', 'string', new PhoneNumberRule()],
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'fio' => 'Имя',
+            'phone_number' => 'Телефонный номер'
+        ];
+    }
 }

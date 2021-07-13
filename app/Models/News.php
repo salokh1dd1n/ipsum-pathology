@@ -11,13 +11,12 @@ class News extends Model
 {
     use HasFactory, HasTranslations;
 
-    protected $translatable = ['title', 'description', 'short_desc'];
+    protected $translatable = ['title', 'description'];
 
     protected $fillable = [
         'title',
         'slug',
         'image',
-        'short_desc',
         'description',
     ];
 

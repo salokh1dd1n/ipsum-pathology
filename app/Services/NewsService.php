@@ -3,8 +3,6 @@
 namespace App\Services;
 
 use App\Repositories\NewsRepository;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
 
 class NewsService extends CoreService
 {
@@ -24,7 +22,7 @@ class NewsService extends CoreService
 
     public function getAllNews($number)
     {
-        return $this->repository->getAllNews()->addSelect(['image', 'short_desc'])->take($number)->get();
+        return $this->repository->getAllNews()->addSelect(['image', 'description'])->take($number)->get();
     }
 
     public function getPaginatedNews()

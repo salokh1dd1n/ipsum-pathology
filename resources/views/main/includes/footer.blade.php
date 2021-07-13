@@ -8,7 +8,6 @@
             <div class="footer__content-top uk-grid" uk-grid>
                 <div class="uk-width-2-5 left-side">
                     <picture>
-                        <source srcset="{{ asset('main/img/logoFooter.webp') }}" type="image/webp">
                         <img src="{{ asset('main/img/logoFooter.png') }}" alt=""></picture>
                     <p>Build a modern and creative website with crealand</p>
                     <div class="social-links">
@@ -121,7 +120,6 @@
             </div>
             <div class="footer__content-bottom">
                 <picture>
-                    <source srcset="{{ asset('main/img/Folder.webp') }}" type="image/webp">
                     <img src="{{ asset('main/img/Folder.png') }}" alt=""></picture>
                 <a class="like__button">
                     <svg width="28" height="24" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

@@ -23,6 +23,7 @@ class DiseasesRepository extends CoreRepository
             'id',
             'title',
             'image',
+            'description'
         ];
 
         $result = $this

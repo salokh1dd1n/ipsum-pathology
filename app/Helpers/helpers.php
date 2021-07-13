@@ -67,3 +67,19 @@ function getLangWithoutExisting()
 
     return $languages;
 }
+
+function getShortDesc($description) {
+    $result = strip_tags($description);
+    $result = substr($result, 0, 100);
+    return $result;
+}
+
+function currentRouteName()
+{
+    return \Illuminate\Support\Facades\Route::currentRouteName();
+}
+
+function routeWithLocale($routeName, $otherParams = null)
+{
+    return route($routeName, [app()->getLocale(), $otherParams]);
+}

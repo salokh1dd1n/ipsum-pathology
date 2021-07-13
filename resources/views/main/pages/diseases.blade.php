@@ -10,7 +10,6 @@
                     <div class="anim__background anim-bg2">
                         <div class="anim__background-mask">
                             <picture>
-                                <source srcset="{{ asset('main/img/Mask.webp') }}" type="image/webp">
                                 <img src="{{ asset('main/img/Mask.png') }}" alt=""/></picture>
                         </div>
                     </div>
@@ -24,17 +23,18 @@
                                         <picture>
                                             <img src="{{ asset('storage/uploads/images/'.$disease->image) }}"
                                                  data-src="{{ asset('storage/uploads/images/'.$disease->image) }}"
-                                                 width="340px"
-                                                 height="362px" alt="" uk-img sizes="(min-width: 340px) 340px, 100vw">
+                                                 width="340px" height="362px" uk-img
+                                                 sizes="(min-width: 340px) 340px, 100vw">
                                         </picture>
                                     </div>
                                     <div class="block__card-title">
                                         {{ $disease->getTranslation('title', app()->getLocale()) }}
                                     </div>
                                     <div class="block__card-description">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        {{ getShortDesc($disease->getTranslation('description', app()->getLocale())) }}
                                     </div>
-                                    <a href="{{ route('treatments.show', [app()->getLocale(), $disease->id]) }}" class="block__card-btn btn">Подробнее</a>
+                                    <a href="{{ routeWithLocale(currentRouteName().'.show', $disease->id) }}"
+                                       class="block__card-btn btn">Подробнее</a>
                                 </div>
                             </div>
                         @empty
