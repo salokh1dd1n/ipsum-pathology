@@ -22,12 +22,12 @@ class TeamService extends CoreService
 
     public function getAllTeam($number)
     {
-        return $this->repository->getAllTeam()->addSelect(['description', 'image'])->take($number)->get();
+        return $this->repository->getAllTeam()->take($number)->get();
     }
 
-    public function getPaginatedTeam()
+    public function getPaginatedTeam($number)
     {
-        $result = $this->repository->getPaginatedTeam();
+        $result = $this->repository->getPaginatedTeam($number);
 
         return $result;
     }

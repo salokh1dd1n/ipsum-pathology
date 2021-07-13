@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeamRequest;
 use App\Services\TeamService;
-use Illuminate\Http\Request;
 
 class TeamController extends Controller
 {
@@ -25,7 +24,7 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $team = $this->teamService->getPaginatedTeam();
+        $team = $this->teamService->getPaginatedTeam(10);
         return view('admin.team.index', compact('team'));
     }
 

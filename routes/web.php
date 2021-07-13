@@ -25,6 +25,7 @@ Route::redirect('/', app()->getLocale(), 301);
 //Routes with locale
 Route::group($settings, function () {
     Route::get('/', [\App\Http\Controllers\Main\HomeController::class, 'index'])->name('index');
+    Route::get('/team', [\App\Http\Controllers\Main\HomeController::class, 'team'])->name('team');
     Route::post('/application/store', [\App\Http\Controllers\Main\HomeController::class, 'storeApplication'])->name('application.store');
 
     Route::get('/treatments', [\App\Http\Controllers\Main\DiseasesController::class, 'index'])->name('treatments');

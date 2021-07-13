@@ -7,7 +7,6 @@ use App\Http\Requests\ApplicationsRequest;
 use App\Services\ApplicationService;
 use App\Services\NewsService;
 use App\Services\TeamService;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -27,6 +26,12 @@ class HomeController extends Controller
         $news = $this->newsService->getAllNews(5);
         $team = $this->teamService->getAllTeam(5);
         return view('main.pages.home', compact('news', 'team'));
+    }
+
+    public function team()
+    {
+        $team = $this->teamService->getPaginatedTeam(6);
+        return view('main.pages.team', compact('team'));
     }
 
     public function storeApplication(ApplicationsRequest $request, $lang)

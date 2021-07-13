@@ -23,7 +23,9 @@ class TeamRepository extends CoreRepository
             'id',
             'name',
             'role',
-            'phone_number'
+            'phone_number',
+            'description',
+            'image'
         ];
 
         $result = $this
@@ -33,12 +35,12 @@ class TeamRepository extends CoreRepository
         return $result;
     }
 
-    public function getPaginatedTeam()
+    public function getPaginatedTeam($number)
     {
         $result = $this
             ->getAllTeam()
             ->orderByDesc('id')
-            ->paginate(10);
+            ->paginate($number);
 
         return $result;
     }
