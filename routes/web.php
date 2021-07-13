@@ -21,11 +21,11 @@ $settings = [
 Route::redirect('/', app()->getLocale(), 301);
 
 // Routes without locale
-Route::post('/application/store', [\App\Http\Controllers\Main\HomeController::class, 'storeApplication'])->name('application.store');
 
 //Routes with locale
 Route::group($settings, function () {
     Route::get('/', [\App\Http\Controllers\Main\HomeController::class, 'index'])->name('index');
+    Route::post('/application/store', [\App\Http\Controllers\Main\HomeController::class, 'storeApplication'])->name('application.store');
 
     Route::get('/treatments', [\App\Http\Controllers\Main\DiseasesController::class, 'index'])->name('treatments');
     Route::get('/treatments/{id}', [\App\Http\Controllers\Main\DiseasesController::class, 'showTreatment'])->name('treatments.show');

@@ -30,18 +30,8 @@ class TagsRepository extends CoreRepository
     {
         $result = $this
             ->getAllFaqTags()
+            ->orderByDesc('id')
             ->paginate(10);
-
-        return $result;
-    }
-
-    public function getRelatedFaqTags($ids)
-    {
-
-        $result = $this
-            ->getAllFaqTags()
-            ->whereIn('id', $ids)
-            ->get();
 
         return $result;
     }

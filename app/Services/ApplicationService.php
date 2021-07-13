@@ -43,11 +43,11 @@ class ApplicationService extends CoreService
         }
     }
 
-    public function insertData($data)
+    public function insertApplicationData($data, $lang)
     {
         $result = $this->repository->create($data);
         if ($result) {
-            return redirect(url()->route('index', app()->getLocale()) . '#applicationForm')
+            return redirect(url()->route('index', $lang) . '#applicationForm')
                 ->with(['applicationMsg' => 'Отправлено! Спасибо за ожидание скоро с вами свяжутся']);
         } else {
             return abort(500);

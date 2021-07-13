@@ -52,6 +52,6 @@ class Disease extends Model
      */
     public function faq()
     {
-        return $this->belongsToMany(Faq::class, 'diseases_faqs')->with('tags');
+        return $this->belongsToMany(Faq::class, 'diseases_faqs')->with('tags:id,title');
     }
 }

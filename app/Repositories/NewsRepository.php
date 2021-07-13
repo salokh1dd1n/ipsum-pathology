@@ -37,6 +37,7 @@ class NewsRepository extends CoreRepository
     {
         $result = $this
             ->getAllNews()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

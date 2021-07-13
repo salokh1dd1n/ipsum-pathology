@@ -31,6 +31,7 @@ class SymptomsRepository extends CoreRepository
     {
         $result = $this
             ->getAllSymptoms()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

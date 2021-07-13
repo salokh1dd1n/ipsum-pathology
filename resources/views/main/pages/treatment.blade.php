@@ -12,7 +12,7 @@
                     <div class="block__wrapper uk-width-1-1 ta__block block-ta">
                         <!-- Container title -->
                         <h2 class="ta__subtitle block__subtitle uk-margin-small">Как вылечить рак</h2>
-                        <h1 class="ta__title block__title uk-margin-small">Лечение "Наименование заболевания"</h1>
+                        <h1 class="ta__title block__title uk-margin-small">Лечение "{{ $disease->title }}"</h1>
                         <div class="ta__tags block__tags uk-flex uk-flex-center uk-flex-wrap">
                             <div class="ta__tag block__tag">#симптомы</div>
                             <div class="ta__tag block__tag">#как диагностировать</div>
@@ -23,12 +23,15 @@
                         <div class="anim__background anim-bg2">
                             <div class="anim__background-mask">
                                 <picture>
-                                    <img src="{{ asset('main/img/Mask.png') }}" alt=""/></picture>
+                                    <img src="{{ asset('main/img/Mask.png') }}" alt=""/>
+                                </picture>
                             </div>
                         </div>
-                    {!! $disease->description !!}
+                        <article class="ta__content block__article-text">
+                            {!! $disease->description !!}
+                        </article>
 
-                    <!-- treatment article text content -->
+                        <!-- treatment article text content -->
 
 
                         <div class="anim__background block__background-anim anim-bg2">
@@ -45,66 +48,16 @@
             <section class="ta__symptoms">
                 <div class="uk-container uk-container-center ta__container">
                     <div uk-filter="target: .js-filter" class="accordion treatment-article__symptoms">
-                        <h1 class="treatment-article__title block__title">Симптомы</h1>
-                        <ul class="js-filter uk-child-width-1-1 uk-child-width-1-2@m uk-text-center accordion__items-container"
-                            uk-grid="masonry: true">
-                            @foreach ($disease->symptoms as $symptom)
-                                <li class="accordion__items-element">
-                                    <div class="uk-card uk-card-default uk-card-body accordion__item-card">
-                                        <ul uk-accordion>
-                                            <li>
-                                                <a class="uk-accordion-title accordion__item-title uk-text-left"
-                                                   href="#">{{ $symptom->title }}</a>
-                                                <div class="uk-accordion-content accordion__item-content">
-                                                    <p>{{ $symptom->description }}</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-
-                        <p>{{ $disease->symptom_desc }}</p>
+                        @include('main.includes.diseaseBlocks.symptoms')
                     </div>
                 </div>
             </section>
 
             <!-- Lab diagnostic -->
-            <section class="ta__lab-diag">
-                <div class="uk-container uk-container-center ta__container">
-                    <div class="lab__diag block__wrapper uk-width-1-1">
-                        <!-- Container title -->
-                        <h1 class="treatment-article__title block__title">Лабораторная диагностика</h1>
-                        <div uk-filter="target: .js-filter" class="accordion">
-                            <ul class="js-filter uk-child-width-1-1 uk-child-width-1-2@m uk-text-center accordion__items-container"
-                                uk-grid="masonry: true">
-                                @foreach ($disease->diagnostics as $diagnostic)
-                                    <li class="accordion__items-element">
-                                        <div class="uk-card uk-card-default uk-card-body accordion__item-card">
-                                            <ul uk-accordion>
-                                                <li>
-                                                    <a class="uk-accordion-title accordion__item-title uk-text-left"
-                                                       href="#">
-                                                        {{ $diagnostic->title }}
-                                                        <span class="block__tag">{{ formattedPrice($diagnostic->price) }} сум</span>
-                                                    </a>
-                                                    <div class="uk-accordion-content accordion__item-content">
-                                                        <p>{{ $diagnostic->description }}</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        @include('main.includes.diseaseBlocks.labDiagnostics')
 
 
-            <!-- Лечение -->
+        <!-- Лечение -->
             <section class="ta__treatment">
                 <div class="uk-container uk-container-center ta__container">
                     <div class="block__wrapper uk-width-1-1">
@@ -131,50 +84,9 @@
             </section>
 
             <!-- блок с часто задаваемыми вопросами -->
-            <section class="ta__questions">
-                <div class="uk-container uk-container-center ta__container">
-                    <div class="block__wrapper uk-width-1-1">
-                        <!-- Container title -->
-                        <h1 class="treatment-article__title block__title">Часто задаваемые вопросы</h1>
-                        <div uk-filter="target: .js-filter" class="accordion">
+        @include('main.includes.diseaseBlocks.faq')
 
-                            <ul class="accordion__btns questions__theme-nav uk-subnav uk-subnav-pill uk-flex uk-flex-center">
-                                @foreach($tags as $tag)
-                                    <li @if ($tags->first()->id == $tag->id) class="uk-active"
-                                        @endif uk-filter-control="[data-theme='{{ $tag->id }}']">
-                                        <a class="btn" href="#">{{ $tag->title }}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-
-                            <ul class="js-filter uk-child-width-1-1 uk-child-width-1-2@m uk-text-center accordion__items-container"
-                                uk-grid="masonry: true">
-                                <!-- data-theme-1 -->
-                                @foreach($disease->faq as $faq)
-                                    @foreach($faq->tags as $tag)
-                                        <li data-theme="{{ $tag->id }}" class="accordion__items-element">
-                                            <div class="uk-card uk-card-default uk-card-body accordion__item-card">
-                                                <ul uk-accordion>
-                                                    <li>
-                                                        <a class="uk-accordion-title accordion__item-title uk-text-left"
-                                                           href="#">{{ $faq->title }}</a>
-                                                        <div class="uk-accordion-content accordion__item-content">
-                                                            <p>{{ $faq->description }}</p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                @endforeach
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Блок запись на консультацию -->
+        <!-- Блок запись на консультацию -->
             <section class="ta__consult">
                 <div class="uk-container uk-container-center ta__container">
                     <div class="ta__consult-block">

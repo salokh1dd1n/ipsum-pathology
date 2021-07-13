@@ -32,6 +32,7 @@ class ServicesRepository extends CoreRepository
     {
         $result = $this
             ->getAllServices()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

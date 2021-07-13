@@ -36,6 +36,7 @@ class ResearchesRepository extends CoreRepository
     {
         $result = $this
             ->getAllResearches()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,18 +19,22 @@ abstract class CoreFactory extends Factory
 
     protected function title()
     {
-        return $this->faker->realText(100);
+        return $this->faker->text(50);
     }
 
 
     protected function description()
     {
-        return $this->faker->realText(100);
+        return $this->faker->text(100);
     }
 
     protected function descriptionHTML()
     {
-        return $this->faker->randomHtml();
+        $start = $this->faker->text(400);
+        $middle = "<strong>{$this->faker->text(30)}</strong>";
+        $end = $this->faker->text(600);
+        $result = $start . "<br>" . $middle . "<br>" . $end;
+        return $result;
     }
 
     protected function phone()
@@ -50,7 +53,7 @@ abstract class CoreFactory extends Factory
         $attribute = [];
 
         foreach (array_keys(Config::get('app.languages')) as $key) {
-            $attribute[$key] = $key.' '.$value;
+            $attribute[$key] = $key . ' ' . $value;
         }
         return $attribute;
     }

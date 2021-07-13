@@ -41,10 +41,6 @@ class DiseasesService extends CoreService
         return $this->faqRepository->getAllFaq()->get();
     }
 
-    public function getRelatedFaqTags($ids)
-    {
-        return $this->tagsRepository->getRelatedFaqTags($ids);
-    }
     public function getAllSymptoms()
     {
         return $this->symptomsRepository->getAllSymptoms()->get();
@@ -60,6 +56,19 @@ class DiseasesService extends CoreService
     public function getDisease($id)
     {
         return $this->repository->getDisease($id);
+    }
+
+    public function getRelatedFaqTags($faqs)
+    {
+        $tags = [];
+        foreach ($faqs as $faq) {
+            foreach ($faq->tags as $tag) {
+                $tags[$tag->id] = $tag->title;
+            }
+        }
+        ksort($tags);
+
+        return $tags;
     }
 
     public function insertDiseaseData($data, $file, $symptoms, $diagnostics, $faq)

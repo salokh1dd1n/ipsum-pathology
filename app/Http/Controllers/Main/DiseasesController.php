@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Main;
 
 use App\Http\Controllers\Controller;
 use App\Services\DiseasesService;
-use Illuminate\Http\Request;
 
 class DiseasesController extends Controller
 {
@@ -24,20 +23,14 @@ class DiseasesController extends Controller
     public function showTreatment($lang, $id)
     {
         $disease = $this->diseaseService->getDisease($id);
-
-
-        $ids = [];
-        foreach ($disease->faq as $faq) {
-            foreach ($faq->tags as $tag) {
-                $ids[] = $tag->id;
-            }
-        }
-        $tags = $this->diseaseService->getRelatedFaqTags($ids);
+        $tags = $this->diseaseService->getRelatedFaqTags($disease->faq);
         return view('main.pages.treatment', compact('disease', 'tags'));
     }
 
-    public function showDiagnostics($id)
+    public function showDiagnostics($lang, $id)
     {
-        dd(__METHOD__, $id);
+        $disease = $this->diseaseService->getDisease($id);
+        $tags = $this->diseaseService->getRelatedFaqTags($disease->faq);
+        return view('main.pages.diagnostic', compact('disease', 'tags'));
     }
 }

@@ -37,6 +37,7 @@ class TeamRepository extends CoreRepository
     {
         $result = $this
             ->getAllTeam()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

@@ -37,6 +37,7 @@ class ApplicationsRepository extends CoreRepository
     {
         $result = $this
             ->getAllApplication()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

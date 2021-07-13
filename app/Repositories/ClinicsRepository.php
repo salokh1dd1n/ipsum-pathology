@@ -36,6 +36,7 @@ class ClinicsRepository extends CoreRepository
     {
         $result = $this
             ->getAllClinics()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

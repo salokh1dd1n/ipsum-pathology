@@ -36,6 +36,7 @@ class FaqRepository extends CoreRepository
     {
         $result = $this
             ->getAllFaq()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

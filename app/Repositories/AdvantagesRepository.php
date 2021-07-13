@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Advantage as Model;
-use Illuminate\Database\Eloquent\Collection;
 
 class AdvantagesRepository extends CoreRepository
 {
@@ -32,6 +31,7 @@ class AdvantagesRepository extends CoreRepository
     {
         $result = $this
             ->getAllAdvantages()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;

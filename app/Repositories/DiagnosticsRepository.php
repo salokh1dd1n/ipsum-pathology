@@ -31,6 +31,7 @@ class DiagnosticsRepository extends CoreRepository
     {
         $result = $this
             ->getAllDiagnostics()
+            ->orderByDesc('id')
             ->paginate(10);
 
         return $result;
