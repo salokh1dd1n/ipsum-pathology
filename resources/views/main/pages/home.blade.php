@@ -13,7 +13,6 @@
                             <div class="row__topSection-item uk-card uk-card-default uk-card-body">
                                 <p>Врачи - кандидаты и доктора наук</p>
                                 <picture>
-                                    <source srcset="{{ asset('main/img/doctor.webp') }}" type="image/webp">
                                     <img src="{{ asset('main/img/doctor.png') }}" alt=""/></picture>
                             </div>
                         </div>
@@ -40,12 +39,10 @@
                     <div class="anim__background anim-bg2">
                         <div class="anim__background-mask">
                             <picture>
-                                <source srcset="{{ asset('main/img/Mask.webp') }}" type="image/webp">
                                 <img src="{{ asset('main/img/Mask.png') }}" alt=""></picture>
                         </div>
                         <div class="anim__background-cloud">
                             <picture>
-                                <source srcset="{{ asset('main/img/Cloud.webp') }}" type="image/webp">
                                 <img src="{{ asset('main/img/Cloud.png') }}" alt=""></picture>
                         </div>
                         <span class="anim__background-squareP"></span>
@@ -171,7 +168,6 @@
             </div>
             <div class="anim__background anim-bg2">
                 <picture>
-                    <source srcset="{{ asset('main/img/footerAtom.webp') }}" type="image/webp">
                     <img src="{{ asset('main/img/footerAtom.png') }}" alt="" class="anim__bg-atom"></picture>
             </div>
         </section>

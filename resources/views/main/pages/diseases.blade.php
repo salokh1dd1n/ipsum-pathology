@@ -8,7 +8,13 @@
             <div class="uk-container uk-container-center">
                 <div class="block__wrapper uk-width-1-1">
                     <!-- Container title -->
-                    <h1 class="treatment__title block__title">Как вылечить рак</h1>
+                    <h1 class="treatment__title block__title">
+                        @if (request()->segment(2) == 'diagnostics')
+                            Диагностика раковых заболеваний
+                        @elseif (request()->segment(2) == 'treatments')
+                            Как вылечить рак
+                        @endif
+                    </h1>
                     <!-- background pictures -->
                     <div class="anim__background anim-bg2">
                         <div class="anim__background-mask">
@@ -53,7 +59,6 @@
 
                     <div class="anim__background block__background-anim anim-bg2">
                         <picture>
-                            <source srcset="{{ asset('main/img/footerAtom.webp') }}" type="image/webp">
                             <img src="{{ asset('main/img/footerAtom.png') }}" alt="" class="anim__bg-atom"></picture>
                     </div>
                 </div>

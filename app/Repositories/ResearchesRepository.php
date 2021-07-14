@@ -55,8 +55,8 @@ class ResearchesRepository extends CoreRepository
             ->model
             ->select($columns)
             ->where('id', $id)
-            ->with(['services:id,title'])
-            ->with(['advantages:id,title'])
+            ->with(['services:id,title,description,price'])
+            ->with(['advantages:id,title,image'])
             ->first();
 
         return $result;

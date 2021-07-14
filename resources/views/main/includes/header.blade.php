@@ -6,7 +6,6 @@
                     <li class="uk-active">
                         <a href="{{ routeWithLocale('index') }}">
                             <picture>
-                                <source srcset="{{ asset('main/img/logo.webp') }}" type="image/webp">
                                 <img src="{{ asset('main/img/logo.png') }}" alt=""/></picture>
                         </a>
                     </li>
@@ -69,30 +68,29 @@
         <div class="uk-offcanvas-bar">
             <ul class="uk-nav">
                 <li class="uk-active">
-                    <a href="#">
+                    <a href="{{ routeWithLocale('index') }}">
                         <picture>
-                            <source srcset="{{ asset('main/img/logo.webp') }}" type="image/webp">
                             <img src="{{ asset('main/img/logo.png') }}" alt=""/></picture>
                     </a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">О клинике</a>
+                    <a class="header__nav-link" href="#">@lang('home.menu.aboutUs')</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">Услуги и цены</a>
+                    <a class="header__nav-link" href="#">{{ __('home.menu.servicePrice') }}</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">Пациентам</a>
+                    <a class="header__nav-link" href="#">{{ __('home.menu.forPatients') }}</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">Оптика</a>
+                    <a class="header__nav-link" href="#">{{ __('home.menu.optics') }}</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">Контакты</a>
+                    <a class="header__nav-link" href="#">{{ __('home.menu.contacts') }}</a>
                 </li>
             </ul>
             <div class="uk-inline">
-                <button type="button" class="header__lang-btn">
+                <button type="button" class="header__lang-btn  uk-text-capitalize">
                     <picture>
                         <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
                     {{ app()->getLocale() }}
@@ -109,7 +107,6 @@
     </div>
     <div class="header__anim-bg anim-bg">
         <picture>
-            <source srcset="{{ asset('main/img/Pills.webp') }}" type="image/webp">
             <img src="{{ asset('main/img/Pills.png') }}" alt="" class="anim-bg-pills"/></picture>
         <span></span>
     </div>

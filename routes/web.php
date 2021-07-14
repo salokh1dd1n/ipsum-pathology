@@ -25,14 +25,17 @@ Route::redirect('/', app()->getLocale(), 301);
 //Routes with locale
 Route::group($settings, function () {
     Route::get('/', [\App\Http\Controllers\Main\HomeController::class, 'index'])->name('index');
-    Route::get('/team', [\App\Http\Controllers\Main\HomeController::class, 'team'])->name('team');
-    Route::get('/faq', [\App\Http\Controllers\Main\HomeController::class, 'faq'])->name('faq');
 
-    Route::post('/application/store', [\App\Http\Controllers\Main\HomeController::class, 'storeApplication'])->name('application.store');
+    Route::get('/team', [\App\Http\Controllers\Main\TeamController::class, 'index'])->name('team');
+    Route::get('/faq', [\App\Http\Controllers\Main\FaqController::class, 'index'])->name('faq');
+
+    Route::post('/application/store', [\App\Http\Controllers\Main\CoreController::class, 'storeApplication'])->name('application.store');
 
     Route::get('/treatments', [\App\Http\Controllers\Main\DiseasesController::class, 'index'])->name('treatments');
     Route::get('/treatments/{id}', [\App\Http\Controllers\Main\DiseasesController::class, 'showTreatment'])->name('treatments.show');
 
     Route::get('/diagnostics', [\App\Http\Controllers\Main\DiseasesController::class, 'index'])->name('diagnostics');
     Route::get('/diagnostics/{id}', [\App\Http\Controllers\Main\DiseasesController::class, 'showDiagnostics'])->name('diagnostics.show');
+
+    Route::get('/research/{id}', [\App\Http\Controllers\Main\ResearchesController::class, 'show'])->name('researches.show');
 });

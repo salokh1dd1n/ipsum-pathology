@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Main;
 
-use App\Http\Controllers\Controller;
 use App\Services\DiseasesService;
 
-class DiseasesController extends Controller
+class DiseasesController extends CoreController
 {
     protected $diseaseService;
 
     public function __construct()
     {
+        parent::__construct();
         $this->diseaseService = app(DiseasesService::class);
     }
 
