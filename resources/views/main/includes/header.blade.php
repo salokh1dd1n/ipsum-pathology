@@ -26,7 +26,7 @@
                         <a class="header__nav-link" href="#">Врачи</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="#">О нас</a>
+                        <a class="header__nav-link" href="{{ routeWithLocale('aboutUs') }}">О нас</a>
                     </li>
                     <li>
                         <a class="header__nav-link" href="{{ routeWithLocale('team') }}">Команда</a>

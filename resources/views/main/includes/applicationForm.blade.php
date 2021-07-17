@@ -62,12 +62,12 @@
                     </div>
                 </fieldset>
             </form>
-            @if (!$isModal)
+            @if (!isset($isModal))
                 <span class="form__background"></span>
             @endif
         </div>
     </div>
-    @if (!$isModal)
+    @if (!isset($isModal))
         <picture>
             <img src="{{ asset('main/img/longArm.png') }}" alt="" class="form__background-arm">
         </picture>

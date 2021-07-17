@@ -24,11 +24,12 @@ Route::redirect('/', app()->getLocale(), 301);
 
 //Routes with locale
 Route::group($settings, function () {
-    Route::get('/', [\App\Http\Controllers\Main\HomeController::class, 'index'])->name('index');
+    Route::get('/', [\App\Http\Controllers\Main\CoreController::class, 'index'])->name('index');
+    Route::get('/contacts', [\App\Http\Controllers\Main\CoreController::class, 'contacts'])->name('contacts');
+    Route::get('/aboutUs', [\App\Http\Controllers\Main\CoreController::class, 'aboutUs'])->name('aboutUs');
 
     Route::get('/team', [\App\Http\Controllers\Main\TeamController::class, 'index'])->name('team');
     Route::get('/faq', [\App\Http\Controllers\Main\FaqController::class, 'index'])->name('faq');
-    Route::get('/contacts', [\App\Http\Controllers\Main\CoreController::class, 'contacts'])->name('contacts');
 
     Route::post('/application/store', [\App\Http\Controllers\Main\CoreController::class, 'storeApplication'])->middleware(['throttle:storeApplication'])->name('application.store');
 
