@@ -4,11 +4,33 @@
             <form class="form__fields" action="{{ route('application.store', app()->getLocale()) }}" method="POST">
                 @csrf
                 <fieldset class="uk-fieldset form__content">
-                    <div class="form__content-notifications">
-                        @if ($message = Session::get('applicationMsg'))
-                            <div class="form__input-sended _sended">{{ $message }}</div>
-                        @endif
+                    @error('tooManyAttempts')
+                    <div class="form__notification _show">
+                        <div class="form__notification-sended form__notification-sended-error">
+                            {{ $message }}
+                            <button class="form__notification-close-btn" type="button">
+                                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="none" stroke="#000" stroke-width="1.06" d="M16,16 L4,4"></path>
+                                    <path fill="none" stroke="#000" stroke-width="1.06" d="M16,4 L4,16"></path>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
+                    @enderror
+                    @if ($message = Session::get('applicationMsg'))
+                        <div class="form__notification _show">
+                            <div class="form__notification-sended">
+                                <p>{{ $message }}</p>
+                                <button class="form__notification-close-btn" type="button">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill="none" stroke="#000" stroke-width="1.06" d="M16,16 L4,4"></path>
+                                        <path fill="none" stroke="#000" stroke-width="1.06" d="M16,4 L4,16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    @endif
+
                     <label class="uk-form-label form__title">Остались вопросы, но нет ответов?</label>
                     <label class="uk-form-label form__subtitle">Свяжитесь с нами по телефону +998 (**) *** ** **
                         или оставьте заявку</label>

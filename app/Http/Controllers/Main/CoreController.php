@@ -28,7 +28,7 @@ class CoreController extends Controller
         $data = $request->only('fio');
         $phone_number = $request->input('phone_number');
         $data['phone_number'] = reFormatPhoneNumber($phone_number);
-
         return $this->applicationService->insertApplicationData($data);
     }
+
 }

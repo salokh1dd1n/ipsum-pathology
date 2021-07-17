@@ -70,20 +70,20 @@ const News = new Swiper(".news__swiper-slider", {
       disableOnInteraction: false,
     },
      */
-  slidesPerView: 4,
+  slidesPerView: "auto",
   spaceBetween: 15,
   // autoHeight: true,
   //  speed: 800,
   //  touchRatio: 0,
   //  simulateTouch: false,
   loop: true,
-  //  loopSlides: 3,
+  loopSlides: 3,
+  visibilityFullFit: true,
   //  preLoadImages: false,
   //  lazy: true,
   initialSlide: 1,
   centeredSlides: true,
-  // slidesOffsetBefore: -38,
-  // slidesOffsetAfter: 400,
+  
   // pagination
   pagination: {
     el: ".news__swiper-pagination",
@@ -104,60 +104,17 @@ const News = new Swiper(".news__swiper-slider", {
   // scrollbar: {
   // el: '.swiper-scrollbar',
   // }
-  breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      autoHeight: true,
-    },
-    500: {
-      slidesPerView: 1.5,
-      // spaceBetween: 10,
-    },
-    640: {
-      slidesPerView: 2,
-      // spaceBetween: 20,
-    },
-    810: {
-      slidesPerView: 2.5,
-      // spaceBetween: 20,
-    },
-    980: {
-      slidesPerView: 3,
-      spaceBetween: 20,
-    },
-    1150: {
-      slidesPerView: 3.5,
-      spaceBetween: 22,
-    },
-    1325: {
-      slidesPerView: 4,
-    },
-  },
 });
 
 const Experts = new Swiper(".experts__swiper-slider", {
-  /*
-    effect: 'fade',
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-     */
-  slidesPerView: 5,
-  spaceBetween: 22,
-  // autoHeight: true,
-  //  speed: 800,
-  //  touchRatio: 0,
-  //  simulateTouch: false,
+  slidesPerView: 'auto',
+  spaceBetween: 30,
   loop: true,
-  //  loopSlides: 3,
+  loopSlides: 3,
   //  preLoadImages: false,
   //  lazy: true,
   initialSlide: 1,
   centeredSlides: true,
-  // slidesOffsetBefore: 10,
-  // slidesOffsetAfter: 10,
   // pagination
   pagination: {
     el: ".experts__swiper-pagination",
@@ -178,47 +135,14 @@ const Experts = new Swiper(".experts__swiper-slider", {
   // scrollbar: {
   // el: '.swiper-scrollbar',
   // }
+  
   breakpoints: {
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      autoHeight: true,
-    },
-    500: {
-      slidesPerView: 1.5,
-      // spaceBetween: 10,
-    },
-    640: {
-      slidesPerView: 2,
-      // spaceBetween: 20,
-    },
-    810: {
-      slidesPerView: 2.5,
-      // spaceBetween: 20,
-    },
-    980: {
-      slidesPerView: 3,
-      spaceBetween: 20,
-    },
-    1150: {
-      slidesPerView: 3.5,
+    1440: {
       spaceBetween: 22,
     },
-    1325: {
-      slidesPerView: 4,
-    },
-    1550: {
-      slidesPerView: 4.5,
-    },
-    1650: {
-      slidesPerView: 5,
-    },
-    // 1750: {
-    //   slidesPerView: 5.5,
-    // },
+    
   },
-});
-;
+});;
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -5277,6 +5201,100 @@ const Experts = new Swiper(".experts__swiper-slider", {
 
 })));
 //# sourceMappingURL=imask.js.map;
+//прокрутка по клику
+const menuLinks = document.querySelectorAll(".block__tag[data-goto]");
+if (menuLinks.length > 0) {
+  menuLinks.forEach((menuLink) => {
+    menuLink.addEventListener("click", onMenuLinkClick);
+  });
+
+  function onMenuLinkClick(e) {
+    const menuLink = e.target;
+    if (
+      menuLink.dataset.goto &&
+      document.querySelector(menuLink.dataset.goto)
+    ) {
+      const gotoBlock = document.querySelector(menuLink.dataset.goto);
+      const gotoBlockValue =
+        gotoBlock.getBoundingClientRect().top +
+        pageYOffset
+        //  -
+        // document.querySelector("header").offsetHeight;
+
+      // if (iconMenu.classList.contains("_active")) {
+      //   document.body.classList.remove("_lock");
+      //   iconMenu.classList.remove("_active");
+      //   menuBody.classList.remove("_active");
+      // }
+
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: "smooth",
+      });
+      e.preventDefault();
+    }
+  }
+};
+// pop-up form sended observer
+if (document.querySelector('.form')) {
+  let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+  let popups = document.querySelectorAll('.form__notification');
+  for (let i=0; i<popups.length; i++) {
+    let popup = popups[i];
+    let observer = new MutationObserver(function(mutations) {  
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes') {
+          if (popup.classList.contains('_show')) {
+            document.body.classList.add('_lock');
+            document.querySelector('.form').classList.add('_lock');
+          } else {
+            document.body.classList.remove('_lock')
+            document.querySelector('.form').classList.remove('_lock');
+          }
+        }
+      });
+    });
+
+    observer.observe(popup, {
+      attributes: true, 
+    });
+
+    //close btn 
+    let closeBtns = document.querySelectorAll('.form__notification-close-btn');
+    for (let i=0; i<closeBtns.length; i++) {
+      let closeBtn = closeBtns[i];
+      if (closeBtn) {
+        closeBtn.addEventListener('click', ()=>{
+          popup.classList.remove('_show');
+        });
+      };
+    };
+  };
+}
+
+// popup form
+if (document.querySelector('.form__open')) {
+  const btnFormOpen = document.querySelector('.form__open');
+  const btnFormClose = document.querySelector('.form__close');
+  const form = document.querySelector('.form');
+  if (btnFormOpen) {
+    btnFormOpen.addEventListener('click', () => {
+      form.classList.add('_visible');
+      document.body.classList.add('_lock');
+      // document.querySelector('.form').classList.add("_lock");
+    });
+  }
+  if (btnFormClose) {
+    btnFormClose.addEventListener('click', () => {
+      form.classList.remove('_visible');
+      document.body.classList.remove('_lock');
+      // document.querySelector('.form').classList.remove("_lock");
+    })
+  }
+}
+
+
+
 // маска на телефон формы
 const tel = document.querySelector('#tel');
 var maskOptions = {
@@ -5432,23 +5450,6 @@ window.onload = function () {
   }
 }
 
-
-
-
-// function validateForm (selector, rules) {
-//   new window.JustValidate(selector, {
-//     rules: rules,
-//     submitHandler: function (form, values, ajax) {
-//       console.log(form);
-
-//       // let formData = new FormData(form);
-
-      
-//     }
-//   })
-// }
-
-// validateForm('.form__fields', {name: {required: true}, tel: {required: true}})
 
 
 // // scrollSpy для шапки

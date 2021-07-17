@@ -20,12 +20,12 @@
                             </div>
                         </div>
                         <article class="lab-res__content block__article-text">
-                            {{ $research->description }}
+                            {{ $research->short_desc }}
                         </article>
 
                         <div class="uk-flex uk-flex-center">
-                            <div class="btn uk-margin-small-right">Оставить заявку</div>
-                            <a href="#" class="btn">Позвонить</a>
+                            <a href="#applicationForm" class="btn uk-margin-small-right">Оставить заявку</a>
+                            <a href="tel:+1234567890" class="btn">Позвонить</a>
                         </div>
 
                         <div
@@ -70,14 +70,6 @@
                             @foreach($research->services as $key => $service)
                                 <div>
                                     <div class="block__card uk-card uk-card-default uk-card-body">
-                                        <div class="block__card-img uk-flex uk-flex-center">
-                                            <picture>
-                                                <img src="{{ asset('main/img/news1.png') }}"
-                                                     data-src="{{ asset('main/img/news1.png') }}" width="340px"
-                                                     height="362px" alt="" uk-img
-                                                     sizes="(min-width: 340px) 340px, 100vw">
-                                            </picture>
-                                        </div>
                                         <div class="block__card-title">{{ $service->title }}</div>
                                         <div class="block__card-description">{{ $service->description }}</div>
                                         <div class="block__card-prices uk-flex uk-flex-wrap">
@@ -97,7 +89,7 @@
                                 </picture>
                             </div>
                         </div>
-                        <p>{{ $research->short_desc }}</p>
+                        {{ $research->description }}
 
                     </div>
                 </div>

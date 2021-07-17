@@ -1,4 +1,4 @@
-<section class="ta__lab-diag">
+<section class="da__lab-diag">
     <div class="uk-container uk-container-center ta__container">
         <div class="lab__diag block__wrapper uk-width-1-1">
             <!-- Container title -->
