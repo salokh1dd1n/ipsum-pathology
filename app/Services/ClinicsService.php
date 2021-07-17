@@ -21,9 +21,9 @@ class ClinicsService extends CoreService
 
     }
 
-    public function getPaginatedClinics()
+    public function getPaginatedClinics($number)
     {
-        $result = $this->repository->getPaginatedClinics();
+        $result = $this->repository->getPaginatedClinics($number);
 
         return $result;
     }

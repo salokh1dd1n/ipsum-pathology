@@ -97,80 +97,83 @@
             </div>
         </section>
         @include('main.includes.applicationForm')
-
-        <section class="news__swiper">
-            <!-- Slider main container -->
-            <div class="news__swiper-title">
-                Новости
-            </div>
-            <div class="news__swiper-slider _swiper">
-                <!-- Slides -->
-                @foreach ($news as $newsItem)
-                    <div class="swiper-slide uk-flex uk-flex-center news__swiper-slide">
-                        <div class="uk-card uk-card-default uk-card-body uk-flex uk-flex-column uk-flex-middle">
-                            <picture>
-                                <img src="{{ asset('storage/uploads/images/'.$newsItem->image) }}" alt="">
-                            </picture>
-                            <a href="#" class="">
-                                <h3 class="uk-card-title">{{ $newsItem->title }}</h3>
-                                <p>{{ getShortDesc($newsItem->description) }}</p>
-                            </a>
+        @isset($news)
+            <section class="news__swiper">
+                <!-- Slider main container -->
+                <div class="news__swiper-title">
+                    Новости
+                </div>
+                <div class="news__swiper-slider _swiper">
+                    <!-- Slides -->
+                    @foreach ($news as $newsItem)
+                        <div class="swiper-slide uk-flex uk-flex-center news__swiper-slide">
+                            <div class="uk-card uk-card-default uk-card-body uk-flex uk-flex-column uk-flex-middle">
+                                <picture>
+                                    <img src="{{ asset('storage/uploads/images/'.$newsItem->image) }}" alt="">
+                                </picture>
+                                <a href="#" class="">
+                                    <h3 class="uk-card-title">{{ $newsItem->title }}</h3>
+                                    <p>{{ getShortDesc($newsItem->description) }}</p>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-            @endforeach
+                @endforeach
 
-            <!-- If we need navigation buttons -->
-                <!-- <div class="news__swiper-button-prev swiper-button-prev"></div>
-                <div class="news__swiper-button-next swiper-button-next"></div> -->
+                <!-- If we need navigation buttons -->
+                    <!-- <div class="news__swiper-button-prev swiper-button-prev"></div>
+                    <div class="news__swiper-button-next swiper-button-next"></div> -->
 
-                <!-- If we need scrollbar -->
-                <!-- <div class="swiper-scrollbar"></div> -->
-            </div>
-            <!-- If we need pagination -->
-            <div class="news__swiper-pagination swiper-pagination"></div>
-        </section>
-        <section class="experts__swiper">
-            <!-- Slider main container -->
-            <div class="experts__swiper-TopB"></div>
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+                <!-- If we need pagination -->
+                <div class="news__swiper-pagination swiper-pagination"></div>
+            </section>
+        @endisset
+        @isset($team)
+            <section class="experts__swiper">
+                <!-- Slider main container -->
+                <div class="experts__swiper-TopB"></div>
 
-            <div class="experts__swiper-title">Доверьтесь профессионалам</div>
-            <div class="experts__swiper-slider _swiper">
-                <!-- Slides -->
-                @foreach ($team as $member)
-                    <div class="swiper-slide uk-flex uk-flex-center experts__swiper-slide">
-                        <div class="uk-card uk-card-default uk-card-body">
-                            <picture>
-                                <img src="{{ asset('storage/uploads/images/'.$member->image) }}" alt=""/></picture>
-                            <div class="uk-card experts__swiper-content">
-                                <div
-                                    class="experts__swiper-position">{{ $member->role }}</div>
-                                <div
-                                    class="experts__swiper-name">{{ $member->name }}</div>
-                                <div class="experts__swiper-description">
-                                    {{ $member->description }}
+                <div class="experts__swiper-title">Доверьтесь профессионалам</div>
+                <div class="experts__swiper-slider _swiper">
+                    <!-- Slides -->
+                    @foreach ($team as $member)
+                        <div class="swiper-slide uk-flex uk-flex-center experts__swiper-slide">
+                            <div class="uk-card uk-card-default uk-card-body">
+                                <picture>
+                                    <img src="{{ asset('storage/uploads/images/'.$member->image) }}" alt=""/></picture>
+                                <div class="uk-card experts__swiper-content">
+                                    <div
+                                        class="experts__swiper-position">{{ $member->role }}</div>
+                                    <div
+                                        class="experts__swiper-name">{{ $member->name }}</div>
+                                    <div class="experts__swiper-description">
+                                        {{ $member->description }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-            @endforeach
+                @endforeach
 
-            <!-- If we need navigation buttons -->
-                <!-- <div class="experts__swiper-button-prev swiper-button-prev"></div> -->
-                <!-- <div class="experts__swiper-button-next swiper-button-next"></div> -->
+                <!-- If we need navigation buttons -->
+                    <!-- <div class="experts__swiper-button-prev swiper-button-prev"></div> -->
+                    <!-- <div class="experts__swiper-button-next swiper-button-next"></div> -->
 
-                <!-- If we need scrollbar -->
-                <!-- <div class="swiper-scrollbar"></div> -->
-            </div>
-            <!-- If we need pagination -->
-            <div class="experts__swiper-pagination swiper-pagination"></div>
-            <div class="experts__swiper__anim-bg anim-bg">
-                <div class="experts__swiper-bg"><span></span></div>
-            </div>
-            <div class="anim__background anim-bg2">
-                <picture>
-                    <img src="{{ asset('main/img/footerAtom.png') }}" alt="" class="anim__bg-atom"></picture>
-            </div>
-        </section>
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
+                </div>
+                <!-- If we need pagination -->
+                <div class="experts__swiper-pagination swiper-pagination"></div>
+                <div class="experts__swiper__anim-bg anim-bg">
+                    <div class="experts__swiper-bg"><span></span></div>
+                </div>
+                <div class="anim__background anim-bg2">
+                    <picture>
+                        <img src="{{ asset('main/img/footerAtom.png') }}" alt="" class="anim__bg-atom"></picture>
+                </div>
+            </section>
+        @endisset
 
     </div>
 @endsection

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClinicsRequest;
 use App\Services\ClinicsService;
-use Illuminate\Http\Request;
 
 class ClinicsController extends Controller
 {
@@ -25,7 +24,7 @@ class ClinicsController extends Controller
      */
     public function index()
     {
-        $clinics = $this->clinicsService->getPaginatedClinics();
+        $clinics = $this->clinicsService->getPaginatedClinics(10);
         return view('admin.clinics.index', compact('clinics'));
     }
 

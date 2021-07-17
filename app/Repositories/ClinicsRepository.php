@@ -22,6 +22,7 @@ class ClinicsRepository extends CoreRepository
         $columns = [
             'id',
             'title',
+            'address',
             'phone_number'
         ];
 
@@ -32,12 +33,12 @@ class ClinicsRepository extends CoreRepository
         return $result;
     }
 
-    public function getPaginatedClinics()
+    public function getPaginatedClinics($number)
     {
         $result = $this
             ->getAllClinics()
             ->orderByDesc('id')
-            ->paginate(10);
+            ->paginate($number);
 
         return $result;
     }

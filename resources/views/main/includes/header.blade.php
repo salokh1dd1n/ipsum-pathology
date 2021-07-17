@@ -23,7 +23,7 @@
                         <a class="header__nav-link" href="{{ routeWithLocale('treatments') }}">Лечение</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="#">Врачи</a>
+                        <a class="header__nav-link" href="{{ routeWithLocale('doctors') }}">Врачи</a>
                     </li>
                     <li>
                         <a class="header__nav-link" href="{{ routeWithLocale('aboutUs') }}">О нас</a>
@@ -83,19 +83,28 @@
                     </a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">@lang('home.menu.aboutUs')</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('researches') }}">Лаборатория</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">{{ __('home.menu.servicePrice') }}</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('diagnostics') }}">Диагностика</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">{{ __('home.menu.forPatients') }}</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('treatments') }}">Лечение</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">{{ __('home.menu.optics') }}</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('doctors') }}">Врачи</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="#">{{ __('home.menu.contacts') }}</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('aboutUs') }}">О нас</a>
+                </li>
+                <li>
+                    <a class="header__nav-link" href="{{ routeWithLocale('team') }}">Команда</a>
+                </li>
+                <li>
+                    <a class="header__nav-link" href="{{ routeWithLocale('news') }}">Новости</a>
+                </li>
+                <li>
+                    <a class="header__nav-link" href="{{ routeWithLocale('contacts') }}">Контакты</a>
                 </li>
             </ul>
             <div class="uk-inline">

@@ -44,4 +44,6 @@ Route::group($settings, function () {
 
     Route::get('/researches', [\App\Http\Controllers\Main\ResearchesController::class, 'index'])->name('researches');
     Route::get('/research/{id}', [\App\Http\Controllers\Main\ResearchesController::class, 'show'])->name('researches.show');
+
+    Route::get('/doctors', [\App\Http\Controllers\Main\ClinicsController::class, 'index'])->name('doctors');
 });
