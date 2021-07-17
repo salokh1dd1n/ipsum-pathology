@@ -23,6 +23,8 @@ class NewsRepository extends CoreRepository
         $columns = [
             'id',
             'title',
+            'image',
+            'description',
             'created_at'
         ];
 
@@ -33,12 +35,12 @@ class NewsRepository extends CoreRepository
         return $result;
     }
 
-    public function getPaginatedNews()
+    public function getPaginatedNews($number)
     {
         $result = $this
             ->getAllNews()
             ->orderByDesc('id')
-            ->paginate(10);
+            ->paginate($number);
 
         return $result;
     }

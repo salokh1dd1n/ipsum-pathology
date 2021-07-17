@@ -25,9 +25,9 @@ class NewsService extends CoreService
         return $this->repository->getAllNews()->addSelect(['image', 'description'])->orderByDesc('id')->take($number)->get();
     }
 
-    public function getPaginatedNews()
+    public function getPaginatedNews($number)
     {
-        return $this->repository->getPaginatedNews();
+        return $this->repository->getPaginatedNews($number);
     }
 
     public function getNews($id)
