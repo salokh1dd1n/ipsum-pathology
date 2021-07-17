@@ -1,6 +1,6 @@
 @extends('main.layouts.app')
 @push('langSwitcher')
-
+    @include('main.includes.langSwitcher')
 @endpush
 @section('content')
     <div class="content">

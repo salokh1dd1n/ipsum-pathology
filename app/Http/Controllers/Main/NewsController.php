@@ -22,6 +22,7 @@ class NewsController extends CoreController
 
     public function show($lang, $id)
     {
-        dd(__METHOD__, $id);
+        $newsItem = $this->service->getNews($id);
+        return view('main.pages.newsArticle', compact('newsItem'));
     }
 }
