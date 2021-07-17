@@ -19,6 +19,8 @@ class CoreController extends Controller
     }
 
     /**
+     * Application store
+     *
      * @param ApplicationsRequest $request
      * @param string $lang
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|void
@@ -29,6 +31,16 @@ class CoreController extends Controller
         $phone_number = $request->input('phone_number');
         $data['phone_number'] = reFormatPhoneNumber($phone_number);
         return $this->applicationService->insertApplicationData($data);
+    }
+
+    /**
+     * Contacts page
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function contacts()
+    {
+        return view('main.pages.contacts');
     }
 
 }

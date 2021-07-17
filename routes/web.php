@@ -28,6 +28,7 @@ Route::group($settings, function () {
 
     Route::get('/team', [\App\Http\Controllers\Main\TeamController::class, 'index'])->name('team');
     Route::get('/faq', [\App\Http\Controllers\Main\FaqController::class, 'index'])->name('faq');
+    Route::get('/contacts', [\App\Http\Controllers\Main\CoreController::class, 'contacts'])->name('contacts');
 
     Route::post('/application/store', [\App\Http\Controllers\Main\CoreController::class, 'storeApplication'])->middleware(['throttle:storeApplication'])->name('application.store');
 

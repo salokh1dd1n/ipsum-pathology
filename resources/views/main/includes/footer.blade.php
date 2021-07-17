@@ -1,8 +1,10 @@
 <footer class="footer">
-    <section class="footer__map">
-        <script type="text/javascript" charset="utf-8" async
-                src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A895c203061d9942672d227bfd26119860efc0b9877042faf61b05700d33a7b1f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
-    </section>
+    @if (!currentRouteName() == 'contacts')
+        <section class="footer__map">
+            <script type="text/javascript" charset="utf-8" async
+                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A895c203061d9942672d227bfd26119860efc0b9877042faf61b05700d33a7b1f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
+        </section>
+    @endif
     <section class="footer__content">
         <div class="uk-container uk-container-center">
             <div class="footer__content-top uk-grid" uk-grid>

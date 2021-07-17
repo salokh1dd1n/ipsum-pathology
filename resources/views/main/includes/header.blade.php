@@ -35,7 +35,7 @@
                         <a class="header__nav-link" href="{{ routeWithLocale('news') }}">Новости</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="#">Контакты</a>
+                        <a class="header__nav-link" href="{{ routeWithLocale('contacts') }}">Контакты</a>
                     </li>
                 </ul>
 

@@ -16,6 +16,7 @@
     @include('main.includes.header')
     @yield('content')
     @include('main.includes.footer')
+
 </div>
 
 <script src="https://api-maps.yandex.ru/2.1/?apikey=0d2db804-33db-441d-a54d-8fc8fa45e591&lang=ru_RU"

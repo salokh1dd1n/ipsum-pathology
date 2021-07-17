@@ -9,9 +9,9 @@
                 <div class="block__wrapper uk-width-1-1">
                     <!-- Container title -->
                     <h1 class="treatment__title block__title">
-                        @if (request()->segment(2) == 'diagnostics')
+                        @if (currentRouteName() == 'diagnostics')
                             Диагностика раковых заболеваний
-                        @elseif (request()->segment(2) == 'treatments')
+                        @elseif (currentRouteName() == 'treatments')
                             Как вылечить рак
                         @endif
                     </h1>
