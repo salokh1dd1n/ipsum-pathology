@@ -14,19 +14,28 @@
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
                     <li class="uk-active">
-                        <a class="header__nav-link" href="#">@lang('home.menu.aboutUs')</a>
+                        <a class="header__nav-link" href="{{ routeWithLocale('researches') }}">Лаборатория</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="#">{{ __('home.menu.servicePrice') }}</a>
+                        <a class="header__nav-link" href="{{ routeWithLocale('diagnostics') }}">Диагностика</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="#">{{ __('home.menu.forPatients') }}</a>
+                        <a class="header__nav-link" href="{{ routeWithLocale('treatments') }}">Лечение</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="#">{{ __('home.menu.optics') }}</a>
+                        <a class="header__nav-link" href="#">Врачи</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="#">{{ __('home.menu.contacts') }}</a>
+                        <a class="header__nav-link" href="#">О нас</a>
+                    </li>
+                    <li>
+                        <a class="header__nav-link" href="{{ routeWithLocale('team') }}">Команда</a>
+                    </li>
+                    <li>
+                        <a class="header__nav-link" href="{{ routeWithLocale('news') }}">Новости</a>
+                    </li>
+                    <li>
+                        <a class="header__nav-link" href="#">Контакты</a>
                     </li>
                 </ul>
 
