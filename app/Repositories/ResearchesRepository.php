@@ -22,6 +22,7 @@ class ResearchesRepository extends CoreRepository
         $columns = [
             'id',
             'title',
+            'image',
             'short_desc'
         ];
 
@@ -32,12 +33,12 @@ class ResearchesRepository extends CoreRepository
         return $result;
     }
 
-    public function getPaginatedResearches()
+    public function getPaginatedResearches($number)
     {
         $result = $this
             ->getAllResearches()
             ->orderByDesc('id')
-            ->paginate(10);
+            ->paginate($number);
 
         return $result;
     }

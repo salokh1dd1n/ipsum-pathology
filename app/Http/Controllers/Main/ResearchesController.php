@@ -16,13 +16,13 @@ class ResearchesController extends CoreController
 
     public function index()
     {
-        dd(__METHOD__);
+        $researches = $this->service->getPaginatedResearch(6);
+        return view('main.pages.researches', compact('researches'));
     }
 
     public function show($lang, $id)
     {
         $research = $this->service->getResearch($id);
-//        dd($research->services);
         return view('main.pages.research', compact('research'));
     }
 }

@@ -7,7 +7,7 @@
         <page class="labaratory-research lab-res">
 
             <!-- First part article -->
-            <section class="lab-res__article">
+            <div class="lab-res__article">
                 <div class="uk-container uk-container-center ta__container">
                     <div class="block__wrapper uk-width-1-1 lab-res__block">
                         <!-- Container title -->
@@ -24,12 +24,12 @@
                         </article>
 
                         <div class="uk-flex uk-flex-center">
-                            <a href="#applicationForm" class="btn uk-margin-small-right">Оставить заявку</a>
+                            <a class="btn uk-margin-small-right form__open">Оставить заявку</a>
                             <a href="tel:+1234567890" class="btn">Позвонить</a>
                         </div>
 
                         <div
-                            class="lab-res__advantages lab-res__adv uk-grid-match uk-child-width-1-1 uk-child-width-1-2@l uk-child-width-1-4@xl"
+                            class="lab-res__advantages lab-res__adv uk-flex-center uk-grid-match uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l"
                             uk-grid>
                             @foreach($research->advantages as $key => $advantage)
                                 <div>
@@ -94,8 +94,8 @@
                     </div>
                 </div>
 
-                @include('main.includes.applicationForm')
-            </section>
+            </div>
+            @include('main.includes.applicationForm', ['isModal' => '_visible'])
         </page>
     </div>
 @endsection

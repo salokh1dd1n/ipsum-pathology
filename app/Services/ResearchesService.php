@@ -25,9 +25,9 @@ class ResearchesService extends CoreService
         $this->repository = $repository;
     }
 
-    public function getPaginatedResearch()
+    public function getPaginatedResearch($number)
     {
-        return $this->repository->getPaginatedResearches();
+        return $this->repository->getPaginatedResearches($number);
     }
 
     public function getAllServices()

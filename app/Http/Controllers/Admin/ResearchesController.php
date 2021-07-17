@@ -24,7 +24,7 @@ class ResearchesController extends Controller
      */
     public function index()
     {
-        $researches = $this->researchService->getPaginatedResearch();
+        $researches = $this->researchService->getPaginatedResearch(10);
         return view('admin.researches.index', compact('researches'));
     }
 
