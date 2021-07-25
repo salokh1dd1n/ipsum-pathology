@@ -23,6 +23,8 @@ class ClinicsRepository extends CoreRepository
             'id',
             'title',
             'address',
+            'latitude',
+            'longitude',
             'phone_number'
         ];
 
@@ -50,6 +52,8 @@ class ClinicsRepository extends CoreRepository
             'title',
             'phone_number',
             'address',
+            'latitude',
+            'longitude'
         ];
         $result = $this
             ->model

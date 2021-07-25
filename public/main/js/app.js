@@ -5201,40 +5201,7 @@ const Experts = new Swiper(".experts__swiper-slider", {
 
 })));
 //# sourceMappingURL=imask.js.map;
-//прокрутка по клику
-const menuLinks = document.querySelectorAll(".block__tag[data-goto]");
-if (menuLinks.length > 0) {
-  menuLinks.forEach((menuLink) => {
-    menuLink.addEventListener("click", onMenuLinkClick);
-  });
 
-  function onMenuLinkClick(e) {
-    const menuLink = e.target;
-    if (
-      menuLink.dataset.goto &&
-      document.querySelector(menuLink.dataset.goto)
-    ) {
-      const gotoBlock = document.querySelector(menuLink.dataset.goto);
-      const gotoBlockValue =
-        gotoBlock.getBoundingClientRect().top +
-        pageYOffset
-        //  -
-        // document.querySelector("header").offsetHeight;
-
-      // if (iconMenu.classList.contains("_active")) {
-      //   document.body.classList.remove("_lock");
-      //   iconMenu.classList.remove("_active");
-      //   menuBody.classList.remove("_active");
-      // }
-
-      window.scrollTo({
-        top: gotoBlockValue,
-        behavior: "smooth",
-      });
-      e.preventDefault();
-    }
-  }
-};
 // pop-up form sended observer
 if (document.querySelector('.form')) {
   let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
@@ -5348,27 +5315,39 @@ if (tel) {
 
 
 // adaptive accordion in Footer 
-let accordions = document.querySelectorAll('.footer__accordion');
-let submenu__accordions = document.querySelectorAll('.submenu__accordion');
+// let accordions = document.querySelectorAll('.footer__accordion');
+// let keys = document.querySelectorAll('.accordion__key');
+// let screenWidth = document.documentElement.clientWidth;
+// if (keys) {
+//   screenWidth.addEventListener('change', () => {
+//     if (screenWidth > 1024) {
+//       for (let i=0; i<keys.length; i++) {
+//         let key = keys[i];
+//         key.classList.add('uk-open');
+//       }
+//     }
+//   });
+// }
 
-if (accordions) {
-    for (let i=0; i<accordions.length; i++) {
-      let accordion = accordions[i];
-      let submenu__accordion = submenu__accordions[i];
-      function footerAccord(e) {
-        if (e.matches) { 
-          accordion.setAttribute('uk-nav', null);
-        } else {
-          accordion.removeAttribute('uk-nav');
-          submenu__accordion.removeAttribute('hidden');
-        }
-      }
-  
-      var mediaWidth = window.matchMedia("(max-width: 1024px)")
-      footerAccord(mediaWidth) // Call listener function at run time
-      mediaWidth.addListener(footerAccord) // Attach listener function on state changes
-    }
-}
+
+// if (accordions) {
+//   for (let i=0; i<accordions.length; i++) {
+//     let accordion = accordions[i];
+//     let submenu__accordion = submenu__accordions[i];
+//     function footerAccord(e) {
+//       if (e.matches) { 
+//         accordion.setAttribute('uk-nav', null);
+//       } else {
+//         accordion.removeAttribute('uk-nav');
+//         submenu__accordion.removeAttribute('hidden');
+//       }
+//     }
+
+//     var mediaWidth = window.matchMedia("(max-width: 1024px)")
+//     footerAccord(mediaWidth) // Call listener function at run time
+//     mediaWidth.addListener(footerAccord) // Attach listener function on state changes
+//   }
+// }
 
 
 "use strict"

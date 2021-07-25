@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('main/css/style.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('main/css/yandexMap.css') }}">
     <!-- fonts -->
     <link rel="stylesheet" href="{{ asset('main/fonts/stylesheet.css') }}"/>
 </head>
@@ -19,8 +20,8 @@
 
 </div>
 
-<script src="https://api-maps.yandex.ru/2.1/?apikey=0d2db804-33db-441d-a54d-8fc8fa45e591&lang=ru_RU"
-        type="text/javascript"></script>
 <script src="{{ asset('main/js/app.min.js') }}"></script>
+@stack('scripts')
+
 </body>
 </html>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ClinicsRequest;
 use App\Services\ClinicsService;
+use Illuminate\Support\Facades\Request;
 
 class ClinicsController extends Controller
 {
@@ -42,10 +43,12 @@ class ClinicsController extends Controller
      */
     public function store(ClinicsRequest $request)
     {
-        $data = $request->only('title', 'address');
+        $data = $request->only('title', 'latitude', 'longitude');
+        $address = $request->input('address');
         $phone_number = $request->input('phone_number');
         $data['phone_number'] = reFormatPhoneNumber($phone_number);
-
+        $data['address'] = $this->clinicsService->getMultiLangAddress($address);
+//        dd($data);
         return $this->clinicsService->insertData($data);
     }
 
@@ -66,9 +69,11 @@ class ClinicsController extends Controller
      */
     public function update(ClinicsRequest $request, int $id)
     {
-        $data = $request->only('title', 'address');
+        $data = $request->only('title', 'latitude', 'longitude');
+        $address = $request->input('address');
         $phone_number = $request->input('phone_number');
         $data['phone_number'] = reFormatPhoneNumber($phone_number);
+        $data['address'] = $this->clinicsService->getMultiLangAddress($address);
 
         return $this->clinicsService->updateData($id, $data);
     }

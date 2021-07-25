@@ -17,6 +17,8 @@ class CreateClinicsTable extends Migration
             $table->id();
             $table->json('title');
             $table->json('address');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('phone_number', 12);
             $table->timestamps();
         });

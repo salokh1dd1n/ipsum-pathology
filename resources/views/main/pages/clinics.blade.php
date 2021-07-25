@@ -21,8 +21,7 @@
                                 </div>
                             </div>
                             <div class="block__map-wrapper">
-                                <script type="text/javascript" charset="utf-8" async
-                                        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A64c297f7e35b8dae3bb81cb67c45ae1923f5314b80559a304bcb95095c74d368&amp;width=100%25&amp;height=100%25&amp;lang=ru_RU&amp;scroll=false"></script>
+                                <div id="map" class="map"></div>
                             </div>
                         @endif
                     <!-- background atom -->
@@ -92,3 +91,6 @@
         </page>
     </div>
 @endsection
+@push('scripts')
+    @include('main.includes.yandexMap', ['clinics' => $clinics])
+@endpush

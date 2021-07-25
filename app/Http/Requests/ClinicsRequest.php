@@ -29,7 +29,7 @@ class ClinicsRequest extends FormRequest
         $rules = [
             'phone_number' => ['required', 'string', new PhoneNumberRule()],
             'title.*' => 'required|string|max:250|min:3',
-            'address.*' => 'required|string|max:250|min:3'
+            'address' => 'required|string|max:250|min:3'
         ];
 
         return $rules;
@@ -40,8 +40,8 @@ class ClinicsRequest extends FormRequest
         $attributes = [];
         foreach (Config::get('app.languages') as $key => $lang) {
             $attributes['title.' . $key] = "Заголовок ($lang)";
-            $attributes['address.' . $key] = "Адрес ($lang)";
         }
+        $attributes['address'] = "Адрес";
         $attributes['phone_number'] = 'Телефонный номер';
         return $attributes;
     }

@@ -10,85 +10,56 @@
             @csrf
             <div class="card-body">
                 <div class="row">
-                    <div class="col-12">
+                    @foreach(Config::get('app.languages') as $key => $lang)
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="title_{{ $key }}">Заголовок ({{ $lang }})</label>
+                                <input class="form-control @error('title.'.$key) is-invalid @enderror"
+                                       id="title_{{ $key }}" name="title[{{ $key }}]"
+                                       type="text" value="{{ $clinic->title }}"
+                                       placeholder="Введите заголовок">
+                                @error('title.'.$key)
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    @endforeach
+                    <div class="col-8">
+                        <div class="form-group">
+                            <label for="address">Адрес</label>
+                            <input class="form-control @error('address') is-invalid @enderror"
+                                   id="address" name="address"
+                                   type="text" value="{{ $clinic->address }}" list="browsers"
+                                   placeholder="Введите адрес">
+                            <datalist id="browsers">
+                            </datalist>
+                            @error('address')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <ul class="list-group" style="border-top-left-radius: 0px; border-top-right-radius: 0px;"
+                                id="addresses">
+                            </ul>
+                            <input type="hidden" value="{{ $clinic->latitude }}" name="latitude">
+                            <input type="hidden" value="{{ $clinic->longitude }}" name="longitude">
+                        </div>
+                    </div>
+                    <div class="col-4">
                         <div class="form-group">
                             <label for="phone_number">Телефонный номер</label>
                             <input class="form-control @error('phone_number') is-invalid @enderror"
                                    id="phone_number" name="phone_number"
-                                   type="text" value="{{ formattedPhoneNumber($clinic->phone_number) }}"
+                                   type="text"
+                                   value="{{ formattedPhoneNumber($clinic->phone_number) }}"
                                    placeholder="Введите номер телефона">
                             @error('phone_number')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                     </div>
-                </div>
-                <div class="nav-tabs-boxed">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#ru" role="tab" aria-controls="home"
-                               aria-selected="false">
-                                <svg class="c-icon">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-ru') }}"></use>
-                                </svg>
-                                Русский
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#uz" role="tab" aria-controls="profile"
-                               aria-selected="false">
-                                <svg class="c-icon">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-uz') }}"></use>
-                                </svg>
-                                O'zbek
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#en" role="tab"
-                               aria-controls="messages" aria-selected="true">
-                                <svg class="c-icon">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/flag.svg#cif-us') }}"></use>
-                                </svg>
-                                English
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        @foreach(Config::get('app.languages') as $key => $lang)
-                            <div class="tab-pane @if($key == 'ru') active @endif" id="{{ $key }}" role="tabpanel">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="title_{{ $key }}">Заголовок ({{ $lang }})</label>
-                                            <input class="form-control @error('title.'.$key) is-invalid @enderror"
-                                                   id="title_{{ $key }}" name="title[{{ $key }}]"
-                                                   type="text" value="{{ $clinic->title }}"
-                                                   placeholder="Введите заголовок">
-                                            @error('title.'.$key)
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="address_{{ $key }}">Адрес ({{ $lang }})</label>
-                                            <textarea class="form-control @error('address.'.$key) is-invalid @enderror"
-                                                id="address_{{ $key }}" name="address[{{ $key }}]" rows="9"
-                                                placeholder="Введите адрес">{{ $clinic->address }}</textarea>
-                                            @error('address.'.$key)
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        @endforeach
-
+                    <div class="col-12">
+                        <div class="form-group border rounded">
+                            <div id="map" style="width:100%; height:350px; background-color: #e5e3df;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,4 +69,8 @@
         </form>
     </div>
 @endsection
+@push('scripts')
+    @include('admin.includes.yandexMapScriptForUpdate', ['clinic' => $clinic])
+    @include('admin.includes.phoneNumberMask')
+@endpush
 
