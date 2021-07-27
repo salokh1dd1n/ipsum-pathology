@@ -137,63 +137,6 @@ body._lock,
   overflow: hidden;
 }
 
-.accordion__btns > li {
-  margin-top: 5px;
-}
-
-.accordion__items-container {
-  -webkit-transition: height 0.2s linear;
-  -o-transition: height 0.2s linear;
-  transition: height 0.2s linear;
-}
-
-.accordion__items-element {
-  -webkit-transition: -webkit-transform 0.35s linear;
-  transition: -webkit-transform 0.35s linear;
-  -o-transition: transform 0.35s linear;
-  transition: transform 0.35s linear;
-  transition: transform 0.35s linear, -webkit-transform 0.35s linear;
-}
-
-.accordion__items-element .accordion__item-card {
-  border-radius: 11.9295px;
-}
-
-.accordion__items-element .accordion__item-title,
-.accordion__items-element .accordion__item-title:focus,
-.accordion__items-element .accordion__item-title:hover {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 21px;
-  color: #1b1139;
-}
-
-.accordion__items-element .accordion__item-title::before,
-.accordion__items-element .accordion__item-title:focus::before,
-.accordion__items-element .accordion__item-title:hover::before {
-  float: left;
-  margin: 0 30px 0 0;
-  background-image: url("../img/plus-icon.svg");
-  background-size: contain;
-}
-
-.accordion__items-element .uk-open > .accordion__item-title::before {
-  background-image: url("../img/minus-icon.svg");
-}
-
-.accordion__items-element .accordion__item-content {
-  font-size: 17px;
-  line-height: 150.7%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  letter-spacing: 0.12px;
-  color: #363049;
-}
-
 section,
 header {
   background: #f7fafe;
@@ -15614,6 +15557,63 @@ iframe.uk-cover {
    Component: Print
  ========================================================================== */
 
+.accordion__btns > li {
+  margin-top: 5px;
+}
+
+.accordion__items-container {
+  -webkit-transition: height 0.2s linear;
+  -o-transition: height 0.2s linear;
+  transition: height 0.2s linear;
+}
+
+.accordion__items-element {
+  -webkit-transition: -webkit-transform 0.35s linear;
+  transition: -webkit-transform 0.35s linear;
+  -o-transition: transform 0.35s linear;
+  transition: transform 0.35s linear;
+  transition: transform 0.35s linear, -webkit-transform 0.35s linear;
+}
+
+.accordion__items-element .accordion__item-card {
+  border-radius: 11.9295px;
+}
+
+.accordion__items-element .accordion__item-title,
+.accordion__items-element .accordion__item-title:focus,
+.accordion__items-element .accordion__item-title:hover {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 21px;
+  color: #1b1139;
+}
+
+.accordion__items-element .accordion__item-title::before,
+.accordion__items-element .accordion__item-title:focus::before,
+.accordion__items-element .accordion__item-title:hover::before {
+  float: left;
+  margin: 0 30px 0 0;
+  background-image: url("../img/plus-icon.svg");
+  background-size: contain;
+}
+
+.accordion__items-element .uk-open > .accordion__item-title::before {
+  background-image: url("../img/minus-icon.svg");
+}
+
+.accordion__items-element .accordion__item-content {
+  font-size: 17px;
+  line-height: 150.7%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 0.12px;
+  color: #363049;
+}
+
 .header {
   padding-top: 45px;
   padding-bottom: 34px;
@@ -16841,6 +16841,49 @@ iframe.uk-cover {
   color: #000000;
 }
 
+.consult {
+  padding-bottom: 136px;
+}
+
+.consult-card {
+  font-family: "Poppins", sans-serif;
+  padding: 28px 28px;
+  border-radius: 12px;
+  min-height: 90px;
+}
+
+.consult-card-icon {
+  margin-right: 10px;
+  min-width: 39px;
+}
+
+.consult-card-title {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 37px;
+  color: #000000;
+}
+
+.consult-card-text {
+  font-size: 17px;
+  line-height: 158.7%;
+  letter-spacing: 0.12px;
+  color: #363049;
+  opacity: 0.7;
+}
+
+.consult-card-text:last-child {
+  word-break: break-all;
+}
+
+.lab__diag .block__tag {
+  position: absolute;
+  top: 35px;
+  right: 15px;
+  -webkit-box-shadow: 0px 5px 15px rgba(236, 87, 115, 0.3);
+          box-shadow: 0px 5px 15px rgba(236, 87, 115, 0.3);
+}
+
 .ta {
   overflow: hidden;
   font-family: "Montserrat", sans-serif;
@@ -16919,15 +16962,7 @@ iframe.uk-cover {
   color: #000000;
 }
 
-.ta__lab-diag .lab__diag .block__tag {
-  position: absolute;
-  top: 35px;
-  right: 15px;
-  -webkit-box-shadow: 0px 5px 15px rgba(236, 87, 115, 0.3);
-          box-shadow: 0px 5px 15px rgba(236, 87, 115, 0.3);
-}
-
-.ta__treatment p {
+.ta .treatment p {
   color: #000;
   line-height: 1.5;
 }
@@ -16952,41 +16987,6 @@ iframe.uk-cover {
   -webkit-box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
           box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
   color: #fff;
-}
-
-.ta .ta__consult {
-  padding-bottom: 136px;
-}
-
-.ta .ta__consult-card {
-  font-family: "Poppins", sans-serif;
-  padding: 28px 28px;
-  border-radius: 12px;
-  min-height: 90px;
-}
-
-.ta .ta__consult-card-icon {
-  margin-right: 10px;
-  min-width: 39px;
-}
-
-.ta .ta__consult-card-title {
-  font-weight: 600;
-  font-size: 25px;
-  line-height: 37px;
-  color: #000000;
-}
-
-.ta .ta__consult-card-text {
-  font-size: 17px;
-  line-height: 158.7%;
-  letter-spacing: 0.12px;
-  color: #363049;
-  opacity: 0.7;
-}
-
-.ta .ta__consult-card-text:last-child {
-  word-break: break-all;
 }
 
 .da {
@@ -17037,6 +17037,10 @@ iframe.uk-cover {
   color: #000000;
 }
 
+.da__symptoms {
+  margin-top: 40px;
+}
+
 .da .anim__background-mask {
   top: -105px;
   left: -140px;
@@ -17052,15 +17056,7 @@ iframe.uk-cover {
   right: -220px;
 }
 
-.da .lab__diag .block__tag {
-  position: absolute;
-  top: 35px;
-  right: 15px;
-  -webkit-box-shadow: 0px 5px 15px rgba(236, 87, 115, 0.3);
-          box-shadow: 0px 5px 15px rgba(236, 87, 115, 0.3);
-}
-
-.da__treatment .da__title-map {
+.da .treatment .da__title-map {
   margin-top: 0px;
 }
 
@@ -17084,41 +17080,6 @@ iframe.uk-cover {
   -webkit-box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
           box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
   color: #fff;
-}
-
-.da .da__consult {
-  padding-bottom: 136px;
-}
-
-.da .da__consult-card {
-  font-family: "Poppins", sans-serif;
-  padding: 28px 28px;
-  border-radius: 12px;
-  min-height: 90px;
-}
-
-.da .da__consult-card-icon {
-  margin-right: 10px;
-  min-width: 39px;
-}
-
-.da .da__consult-card-title {
-  font-weight: 600;
-  font-size: 25px;
-  line-height: 37px;
-  color: #000000;
-}
-
-.da .da__consult-card-text {
-  font-size: 17px;
-  line-height: 158.7%;
-  letter-spacing: 0.12px;
-  color: #363049;
-  opacity: 0.7;
-}
-
-.da .da__consult-card-text:last-child {
-  word-break: break-all;
 }
 
 .lab-res {
@@ -19576,27 +19537,15 @@ iframe.uk-cover {
     margin-top: 15px;
   }
 
-  .ta .ta__consult .uk-grid {
+  .consult .uk-grid {
     margin-left: -15px;
   }
 
-  .ta .ta__consult .uk-grid > * {
+  .consult .uk-grid > * {
     padding-left: 15px;
   }
 
-  .ta .ta__consult * + .uk-grid-margin {
-    margin-top: 15px;
-  }
-
-  .da .da__consult .uk-grid {
-    margin-left: -15px;
-  }
-
-  .da .da__consult .uk-grid > * {
-    padding-left: 15px;
-  }
-
-  .da .da__consult * + .uk-grid-margin {
+  .consult * + .uk-grid-margin {
     margin-top: 15px;
   }
 
@@ -19721,12 +19670,7 @@ iframe.uk-cover {
 }
 
 @media (max-width: 1280px) {
-  .ta__lab-diag .lab__diag .block__tag {
-    top: -10px;
-    font-size: 16px;
-  }
-
-  .da .lab__diag .block__tag {
+  .lab__diag .block__tag {
     top: -10px;
     font-size: 16px;
   }
@@ -20022,7 +19966,7 @@ iframe.uk-cover {
     margin-right: 0;
   }
 
-  .form__input:not(:last-child) {
+  .form__input:first-child {
     margin-bottom: 20px;
     font-size: 3vw;
   }
@@ -20292,17 +20236,6 @@ iframe.uk-cover {
     font-size: 14px;
   }
 
-  .accordion__items-element .accordion__item-title,
-  .accordion__items-element .accordion__item-title:focus,
-  .accordion__items-element .accordion__item-title:hover {
-    font-size: 18px;
-  }
-
-  .accordion__items-element .accordion__item-content {
-    font-size: 14px;
-    line-height: 1.1;
-  }
-
   .anim__background-mask {
     left: -30px;
   }
@@ -20319,6 +20252,17 @@ iframe.uk-cover {
   .anim__background-cloud img {
     width: 22vw;
     height: auto;
+  }
+
+  .accordion__items-element .accordion__item-title,
+  .accordion__items-element .accordion__item-title:focus,
+  .accordion__items-element .accordion__item-title:hover {
+    font-size: 18px;
+  }
+
+  .accordion__items-element .accordion__item-content {
+    font-size: 14px;
+    line-height: 1.1;
   }
 
   .header__anim-bg {
@@ -20475,6 +20419,26 @@ iframe.uk-cover {
     height: 360px;
   }
 
+  .consult {
+    padding-bottom: 50px;
+  }
+
+  .consult-card {
+    padding: 15px 15px;
+  }
+
+  .consult-card-title {
+    font-size: 18px;
+  }
+
+  .consult-card-text {
+    font-size: 14px;
+  }
+
+  .lab__diag .block__tag {
+    font-size: 14px;
+  }
+
   .ta .block__wrapper {
     padding: 20px 30px 20px 30px;
   }
@@ -20511,10 +20475,6 @@ iframe.uk-cover {
     line-height: 1.5;
   }
 
-  .ta__lab-diag .lab__diag .block__tag {
-    font-size: 14px;
-  }
-
   .ta .accordion__items-element .accordion__item-content {
     font-size: 16px;
   }
@@ -20523,22 +20483,6 @@ iframe.uk-cover {
     padding: 8px 10px;
     font-size: 12px;
     line-height: 1.1;
-  }
-
-  .ta .ta__consult {
-    padding-bottom: 50px;
-  }
-
-  .ta .ta__consult-card {
-    padding: 15px 15px;
-  }
-
-  .ta .ta__consult-card-title {
-    font-size: 18px;
-  }
-
-  .ta .ta__consult-card-text {
-    font-size: 14px;
   }
 
   .da .block__wrapper {
@@ -20568,8 +20512,8 @@ iframe.uk-cover {
     margin: 20px 0 20px 0;
   }
 
-  .da .lab__diag .block__tag {
-    font-size: 14px;
+  .da__symptoms {
+    margin-top: 30px;
   }
 
   .da .accordion__items-element .accordion__item-content {
@@ -20580,22 +20524,6 @@ iframe.uk-cover {
     padding: 8px 10px;
     font-size: 12px;
     line-height: 1.1;
-  }
-
-  .da .da__consult {
-    padding-bottom: 50px;
-  }
-
-  .da .da__consult-card {
-    padding: 15px 15px;
-  }
-
-  .da .da__consult-card-title {
-    font-size: 18px;
-  }
-
-  .da .da__consult-card-text {
-    font-size: 14px;
   }
 
   .lab-res .block__wrapper {

@@ -1,16 +1,20 @@
+@if (currentRouteName() != 'contacts')
+    <section class="footer__map">
+        <script
+            type="text/javascript"
+            charset="utf-8"
+            async
+            src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A895c203061d9942672d227bfd26119860efc0b9877042faf61b05700d33a7b1f&amp;width=100%25&amp;height=400&amp;lang={{ app()->getLocale() }}&amp;scroll=false"
+        ></script>
+    </section>
+@endif
 <footer class="footer">
-    @if (!currentRouteName() == 'contacts')
-        <section class="footer__map">
-            <script type="text/javascript" charset="utf-8" async
-                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A895c203061d9942672d227bfd26119860efc0b9877042faf61b05700d33a7b1f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=false"></script>
-        </section>
-    @endif
     <section class="footer__content">
         <div class="uk-container uk-container-center">
             <div class="footer__content-top uk-grid" uk-grid>
                 <div class="uk-width-2-5 left-side">
                     <picture>
-                        <img src="{{ asset('main/img/logoFooter.png') }}" alt=""></picture>
+                        <img src="{{ asset('main/img/logoFooter.png') }}" alt="" width="126px" height="72px"/></picture>
                     <p>Build a modern and creative website with crealand</p>
                     <div class="social-links">
                         <div class="social-link">
@@ -73,56 +77,68 @@
                     </div>
                 </div>
                 <div class="uk-width-3-5 right-side">
-                    <ul class="uk-nav-default uk-nav-parent-icon uk-nav footer__accordion">
-                        <li class="uk-parent">
-                            <a class="uk-active">Product</a>
-                            <ul class="uk-nav-sub submenu__accordion">
-                                <li><a href="#">Landingpage</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li><a href="#">Documentation</a></li>
-                                <li><a href="#">Referral Program</a></li>
-                                <li><a href="#">Pricing</a></li>
-                            </ul>
+                    <ul uk-accordion class="footer__accordion">
+                        <li>
+                            <a class="uk-accordion-title accordion__item-title" href="#">Product
+                            </a>
+                            <div class="uk-accordion-content footer__accordion-content">
+                                <ul class="submenu__accordion">
+                                    <li><a href="#">Landingpage</a></li>
+                                    <li><a href="#">Features</a></li>
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Referral Program</a></li>
+                                    <li><a href="#">Pricing</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
-                    <ul class="uk-nav-default uk-nav-parent-icon uk-nav footer__accordion">
-                        <li class="uk-parent">
-                            <a class="uk-active">Services</a>
-                            <ul class="uk-nav-sub submenu__accordion">
-                                <li><a href="#">Documentation</a></li>
-                                <li><a href="#">Design</a></li>
-                                <li><a href="#">Themes</a></li>
-                                <li><a href="#">Illustrations</a></li>
-                                <li><a href="#">UI KIT</a></li>
-                            </ul>
+                    <ul uk-accordion class="footer__accordion">
+                        <li class='accordion__key'>
+                            <a class="uk-accordion-title accordion__item-title" href="#">Services
+                            </a>
+                            <div class="uk-accordion-content footer__accordion-content">
+                                <ul class="submenu__accordion">
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Design</a></li>
+                                    <li><a href="#">Themes</a></li>
+                                    <li><a href="#">Illustrations</a></li>
+                                    <li><a href="#">UI KIT</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
-                    <ul class="uk-nav-default uk-nav-parent-icon uk-nav footer__accordion">
-                        <li class="uk-parent">
-                            <a class="uk-active">Company</a>
-                            <ul class="uk-nav-sub submenu__accordion">
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Terms</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Careers</a></li>
-                            </ul>
+                    <ul uk-accordion class="footer__accordion">
+                        <li>
+                            <a class="uk-accordion-title accordion__item-title" href="#">Company
+                            </a>
+                            <div class="uk-accordion-content footer__accordion-content">
+                                <ul class="submenu__accordion">
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Terms</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
-                    <ul class="uk-nav-default uk-nav-parent-icon uk-nav footer__accordion">
-                        <li class="uk-parent">
-                            <a class="uk-active">More</a>
-                            <ul class="uk-nav-sub submenu__accordion">
-                                <li><a href="#">Docementation</a></li>
-                                <li><a href="#">License</a></li>
-                                <li><a href="#">Changelog Policy</a></li>
-                            </ul>
+                    <ul uk-accordion class="footer__accordion">
+                        <li>
+                            <a class="uk-accordion-title accordion__item-title" href="#">More
+                            </a>
+                            <div class="uk-accordion-content footer__accordion-content">
+                                <ul class="submenu__accordion">
+                                    <li><a href="#">Docementation</a></li>
+                                    <li><a href="#">License</a></li>
+                                    <li><a href="#">Changelog Policy</a></li>
+                                </ul>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="footer__content-bottom">
                 <picture>
-                    <img src="{{ asset('main/img/Folder.png') }}" alt=""></picture>
+                    <img src="{{ asset('main/img/Folder.png') }}" alt="" width="230px" height="230px"></picture>
                 <a class="like__button">
                     <svg width="28" height="24" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path fill="#41A0F0" stroke="#41A0F0" stroke-width="1.03"

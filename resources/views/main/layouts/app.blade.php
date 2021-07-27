@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('main/css/style.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('main/css/yandexMap.css') }}">
-    <!-- fonts -->
+@stack('styles')
+<!-- fonts -->
     <link rel="stylesheet" href="{{ asset('main/fonts/stylesheet.css') }}"/>
 </head>
 <body>

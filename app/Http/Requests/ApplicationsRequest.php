@@ -34,8 +34,8 @@ class ApplicationsRequest extends FormRequest
     public function attributes()
     {
         return [
-            'fio' => 'Имя',
-            'phone_number' => 'Телефонный номер'
+            'fio' => trans('main.applicationForm.fio.definition'),
+            'phone_number' => trans('main.applicationForm.phoneNumber.definition'),
         ];
     }
 }

@@ -67,6 +67,7 @@
         map = new ymaps.Map('map', {
             center: [41.311081, 69.240562],
             controls: ["zoomControl"], //, "fullscreenControl"
+            behaviors: ['drag'],
             zoom: 11
         });
         @if(old('latitude') && old('longitude'))

@@ -14,28 +14,34 @@
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
                     <li class="uk-active">
-                        <a class="header__nav-link" href="{{ routeWithLocale('researches') }}">Лаборатория</a>
+                        <a class="header__nav-link"
+                           href="{{ routeWithLocale('researches') }}">@lang('main.menu.researches')</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="{{ routeWithLocale('diagnostics') }}">Диагностика</a>
+                        <a class="header__nav-link"
+                           href="{{ routeWithLocale('diagnostics') }}">@lang('main.menu.diagnostics')</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="{{ routeWithLocale('treatments') }}">Лечение</a>
+                        <a class="header__nav-link"
+                           href="{{ routeWithLocale('treatments') }}">@lang('main.menu.treatments')</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="{{ routeWithLocale('doctors') }}">Врачи</a>
+                        <a class="header__nav-link"
+                           href="{{ routeWithLocale('doctors') }}">@lang('main.menu.doctors')</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="{{ routeWithLocale('aboutUs') }}">О нас</a>
+                        <a class="header__nav-link"
+                           href="{{ routeWithLocale('aboutUs') }}">@lang('main.menu.aboutUs')</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="{{ routeWithLocale('team') }}">Команда</a>
+                        <a class="header__nav-link" href="{{ routeWithLocale('team') }}">@lang('main.menu.team')</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="{{ routeWithLocale('news') }}">Новости</a>
+                        <a class="header__nav-link" href="{{ routeWithLocale('news') }}">@lang('main.menu.news')</a>
                     </li>
                     <li>
-                        <a class="header__nav-link" href="{{ routeWithLocale('contacts') }}">Контакты</a>
+                        <a class="header__nav-link"
+                           href="{{ routeWithLocale('contacts') }}">@lang('main.menu.contacts')</a>
                     </li>
                 </ul>
 
@@ -83,37 +89,40 @@
                     </a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="{{ routeWithLocale('researches') }}">Лаборатория</a>
+                    <a class="header__nav-link"
+                       href="{{ routeWithLocale('researches') }}">@lang('main.menu.researches')</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="{{ routeWithLocale('diagnostics') }}">Диагностика</a>
+                    <a class="header__nav-link"
+                       href="{{ routeWithLocale('diagnostics') }}">@lang('main.menu.diagnostics')</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="{{ routeWithLocale('treatments') }}">Лечение</a>
+                    <a class="header__nav-link"
+                       href="{{ routeWithLocale('treatments') }}">@lang('main.menu.treatments')</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="{{ routeWithLocale('doctors') }}">Врачи</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('doctors') }}">@lang('main.menu.doctors')</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="{{ routeWithLocale('aboutUs') }}">О нас</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('aboutUs') }}">@lang('main.menu.aboutUs')</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="{{ routeWithLocale('team') }}">Команда</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('team') }}">@lang('main.menu.team')</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="{{ routeWithLocale('news') }}">Новости</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('news') }}">@lang('main.menu.news')</a>
                 </li>
                 <li>
-                    <a class="header__nav-link" href="{{ routeWithLocale('contacts') }}">Контакты</a>
+                    <a class="header__nav-link" href="{{ routeWithLocale('contacts') }}">@lang('main.menu.contacts')</a>
                 </li>
             </ul>
             <div class="uk-inline">
                 <button type="button" class="header__lang-btn  uk-text-capitalize">
                     <picture>
-                        <img src="{{ asset('main/img/englang.png') }}" alt=""/></picture>
+                        <img src="{{ asset('main/img/englang.png') }}" width="31px" height="31px" class="header__lang-btn-icon"/></picture>
                     {{ app()->getLocale() }}
                     <picture>
-                        <img src="{{ asset('main/img/arrowDown.svg') }}" alt=""/></picture>
+                        <img src="{{ asset('main/img/arrowDown.svg') }}" width="16px" height="25px" class="header__lang-btn-arrow"/></picture>
                 </button>
                 <div class="header__lang-list" type="button" uk-dropdown="mode:click">
                     <ul class="uk-list">

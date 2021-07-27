@@ -10,9 +10,9 @@
                     <!-- Container title -->
                     <h1 class="treatment__title block__title">
                         @if (currentRouteName() == 'diagnostics')
-                            Диагностика раковых заболеваний
+                            @lang('main.diseases.title.diagnostics')
                         @elseif (currentRouteName() == 'treatments')
-                            Как вылечить рак
+                            @lang('main.diseases.title.treatments')
                         @endif
                     </h1>
                     <!-- background pictures -->
@@ -43,12 +43,12 @@
                                         {{ getShortDesc($disease->description) }}
                                     </div>
                                     <a href="{{ routeWithLocale(currentRouteName().'.show', $disease->id) }}"
-                                       class="block__card-btn btn">Подробнее</a>
+                                       class="block__card-btn btn">@lang('main.moreDetails')</a>
                                 </div>
                             </div>
                         @empty
                             <div>
-                                <h3 class="uk-text-center">Записей не найдено</h3>
+                                <h3 class="uk-text-center">@lang('main.noRecordsFound')</h3>
                             </div>
                         @endforelse
 

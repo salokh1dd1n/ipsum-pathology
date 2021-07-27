@@ -2,7 +2,7 @@
     <div class="uk-container uk-container-center ta__container">
         <div class="block__wrapper uk-width-1-1">
             <!-- Container title -->
-            <h1 class="treatment-article__title block__title">Часто задаваемые вопросы</h1>
+            <h1 class="treatment-article__title block__title">@lang('main.diseases.article.faqTitle')</h1>
             <div uk-filter="target: .js-filter" class="accordion">
 
                 <ul class="accordion__btns questions__theme-nav uk-subnav uk-subnav-pill uk-flex uk-flex-center">

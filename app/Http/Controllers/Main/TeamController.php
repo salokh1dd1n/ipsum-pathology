@@ -25,7 +25,6 @@ class TeamController extends CoreController
     public function index()
     {
         $team = $this->service->getPaginatedTeam(6);
-
         return view('main.pages.team', compact('team'));
     }
 }

@@ -24,8 +24,8 @@
                         </article>
 
                         <div class="uk-flex uk-flex-center">
-                            <a class="btn uk-margin-small-right form__open">Оставить заявку</a>
-                            <a href="tel:+1234567890" class="btn">Позвонить</a>
+                            <a class="btn uk-margin-small-right form__open">@lang('main.researches.submitApplication')</a>
+                            <a href="tel:+1234567890" class="btn">@lang('main.call')</a>
                         </div>
 
                         <div
@@ -42,7 +42,7 @@
                                                 </picture>
                                             </div>
                                             <div class="">
-                                                <div class="adv__card-title">Преимущество {{ 1 + $key }}</div>
+                                                <div class="adv__card-title">@lang('main.researches.advantageText') {{ 1 + $key }}</div>
                                                 <div class="adv__card-text">{{ $advantage->title }}
                                                     <div>
                                                     </div>
@@ -63,7 +63,7 @@
                         </div>
 
                         <!-- Services -->
-                        <h1 class="lab-res__title block__title uk-margin-medium">Наши услуги</h1>
+                        <h1 class="lab-res__title block__title uk-margin-medium">@lang('main.researches.ourServices')</h1>
                         <div class="block__layout uk-flex-center uk-child-width-1-2@m uk-child-width-1-3@l"
                              uk-grid>
 
@@ -73,8 +73,8 @@
                                         <div class="block__card-title">{{ $service->title }}</div>
                                         <div class="block__card-description">{{ $service->description }}</div>
                                         <div class="block__card-prices uk-flex uk-flex-wrap">
-                                            <div class="block__card-price">{{ $service->price }} сум</div>
-                                            <a href="#" class="block__card-btn btn">Заказать</a>
+                                            <div class="block__card-price">{{ $service->price }} @lang('main.researches.countryCurrencyText')</div>
+                                            <a href="#" class="block__card-btn btn">@lang('main.researches.book')</a>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                 </div>
 
             </div>
-            @include('main.includes.applicationForm', ['isModal' => '_visible'])
+            @include('main.includes.applicationForm', ['isModal' => 'true'])
         </page>
     </div>
 @endsection

@@ -1,4 +1,7 @@
 @extends('main.layouts.app')
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('main/css/yandexMap/style.css') }}">
+@endpush
 @push('langSwitcher')
     @include('main.includes.langSwitcher')
 @endpush
@@ -21,7 +24,7 @@
                                 </div>
                             </div>
                             <div class="block__map-wrapper">
-                                <div id="map" class="map"></div>
+                                <div id="map" style="width: 100%; height: 720px; background-color: #e5e3df;"></div>
                             </div>
                         @endif
                     <!-- background atom -->
@@ -40,14 +43,6 @@
                             @forelse ($clinics as $clinic)
                                 <div>
                                     <div class="block__card uk-card uk-card-default uk-card-body">
-                                        <div class="block__card-img uk-flex uk-flex-center">
-                                            <picture>
-                                                <img src="{{ asset('main/img/location1.png') }}"
-                                                     data-src="{{ asset('main/img/location1.png') }}" width="450px"
-                                                     height="269px" alt="" uk-img
-                                                     sizes="(min-width: 420px) 420px, 100vw">
-                                            </picture>
-                                        </div>
                                         <div class="block__card-title">
                                             {{ $clinic->title }}
                                         </div>
@@ -92,5 +87,5 @@
     </div>
 @endsection
 @push('scripts')
-    @include('main.includes.yandexMap', ['clinics' => $clinics])
+    @include('main.includes.yandexMap', ['clinics' => $yandexData])
 @endpush

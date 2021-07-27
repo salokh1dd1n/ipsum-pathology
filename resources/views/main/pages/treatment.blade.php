@@ -1,4 +1,7 @@
 @extends('main.layouts.app')
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('main/css/yandexMap/style.css') }}">
+@endpush
 @push('langSwitcher')
     @include('main.includes.langSwitcher', ['id' => $disease->id])
 @endpush
@@ -58,30 +61,7 @@
 
 
         <!-- Лечение -->
-            <section class="ta__treatment">
-                <div class="uk-container uk-container-center ta__container">
-                    <div class="block__wrapper uk-width-1-1">
-                        <!-- Container title -->
-                        <h1 class="treatment-article__title block__title">Лечение</h1>
-                        <!-- background pictures -->
-                        <div class="anim__background anim-bg2">
-                            <div class="anim__background-mask">
-                                <picture>
-                                    <img src="{{ asset('main/img/Virus.png') }}" alt="" class="anim__bg-middle"/>
-                                </picture>
-                            </div>
-                        </div>
-                        <p>{{ $disease->treatment_desc }}</p>
-
-
-                        <h1 class="treatment-article__title block__title">К кому обращаться за лечением?</h1>
-                        <div class="block__map-wrapper">
-                            <script type="text/javascript" charset="utf-8" async
-                                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A64c297f7e35b8dae3bb81cb67c45ae1923f5314b80559a304bcb95095c74d368&amp;width=100%25&amp;height=548px&amp;lang=ru_RU&amp;scroll=false"></script>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            @include('main.includes.diseaseBlocks.yandexMap')
 
             <!-- блок с часто задаваемыми вопросами -->
         @include('main.includes.diseaseBlocks.faq')
@@ -162,3 +142,6 @@
         </page>
     </div>
 @endsection
+@push('scripts')
+    @include('main.includes.yandexMap', ['clinics' => $clinics])
+@endpush

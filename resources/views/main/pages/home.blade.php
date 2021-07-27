@@ -11,7 +11,7 @@
                     <div class="intro__row row__topSection uk-child-width-1-1 uk-child-width-1-3@l" uk-grid>
                         <div class="row__topSection-firstClm row__topSection-clm">
                             <div class="row__topSection-item uk-card uk-card-default uk-card-body">
-                                <p>Врачи - кандидаты и доктора наук</p>
+                                <p>@lang('main.home.blocks.doctors')</p>
                                 <picture>
                                     <img src="{{ asset('main/img/doctor.png') }}" alt=""/></picture>
                             </div>
@@ -19,18 +19,18 @@
                         <div class="row__topSection-secondClm row__topSection-clm uk-flex uk-flex-column">
                             <div class="row__topSection-item uk-card uk-card-default uk-card-body uk-height-1-2">
                                 <div class="row__topSection-item-content uk-flex uk-flex-bottom">
-                                    <h1>22</h1>
-                                    <h2>Года</h2>
+                                    <h1>@lang('main.home.blocks.experience.years')</h1>
+                                    <h2>@lang('main.home.blocks.experience.yearsText')</h2>
                                 </div>
-                                <p>Успешной практики</p>
+                                <p>@lang('main.home.blocks.experience.practice')</p>
                             </div>
                             <div class="row__topSection-item uk-card uk-card-default uk-card-body uk-height-1-2">
-                                <p>Современное оборудование из Узбекистана</p>
+                                <p>@lang('main.home.blocks.high-tech')</p>
                             </div>
                         </div>
                         <div class="row__topSection-thirdClm row__topSection-clm">
                             <div class="row__topSection-item uk-card uk-card-default uk-card-body">
-                                <p>Высокие стандарты качества</p>
+                                <p>@lang('main.home.blocks.quality')</p>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <div class="row__middleSection-Clm">
                             <a href="{{ routeWithLocale('diagnostics') }}">
                                 <div class="row__middleSection-item uk-card uk-card-default uk-card-body">
-                                    <p>Диагностика Заболеваний</p>
+                                    <p>@lang('main.home.blocks.diagnostics')</p>
                                 </div>
                             </a>
                         </div>
@@ -63,7 +63,7 @@
                         <div class="row__middleSection-Clm">
                             <a href="#">
                                 <div class="row__middleSection-item uk-card uk-card-default uk-card-body">
-                                    <p>Лабораторные Иследования</p>
+                                    <p>@lang('main.home.blocks.researches')</p>
                                 </div>
                             </a>
                         </div>
@@ -74,21 +74,21 @@
                         <div class="row__bottomSection-Clm">
                             <a href="{{ routeWithLocale('treatments') }}">
                                 <div class="row__bottomSection-item uk-card uk-card-default uk-card-body">
-                                    <p>Как поставить диагноз и вылечить рак</p>
+                                    <p>@lang('main.home.blocks.treatments')</p>
                                 </div>
                             </a>
                         </div>
                         <div class="row__bottomSection-Clm">
                             <a href="#">
                                 <div class="row__bottomSection-item uk-card uk-card-default uk-card-body">
-                                    <p>К кому обратиться за лечением</p>
+                                    <p>@lang('main.home.blocks.clinics')</p>
                                 </div>
                             </a>
                         </div>
                         <div class="row__bottomSection-Clm">
                             <a href="#">
                                 <div class="row__bottomSection-item uk-card uk-card-default uk-card-body">
-                                    <p>Вопросы пациентов и ответы специалистов</p>
+                                    <p>@lang('main.home.blocks.faq')</p>
                                 </div>
                             </a>
                         </div>
@@ -100,9 +100,7 @@
         @isset($news)
             <section class="news__swiper">
                 <!-- Slider main container -->
-                <div class="news__swiper-title">
-                    Новости
-                </div>
+                <div class="news__swiper-title">@lang('main.home.news')</div>
                 <div class="news__swiper-slider _swiper">
                     <!-- Slides -->
                     @foreach ($news as $newsItem)
@@ -135,7 +133,7 @@
                 <!-- Slider main container -->
                 <div class="experts__swiper-TopB"></div>
 
-                <div class="experts__swiper-title">Доверьтесь профессионалам</div>
+                <div class="experts__swiper-title">@lang('main.home.team')</div>
                 <div class="experts__swiper-slider _swiper">
                     <!-- Slides -->
                     @foreach ($team as $member)

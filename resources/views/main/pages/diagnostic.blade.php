@@ -1,4 +1,7 @@
 @extends('main.layouts.app')
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('main/css/yandexMap/style.css') }}">
+@endpush
 @push('langSwitcher')
     @include('main.includes.langSwitcher', ['id' => $disease->id])
 @endpush
@@ -10,13 +13,14 @@
                 <div class="uk-container uk-container-center ta__container">
                     <div class="block__wrapper uk-width-1-1 ta__block block-ta">
                         <!-- Container title -->
-                        <h2 class="da__subtitle block__subtitle uk-margin-small">Как диакностировать рак</h2>
-                        <h1 class="da__title block__title uk-margin-small">Как диагностировать "{{ $disease->title }}"</h1>
+                        <h2 class="da__subtitle block__subtitle uk-margin-small">@lang('main.diseases.article.diagnostic.titleName')</h2>
+                        <h1 class="da__title block__title uk-margin-small">@lang('main.diseases.article.diagnostic.title')
+                            "{{ $disease->title }}"</h1>
                         <div class="da__tags block__tags uk-flex uk-flex-center uk-flex-wrap">
-                            <div class="da__tag block__tag">#симптомы</div>
-                            <div class="da__tag block__tag">#как диагностировать</div>
-                            <div class="da__tag block__tag">#как лечить</div>
-                            <div class="da__tag block__tag">#к кому обращаться</div>
+                            <a href="#ta__symptoms" class="ta__tag block__tag" uk-scroll>#симптомы</a>
+                            <a href="#ta__lab-diag" class="ta__tag block__tag" uk-scroll>#как диагностировать</a>
+                            <a href="#ta__treatment" class="ta__tag block__tag" uk-scroll>#как лечить</a>
+                            <a href="#ta__title-map" class="ta__tag block__tag" uk-scroll>#к кому обращаться</a>
                         </div>
                         <!-- background pictures -->
                         <div class="anim__background anim-bg2">
@@ -46,39 +50,19 @@
             </section>
 
             <!-- Lab diagnostic -->
-            @include('main.includes.diseaseBlocks.labDiagnostics')
+        @include('main.includes.diseaseBlocks.labDiagnostics')
 
+        <!-- Лечение -->
+        @include('main.includes.diseaseBlocks.yandexMap')
 
-            <!-- Лечение -->
-            <section class="da__treatment">
-                <div class="uk-container uk-container-center da__container">
-                    <div class="block__wrapper uk-width-1-1">
-                        <!-- background pictures -->
-                        <div class="anim__background anim-bg2">
-                            <div class="anim__background-mask">
-                                <picture>
-                                    <img src="{{ asset('main/img/Virus.png') }}" alt="" class="anim__bg-middle"/>
-                                </picture>
-                            </div>
-                        </div>
+        <!-- блок с часто задаваемыми вопросами -->
+        @include('main.includes.diseaseBlocks.faq')
 
-                        <h1 class="da__title block__title">К кому обращаться за лечением?</h1>
-                        <div class="block__map-wrapper">
-                            <script type="text/javascript" charset="utf-8" async
-                                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A64c297f7e35b8dae3bb81cb67c45ae1923f5314b80559a304bcb95095c74d368&amp;width=100%25&amp;height=548px&amp;lang=ru_RU&amp;scroll=false"></script>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- блок с часто задаваемыми вопросами -->
-            @include('main.includes.diseaseBlocks.faq')
-
-            <!-- Блок запись на консультацию -->
+        <!-- Блок запись на консультацию -->
             <section class="da__consult">
                 <div class="uk-container uk-container-center ta__container">
                     <div class="da__consult-block">
-                        <h1 class="da__title block__title">Запись на консультацию</h1>
+                        <h1 class="da__title block__title">@lang('main.diseases.article.consultation.title')</h1>
                         <div
                             class="da__consult-wrapper uk-grid-match uk-child-width-1-1 uk-child-width-1-2@l uk-child-width-1-4@xl"
                             uk-grid>
@@ -90,9 +74,12 @@
                                                 <img src="{{ asset('main/img/time-icon.png') }}"/></picture>
                                         </div>
                                         <div class="da__consult-card-wrapper">
-                                            <div class="da__consult-card-title">Режим работы</div>
-                                            <div class="da__consult-card-text">С Пн по Пт - 15:00 - 18:00</div>
-                                            <div class="da__consult-card-text">Сб по Вс - 15:00 - 18:00</div>
+                                            <div
+                                                class="da__consult-card-title">@lang('main.diseases.article.consultation.workingHours.title')</div>
+                                            <div
+                                                class="da__consult-card-text">@lang('main.diseases.article.consultation.workingHours.text.1')</div>
+                                            <div
+                                                class="da__consult-card-text">@lang('main.diseases.article.consultation.workingHours.text.2')</div>
                                         </div>
                                     </div>
                                 </div>
@@ -105,8 +92,10 @@
                                                 <img src="{{ asset('main/img/location-icon.png') }}"/></picture>
                                         </div>
                                         <div class="">
-                                            <div class="da__consult-card-title">Адрес клиники</div>
-                                            <div class="da__consult-card-text">г.Ташкент. Яккасарайский р-н</div>
+                                            <div
+                                                class="da__consult-card-title">@lang('main.diseases.article.consultation.address.title')</div>
+                                            <div
+                                                class="da__consult-card-text">@lang('main.diseases.article.consultation.address.text.1')</div>
                                         </div>
                                     </div>
                                 </div>
@@ -119,9 +108,12 @@
                                                 <img src="{{ asset('main/img/tel-icon.png') }}"/></picture>
                                         </div>
                                         <div class="">
-                                            <div class="da__consult-card-title">Телефон для записи</div>
-                                            <div class="da__consult-card-text">+99890 234-23-45<br> +99890 234-23-45
-                                            </div>
+                                            <div
+                                                class="da__consult-card-title">@lang('main.diseases.article.consultation.phoneNumbers.title')</div>
+                                            <div
+                                                class="da__consult-card-text">@lang('main.diseases.article.consultation.phoneNumbers.text.1')</div>
+                                            <div
+                                                class="da__consult-card-text">@lang('main.diseases.article.consultation.phoneNumbers.text.2')</div>
                                         </div>
                                     </div>
                                 </div>
@@ -134,8 +126,10 @@
                                                 <img src="{{ asset('main/img/email-icon.png') }}"/></picture>
                                         </div>
                                         <div class="cont__map-wrapper">
-                                            <div class="da__consult-card-title">Электронная почта</div>
-                                            <div class="da__consult-card-text">Company@gmail.com</div>
+                                            <div
+                                                class="da__consult-card-title">@lang('main.diseases.article.consultation.email.title')</div>
+                                            <div
+                                                class="da__consult-card-text">@lang('main.diseases.article.consultation.email.text.1')</div>
                                         </div>
                                     </div>
                                 </div>
@@ -147,3 +141,6 @@
         </page>
     </div>
 @endsection
+@push('scripts')
+    @include('main.includes.yandexMap', ['clinics' => $clinics])
+@endpush

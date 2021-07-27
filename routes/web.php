@@ -31,7 +31,7 @@ Route::group($settings, function () {
     Route::get('/team', [\App\Http\Controllers\Main\TeamController::class, 'index'])->name('team');
     Route::get('/faq', [\App\Http\Controllers\Main\FaqController::class, 'index'])->name('faq');
 
-    Route::post('/application/store', [\App\Http\Controllers\Main\CoreController::class, 'storeApplication'])->middleware(['throttle:storeApplication'])->name('application.store');
+    Route::post('/application/store', [\App\Http\Controllers\Main\CoreController::class, 'storeApplication'])->name('application.store');
 
     Route::get('/news', [\App\Http\Controllers\Main\NewsController::class, 'index'])->name('news');
     Route::get('/news/{id}', [\App\Http\Controllers\Main\NewsController::class, 'show'])->name('news.show');

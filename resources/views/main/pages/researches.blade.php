@@ -8,9 +8,7 @@
             <div class="uk-container uk-container-center">
                 <div class="block__wrapper uk-width-1-1">
                     <!-- Container title -->
-                    <h1 class="treatment__title block__title">
-                        Лабораторные исследования
-                    </h1>
+                    <h1 class="treatment__title block__title">@lang('main.researches.title')</h1>
                     <!-- background pictures -->
                     <div class="anim__background anim-bg2">
                         <div class="anim__background-mask">
@@ -39,12 +37,12 @@
                                         {{ $research->short_desc }}
                                     </div>
                                     <a href="{{ routeWithLocale(currentRouteName().'.show', $research->id) }}"
-                                       class="block__card-btn btn">Подробнее</a>
+                                       class="block__card-btn btn">@lang('main.moreDetails')</a>
                                 </div>
                             </div>
                         @empty
                             <div>
-                                <h3 class="uk-text-center">Записей не найдено</h3>
+                                <h3 class="uk-text-center">@lang('main.noRecordsFound')</h3>
                             </div>
                         @endforelse
 

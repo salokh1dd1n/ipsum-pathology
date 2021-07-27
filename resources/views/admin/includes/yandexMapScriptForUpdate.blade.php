@@ -67,6 +67,7 @@
         map = new ymaps.Map('map', {
             center: [{{ $clinic->latitude }}, {{ $clinic->longitude }}],
             controls: ["zoomControl"], //, "fullscreenControl"
+            behaviors: ['drag'],
             zoom: 11
         });
         @if($clinic->latitude && $clinic->longitude)

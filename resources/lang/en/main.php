@@ -8,7 +8,10 @@ return [
         'optics' => 'Optics',
         'contacts' => 'Contacts',
     ],
-    'blocks' => [
-        'doctors' => ''
+    'home' => [
+        'blocks' => [
+
+        ],
     ],
+
 ];

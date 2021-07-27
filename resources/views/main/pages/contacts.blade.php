@@ -8,7 +8,7 @@
             <div class="uk-container uk-container-center">
                 <div class="block__wrapper uk-width-1-1">
                     <!-- Container title -->
-                    <h1 class="our-location__title block__title">Контакты</h1>
+                    <h1 class="our-location__title block__title">@lang('main.contacts.title')</h1>
                     <!-- background pictures -->
                     <div class="anim__background anim-bg2">
                         <div class="anim__background-mask">
@@ -36,8 +36,8 @@
                                             <img src="{{ asset('main/img/location-icon.png') }}"/></picture>
                                     </div>
                                     <div class="cont__map-wrapper">
-                                        <div class="cont__map-title">Адрес</div>
-                                        <div class="cont__map-text">г.Ташкент. Яккасарайский р-н</div>
+                                        <div class="cont__map-title">@lang('main.contacts.address.title')</div>
+                                            <div class="cont__map-text">@lang('main.contacts.address.text')</div>
                                     </div>
                                 </div>
                                 <div class="desc__map-content cont__map uk-flex">
@@ -46,8 +46,8 @@
                                             <img src="{{ asset('main/img/email-icon.png') }}"/></picture>
                                     </div>
                                     <div class="cont__map-wrapper">
-                                        <div class="cont__map-title">Email</div>
-                                        <div class="cont__map-text">company@gmail.com</div>
+                                        <div class="cont__map-title">@lang('main.contacts.email.title')</div>
+                                        <div class="cont__map-text">@lang('main.contacts.email.text')</div>
                                     </div>
                                 </div>
                                 <div class="desc__map-content cont__map uk-flex">
@@ -56,10 +56,9 @@
                                             <img src="{{ asset('main/img/tel-icon.png') }}"/></picture>
                                     </div>
                                     <div class="cont__map-wrapper">
-                                        <div class="cont__map-title">Телефон</div>
-                                        <div class="cont__map-text">
-                                            +99890 234-23-45<br> +99890 234-23-45
-                                        </div>
+                                        <div class="cont__map-title">@lang('main.contacts.phoneNumber.title')</div>
+                                        <div class="cont__map-text">@lang('main.contacts.phoneNumber.text.1')</div>
+                                        <div class="cont__map-text">@lang('main.contacts.phoneNumber.text.2')</div>
                                     </div>
                                 </div>
                                 <div class="desc__map-content cont__map uk-flex">
@@ -68,25 +67,25 @@
                                             <img src="{{ asset('main/img/glob-icon.png') }}"/></picture>
                                     </div>
                                     <div class="cont__map-wrapper">
-                                        <div class="cont__map-title">Соц. сети</div>
+                                        <div class="cont__map-title">@lang('main.contacts.socialNetworks.title')</div>
                                         <div class="cont__map-text uk-flex">
                                             <a href="#" class="uk-margin-small-right">
                                                 <picture>
-                                                    <img src="{{ asset('main/img/twitter.svg') }}" width="21px" height="21px" alt="">
+                                                    <img src="{{ asset('main/img/twitter.svg') }}" width="21px" height="21px" alt="@lang('main.contacts.socialNetworks.text.twitter')">
                                                 </picture>
                                             </a>
                                             <a href="#" class="uk-margin-small-right">
                                                 <picture>
-                                                    <img src="{{ asset('main/img/facebook.svg') }}" width="21px" height="21px" alt="">
+                                                    <img src="{{ asset('main/img/facebook.svg') }}" width="21px" height="21px" alt="@lang('main.contacts.socialNetworks.text.facebook')">
                                                 </picture>
                                             </a>
                                             <a href="#" class="uk-margin-small-right">
                                                 <picture>
-                                                    <img src="{{ asset('main/img/vk.svg') }}" width="21px" height="21px" alt=""></picture>
+                                                    <img src="{{ asset('main/img/vk.svg') }}" width="21px" height="21px" alt="@lang('main.contacts.socialNetworks.text.vk')"></picture>
                                             </a>
                                             <a href="#" class="uk-margin-auto">
                                                 <picture>
-                                                    <img src="{{ asset('main/img/instagramm.svg') }}" width="21px" height="21px" alt="">
+                                                    <img src="{{ asset('main/img/instagramm.svg') }}" width="21px" height="21px" alt="@lang('main.contacts.socialNetworks.text.instagram')">
                                                 </picture>
                                             </a>
                                         </div>

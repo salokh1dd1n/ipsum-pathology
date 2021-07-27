@@ -20,9 +20,9 @@ class ClinicsController extends Controller
     public function index()
     {
         $clinics = $this->service->getPaginatedClinics(6);
-//        $yandexData = $this->service->getAllClinics();
         $yandexData = $clinics->getCollection();
-        dd($yandexData);
-        return view('main.pages.clinics', compact('clinics'));
+        $yandexData = $this->service->getAllClinics();
+//        dd($yandexData);
+        return view('main.pages.clinics', compact('clinics', 'yandexData'));
     }
 }

@@ -27,6 +27,7 @@
             center: [41.311081, 69.240562],
             zoom: 12,
             controls: ['zoomControl'],
+            behaviors: ['drag']
         });
 
         for (var i = 0; i < placemarks.length; i++) {
