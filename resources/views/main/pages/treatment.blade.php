@@ -1,7 +1,4 @@
 @extends('main.layouts.app')
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('main/css/yandexMap/style.css') }}">
-@endpush
 @push('langSwitcher')
     @include('main.includes.langSwitcher', ['id' => $disease->id])
 @endpush
@@ -59,86 +56,15 @@
             <!-- Lab diagnostic -->
         @include('main.includes.diseaseBlocks.labDiagnostics')
 
-
         <!-- Лечение -->
-            @include('main.includes.diseaseBlocks.yandexMap')
+        @include('main.includes.diseaseBlocks.yandexMap')
 
-            <!-- блок с часто задаваемыми вопросами -->
+        <!-- блок с часто задаваемыми вопросами -->
         @include('main.includes.diseaseBlocks.faq')
 
         <!-- Блок запись на консультацию -->
-            <section class="ta__consult">
-                <div class="uk-container uk-container-center ta__container">
-                    <div class="ta__consult-block">
-                        <h1 class="ta__title block__title">Запись на консультацию</h1>
-                        <div
-                            class="ta__consult-wrapper uk-grid-match uk-child-width-1-1 uk-child-width-1-2@l uk-child-width-1-4@xl"
-                            uk-grid>
-                            <div class="ta__consult-cards">
-                                <div class="ta__consult-card uk-card-default">
-                                    <div class="uk-flex">
-                                        <div class="ta__consult-card-icon">
-                                            <picture>
-                                                <img src="{{ asset('main/img/time-icon.png') }}"/></picture>
-                                        </div>
-                                        <div class="">
-                                            <div class="ta__consult-card-title">Режим работы</div>
-                                            <div class="ta__consult-card-text">С Пн по Пт - 15:00 - 18:00</div>
-                                            <div class="ta__consult-card-text">Сб по Вс - 15:00 - 18:00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="ta__consult-card uk-card-default">
-                                    <div class="uk-flex">
-                                        <div class="ta__consult-card-icon">
-                                            <picture>
-                                                <img src="{{ asset('main/img/location-icon.png') }}"/></picture>
-                                        </div>
-                                        <div class="">
-                                            <div class="ta__consult-card-title">Адрес клиники</div>
-                                            <div class="ta__consult-card-text">г.Ташкент. Яккасарайский р-н</div>
-                                        </div>
+            @include('main.includes.diseaseBlocks.consultation')
 
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="ta__consult-card uk-card-default">
-                                    <div class="uk-flex">
-                                        <div class="ta__consult-card-icon">
-                                            <picture>
-                                                <img src="{{ asset('main/img/tel-icon.png') }}"/></picture>
-                                        </div>
-                                        <div class="">
-                                            <div class="ta__consult-card-title">Телефон для записи</div>
-                                            <div class="ta__consult-card-text">+99890 234-23-45<br> +99890 234-23-45
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="ta__consult-card uk-card-default">
-                                    <div class="uk-flex">
-                                        <div class="ta__consult-card-icon">
-                                            <picture>
-                                                <img src="{{ asset('main/img/email-icon.png') }}"/></picture>
-                                        </div>
-                                        <div class="cont__map-wrapper">
-                                            <div class="ta__consult-card-title">Электронная почта</div>
-                                            <div class="ta__consult-card-text">Company@gmail.com</div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </page>
     </div>
 @endsection

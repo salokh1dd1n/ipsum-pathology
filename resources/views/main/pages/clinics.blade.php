@@ -1,7 +1,4 @@
 @extends('main.layouts.app')
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('main/css/yandexMap/style.css') }}">
-@endpush
 @push('langSwitcher')
     @include('main.includes.langSwitcher')
 @endpush

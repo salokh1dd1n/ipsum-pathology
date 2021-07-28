@@ -12,7 +12,7 @@
                 balloonContentHeader: "{{ $clinic->title }}",
                 balloonContentBody: '<a href="https://maps.yandex.ru/?pt={{ $clinic->longitude }},{{ $clinic->latitude }}&z=18&l=map" target="_blank">{{ $clinic->address }}</a>',
                 balloonContentFooter:
-                    '<div class="map__call">' +
+                    '<div class="uk-margin-small-top uk-flex uk-flex-center">' +
                     '<a href="tel:+998{{ $clinic->phone_number }}" class="uk-button uk-button-default uk-button-small map__call_button">' +
                     'Позвонить' +
                     '</a>' +

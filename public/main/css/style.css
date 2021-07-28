@@ -15614,6 +15614,21 @@ iframe.uk-cover {
   color: #363049;
 }
 
+.accordion__btns .btn {
+  color: #ffffff;
+  -webkit-box-shadow: 0px 15px 15px rgba(254, 94, 122, 0.31);
+          box-shadow: 0px 15px 15px rgba(254, 94, 122, 0.31);
+  background: #fe5e7a;
+  padding: 10px 19px;
+}
+
+.accordion__btns .btn:hover {
+  background: #0d1026;
+  -webkit-box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
+          box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
+  color: #fff;
+}
+
 .header {
   padding-top: 45px;
   padding-bottom: 34px;
@@ -16876,7 +16891,7 @@ iframe.uk-cover {
   word-break: break-all;
 }
 
-.lab__diag .block__tag {
+.lab-diag .block__tag {
   position: absolute;
   top: 35px;
   right: 15px;
@@ -16967,21 +16982,6 @@ iframe.uk-cover {
   line-height: 1.5;
 }
 
-.ta .accordion__btns .btn {
-  color: #ffffff;
-  -webkit-box-shadow: 0px 15px 15px rgba(254, 94, 122, 0.31);
-          box-shadow: 0px 15px 15px rgba(254, 94, 122, 0.31);
-  background: #fe5e7a;
-  padding: 10px 19px;
-}
-
-.ta .accordion__btns .btn:hover {
-  background: #0d1026;
-  -webkit-box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
-          box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
-  color: #fff;
-}
-
 .ta .uk-subnav-pill > .uk-active > a {
   background: #0d1026;
   -webkit-box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
@@ -17058,21 +17058,6 @@ iframe.uk-cover {
 
 .da .treatment .da__title-map {
   margin-top: 0px;
-}
-
-.da .accordion__btns .btn {
-  color: #ffffff;
-  -webkit-box-shadow: 0px 15px 15px rgba(254, 94, 122, 0.31);
-          box-shadow: 0px 15px 15px rgba(254, 94, 122, 0.31);
-  background: #fe5e7a;
-  padding: 10px 19px;
-}
-
-.da .accordion__btns .btn:hover {
-  background: #0d1026;
-  -webkit-box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
-          box-shadow: 0px 15px 15px rgba(36, 36, 36, 0.31);
-  color: #fff;
 }
 
 .da .uk-subnav-pill > .uk-active > a {
@@ -19670,7 +19655,7 @@ iframe.uk-cover {
 }
 
 @media (max-width: 1280px) {
-  .lab__diag .block__tag {
+  .lab-diag .block__tag {
     top: -10px;
     font-size: 16px;
   }
@@ -20265,6 +20250,16 @@ iframe.uk-cover {
     line-height: 1.1;
   }
 
+  .accordion__items-element .accordion__item-content {
+    font-size: 16px;
+  }
+
+  .accordion__btns .btn {
+    padding: 8px 10px;
+    font-size: 12px;
+    line-height: 1.1;
+  }
+
   .header__anim-bg {
     top: -40px;
   }
@@ -20435,7 +20430,7 @@ iframe.uk-cover {
     font-size: 14px;
   }
 
-  .lab__diag .block__tag {
+  .lab-diag .block__tag {
     font-size: 14px;
   }
 
@@ -20475,16 +20470,6 @@ iframe.uk-cover {
     line-height: 1.5;
   }
 
-  .ta .accordion__items-element .accordion__item-content {
-    font-size: 16px;
-  }
-
-  .ta .accordion__btns .btn {
-    padding: 8px 10px;
-    font-size: 12px;
-    line-height: 1.1;
-  }
-
   .da .block__wrapper {
     padding: 20px 30px 20px 30px;
   }
@@ -20514,16 +20499,6 @@ iframe.uk-cover {
 
   .da__symptoms {
     margin-top: 30px;
-  }
-
-  .da .accordion__items-element .accordion__item-content {
-    font-size: 16px;
-  }
-
-  .da .accordion__btns .btn {
-    padding: 8px 10px;
-    font-size: 12px;
-    line-height: 1.1;
   }
 
   .lab-res .block__wrapper {
@@ -20831,6 +20806,16 @@ iframe.uk-cover {
     font-size: 15px;
   }
 
+  .accordion__items-element .accordion__item-content {
+    font-size: 14px;
+  }
+
+  .accordion__items-element .accordion__item-title,
+  .accordion__items-element .accordion__item-title:focus,
+  .accordion__items-element .accordion__item-title:hover {
+    font-size: 14px;
+  }
+
   .uk-navbar-container {
     min-height: initial;
   }
@@ -20897,27 +20882,7 @@ iframe.uk-cover {
     font-size: 14px;
   }
 
-  .ta .accordion__items-element .accordion__item-content {
-    font-size: 14px;
-  }
-
-  .ta .accordion__items-element .accordion__item-title,
-  .ta .accordion__items-element .accordion__item-title:focus,
-  .ta .accordion__items-element .accordion__item-title:hover {
-    font-size: 14px;
-  }
-
   .da__content {
-    font-size: 14px;
-  }
-
-  .da .accordion__items-element .accordion__item-content {
-    font-size: 14px;
-  }
-
-  .da .accordion__items-element .accordion__item-title,
-  .da .accordion__items-element .accordion__item-title:focus,
-  .da .accordion__items-element .accordion__item-title:hover {
     font-size: 14px;
   }
 

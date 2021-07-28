@@ -8,8 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('main/css/style.min.css') }}">
-@stack('styles')
-<!-- fonts -->
+    <!-- fonts -->
     <link rel="stylesheet" href="{{ asset('main/fonts/stylesheet.css') }}"/>
 </head>
 <body>
@@ -22,6 +21,5 @@
 
 <script src="{{ asset('main/js/app.min.js') }}"></script>
 @stack('scripts')
-
 </body>
 </html>
