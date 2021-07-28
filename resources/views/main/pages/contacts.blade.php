@@ -13,7 +13,8 @@
                     <div class="anim__background anim-bg2">
                         <div class="anim__background-mask">
                             <picture>
-                                <img src="{{ asset('main/img/Mask.png') }}" alt="" width="183px" height="183px"/></picture>
+                                <img src="{{ asset('main/img/Mask.png') }}" alt="" width="183px" height="183px"/>
+                            </picture>
                         </div>
                     </div>
 
@@ -33,17 +34,21 @@
                                 <div class="desc__map-content cont__map uk-flex">
                                     <div class="cont__map-icon">
                                         <picture>
-                                            <img src="{{ asset('main/img/location-icon.png') }}"/></picture>
+                                            <img src="{{ asset('main/img/location-icon.png') }}" width="31px"
+                                                 height="31px" uk-img/>
+                                        </picture>
                                     </div>
                                     <div class="cont__map-wrapper">
                                         <div class="cont__map-title">@lang('main.contacts.address.title')</div>
-                                            <div class="cont__map-text">@lang('main.contacts.address.text')</div>
+                                        <div class="cont__map-text">@lang('main.contacts.address.text')</div>
                                     </div>
                                 </div>
                                 <div class="desc__map-content cont__map uk-flex">
                                     <div class="cont__map-icon">
                                         <picture>
-                                            <img src="{{ asset('main/img/email-icon.png') }}"/></picture>
+                                            <img src="{{ asset('main/img/email-icon.png') }}" width="31px" height="31px"
+                                                 uk-img/>
+                                        </picture>
                                     </div>
                                     <div class="cont__map-wrapper">
                                         <div class="cont__map-title">@lang('main.contacts.email.title')</div>
@@ -53,7 +58,9 @@
                                 <div class="desc__map-content cont__map uk-flex">
                                     <div class="cont__map-icon">
                                         <picture>
-                                            <img src="{{ asset('main/img/tel-icon.png') }}"/></picture>
+                                            <img src="{{ asset('main/img/tel-icon.png') }}" width="31px" height="31px"
+                                                 uk-img/>
+                                        </picture>
                                     </div>
                                     <div class="cont__map-wrapper">
                                         <div class="cont__map-title">@lang('main.contacts.phoneNumber.title')</div>
@@ -64,28 +71,37 @@
                                 <div class="desc__map-content cont__map uk-flex">
                                     <div class="cont__map-icon">
                                         <picture>
-                                            <img src="{{ asset('main/img/glob-icon.png') }}"/></picture>
+                                            <img src="{{ asset('main/img/glob-icon.png') }}" width="31px" height="31px"
+                                                 uk-img/>
+                                        </picture>
                                     </div>
                                     <div class="cont__map-wrapper">
                                         <div class="cont__map-title">@lang('main.contacts.socialNetworks.title')</div>
                                         <div class="cont__map-text uk-flex">
                                             <a href="#" class="uk-margin-small-right">
                                                 <picture>
-                                                    <img src="{{ asset('main/img/twitter.svg') }}" width="21px" height="21px" alt="@lang('main.contacts.socialNetworks.text.twitter')">
+                                                    <img src="{{ asset('main/img/twitter.svg') }}" width="21px"
+                                                         height="21px"
+                                                         alt="@lang('main.contacts.socialNetworks.text.twitter')">
                                                 </picture>
                                             </a>
                                             <a href="#" class="uk-margin-small-right">
                                                 <picture>
-                                                    <img src="{{ asset('main/img/facebook.svg') }}" width="21px" height="21px" alt="@lang('main.contacts.socialNetworks.text.facebook')">
+                                                    <img src="{{ asset('main/img/facebook.svg') }}" width="21px"
+                                                         height="21px"
+                                                         alt="@lang('main.contacts.socialNetworks.text.facebook')">
                                                 </picture>
                                             </a>
                                             <a href="#" class="uk-margin-small-right">
                                                 <picture>
-                                                    <img src="{{ asset('main/img/vk.svg') }}" width="21px" height="21px" alt="@lang('main.contacts.socialNetworks.text.vk')"></picture>
+                                                    <img src="{{ asset('main/img/vk.svg') }}" width="21px" height="21px"
+                                                         alt="@lang('main.contacts.socialNetworks.text.vk')"></picture>
                                             </a>
-                                            <a href="#" class="uk-margin-auto">
+                                            <a href="#">
                                                 <picture>
-                                                    <img src="{{ asset('main/img/instagramm.svg') }}" width="21px" height="21px" alt="@lang('main.contacts.socialNetworks.text.instagram')">
+                                                    <img src="{{ asset('main/img/instagramm.svg') }}" width="21px"
+                                                         height="21px"
+                                                         alt="@lang('main.contacts.socialNetworks.text.instagram')">
                                                 </picture>
                                             </a>
                                         </div>

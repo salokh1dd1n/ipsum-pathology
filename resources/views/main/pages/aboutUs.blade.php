@@ -287,7 +287,7 @@
                     <h1 class="our-lab__title block__title uk-margin-small">Наша команда</h1>
 
                     <div
-                        class="our-lab__specs uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-flex-center"
+                        class="our-lab__specs uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m uk-flex-center uk-grid-match"
                         uk-grid>
                         @foreach($team as $member)
                             <div>
@@ -295,7 +295,8 @@
                                     class="our-lab__team-card tm__card uk-flex uk-flex-center uk-flex-middle uk-flex-column uk-text-center">
                                     <div class="tm__card-photo">
                                         <picture>
-                                            <img src="{{ asset('storage/uploads/images/'.$member->image) }}" alt="" width="222px"
+                                            <img src="{{ asset('storage/uploads/images/'.$member->image) }}" alt=""
+                                                 width="222px"
                                                  height="222px" uk-img/>
                                         </picture>
                                     </div>
