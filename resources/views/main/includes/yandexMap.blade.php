@@ -27,8 +27,8 @@
             center: [41.311081, 69.240562],
             zoom: 12,
             controls: ['zoomControl', 'fullscreenControl'],
-            behaviors: ['drag', 'dblClickZoom']
         });
+        map.behaviors.disable(['scrollZoom']);
 
         for (var i = 0; i < placemarks.length; i++) {
             geoObjects[i] = new ymaps.Placemark([placemarks[i].latitude, placemarks[i].longitude],
