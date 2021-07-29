@@ -26,8 +26,8 @@
         var map = new ymaps.Map('map', {
             center: [41.311081, 69.240562],
             zoom: 12,
-            controls: ['zoomControl'],
-            behaviors: ['drag']
+            controls: ['zoomControl', 'fullscreenControl'],
+            behaviors: ['drag', 'dblClickZoom']
         });
 
         for (var i = 0; i < placemarks.length; i++) {

@@ -79,14 +79,14 @@
                             </a>
                         </div>
                         <div class="row__bottomSection-Clm">
-                            <a href="#">
+                            <a href="{{ routeWithLocale('doctors') }}">
                                 <div class="row__bottomSection-item uk-card uk-card-default uk-card-body">
                                     <p>@lang('main.home.blocks.clinics')</p>
                                 </div>
                             </a>
                         </div>
                         <div class="row__bottomSection-Clm">
-                            <a href="#">
+                            <a href="{{ routeWithLocale('faq') }}">
                                 <div class="row__bottomSection-item uk-card uk-card-default uk-card-body">
                                     <p>@lang('main.home.blocks.faq')</p>
                                 </div>

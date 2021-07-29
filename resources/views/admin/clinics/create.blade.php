@@ -57,7 +57,7 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group border rounded">
-                            <div id="map" style="width:100%; height:350px; background-color: #e5e3df;"></div>
+                            <div id="map" style="width:100%; height:500px; background-color: #e5e3df;"></div>
                         </div>
                     </div>
                 </div>
