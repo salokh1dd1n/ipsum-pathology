@@ -27,6 +27,7 @@
             center: [41.311081, 69.240562],
             zoom: 12,
             controls: ['zoomControl', 'fullscreenControl'],
+            behaviors: ['drag', 'multiTouch', 'dblClickZoom']
         });
         map.behaviors.disable(['scrollZoom']);
 
