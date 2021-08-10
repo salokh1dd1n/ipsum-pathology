@@ -73,7 +73,7 @@
                     </div>
                     <div class="anim-bg3">
                         <picture>
-                            <img src="{{ asset('main/img/Cursor.png') }}" alt="" class="header__cursor"/></picture>
+                            <img src="{{ asset('main/img/accent.png') }}" alt="" class="header__cursor"/></picture>
                     </div>
                 </div>
             </div>
@@ -119,10 +119,12 @@
             <div class="uk-inline">
                 <button type="button" class="header__lang-btn  uk-text-capitalize">
                     <picture>
-                        <img src="{{ asset('main/img/englang.png') }}" width="31px" height="31px" class="header__lang-btn-icon"/></picture>
+                        <img src="{{ asset('main/img/englang.png') }}" width="31px" height="31px"
+                             class="header__lang-btn-icon"/></picture>
                     {{ app()->getLocale() }}
                     <picture>
-                        <img src="{{ asset('main/img/arrowDown.svg') }}" width="16px" height="25px" class="header__lang-btn-arrow"/></picture>
+                        <img src="{{ asset('main/img/arrowDown.svg') }}" width="16px" height="25px"
+                             class="header__lang-btn-arrow"/></picture>
                 </button>
                 <div class="header__lang-list" type="button" uk-dropdown="mode:click">
                     <ul class="uk-list">
@@ -134,7 +136,8 @@
     </div>
     <div class="header__anim-bg anim-bg">
         <picture>
-            <img src="{{ asset('main/img/Pills.png') }}" alt="" class="anim-bg-pills"/></picture>
+            <img src="{{ asset('main/img/Pills.png') }}" alt="" class="anim-bg-pills" width="138px" height="127px"/>
+        </picture>
         <span></span>
     </div>
 </header>
