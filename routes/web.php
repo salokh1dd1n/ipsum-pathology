@@ -20,8 +20,6 @@ $settings = [
 //Redirect with locale
 Route::redirect('/', app()->getLocale(), 301);
 
-// Routes without locale
-
 //Routes with locale
 Route::group($settings, function () {
     Route::get('/', [\App\Http\Controllers\Main\CoreController::class, 'index'])->name('index');
