@@ -7,6 +7,9 @@
 
     <!-- CoreUI CSS -->
     <link rel="stylesheet" href="{{ asset('dashboard/css/style.css') }}" crossorigin="anonymous">
+    <link rel="icon" href="{{ asset('main/img/cropped-ipsumLogo-1-32x32.png') }}" sizes="32x32"/>
+    <link rel="icon" href="{{ asset('main/img/cropped-ipsumLogo-1-192x192.png') }}" sizes="192x192"/>
+    <link rel="apple-touch-icon-precomposed" href="{{ asset('main/img/cropped-ipsumLogo-1-180x180.png') }}"/>
     <title>{{ config('app.name', 'Laravel') }}</title>
 </head>
 <body class="c-app flex-row align-items-center">
@@ -14,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card-group">
-                        @yield('content')
+                @yield('content')
             </div>
         </div>
     </div>
