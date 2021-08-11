@@ -15438,6 +15438,7 @@ header {
 .anim__background {
   position: relative;
   z-index: 1;
+  pointer-events: none;
 }
 
 .anim__background-mask {
@@ -16287,6 +16288,8 @@ header {
 .intro .intro__items .intro__item-content img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .intro .intro__item-title {
@@ -16346,6 +16349,7 @@ header {
 .intro-mod .intro__item-inner .intro__inner-content {
   border-radius: 23px;
   overflow: hidden;
+  height: 235px;
 }
 
 .intro-mod .intro__item-inner .intro__inner-content img {
@@ -16977,7 +16981,7 @@ header {
 
 .our-team .block__card {
   background: #F6F9FC;
-  margin-top: 150px;
+  margin-top: 190px;
   padding: 10px 10px 30px 10px;
 }
 
@@ -17327,6 +17331,10 @@ header {
 .da .block__wrapper {
   padding: 48px 52px 50px 52px;
   margin-bottom: 67px;
+}
+
+.da .block__wrapper .uk-subnav > * {
+  margin-bottom: 10px;
 }
 
 .da .block__title {
@@ -18189,6 +18197,128 @@ header {
           box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1);
   margin-bottom: 24px;
   z-index: 1;
+}
+
+.footer__content-bottom {
+  height: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.footer__content-copy {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.footer .right-side {
+  margin-top: 20px;
+}
+
+.footer .footer__accordion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 32%;
+  margin-right: 0;
+}
+
+.footer .footer__content-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.footer .footer__content-bottom .footer__left img,
+.footer .footer__content-bottom .footer__right img {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+.footer .footer__content-bottom .footer__left {
+  text-align: left;
+}
+
+.footer .footer__content-bottom .footer__right {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer .footer__left,
+.footer .footer__right {
+  width: 49%;
+}
+
+.footer .footer__content-copy {
+  width: 100%;
+}
+
+.logo__panda .btn {
+  position: relative;
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(#000), to(#8d8d99));
+  background: -o-linear-gradient(top, #000, #8d8d99);
+  background: linear-gradient(180deg, #000, #8d8d99);
+  outline: none;
+  -webkit-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  border-radius: 5px;
+}
+
+.logo__panda svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  -webkit-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+  border-radius: 5px;
+}
+
+.logo__panda .btn:hover {
+  -webkit-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out;
+}
+
+.logo__panda .btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.logo__panda .btn a {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
 }
 
 @media (min-width: 480px) {
@@ -20083,6 +20213,32 @@ header {
     font-size: 120px;
   }
 
+  .intro .intro__items:last-child {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .intro .intro__items:last-child .intro__item-content {
+    width: 49%;
+    height: 280px;
+  }
+
+  .intro .intro__items:last-child .intro__item-header {
+    width: 49%;
+  }
+
+  .intro .intro__items:last-child .intro__item-header .intro__item-title {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
   .intro-mod .intro__item-inner:first-child {
     height: 35%;
   }
@@ -20133,6 +20289,25 @@ header {
 
   .footer__content-top > .right-side > .footer__accordion a {
     margin-bottom: 0;
+  }
+
+  .footer__content-top {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .footer .footer__accordion {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
   }
 }
 
@@ -20493,6 +20668,22 @@ header {
     height: 57.6px;
     margin-bottom: 12px;
   }
+
+  .footer__content-top {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .footer__content-bottom {
+    padding: 20px 0;
+    margin-bottom: 20px;
+    height: auto;
+  }
+
+  .footer__content-top > .right-side {
+    width: 31%;
+  }
 }
 
 @media (max-width: 1024.5px) {
@@ -20666,6 +20857,43 @@ header {
   }
 }
 
+@media (max-width: 930px) {
+  .diagnose-article .accord__wrapper ul li,
+  .our-labaratory .accord__wrapper ul li,
+  .treatment-article .accord__wrapper ul li {
+    padding: 25px;
+  }
+
+  .diagnose-article .accord__wrapper ul li .accordion__item-title,
+  .our-labaratory .accord__wrapper ul li .accordion__item-title,
+  .treatment-article .accord__wrapper ul li .accordion__item-title {
+    margin-left: -35px;
+    padding-left: 80px;
+    line-height: 21px;
+    padding-bottom: 2px;
+  }
+
+  .diagnose-article .lab-diag .lab-price,
+  .our-labaratory .lab-diag .lab-price,
+  .treatment-article .lab-diag .lab-price {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+
+  .diagnose-article .uk-accordion-title::before,
+  .our-labaratory .uk-accordion-title::before,
+  .treatment-article .uk-accordion-title::before {
+    width: 1.1em;
+    height: 1.1em;
+  }
+
+  .diagnose-article .block__title,
+  .our-labaratory .block__title,
+  .treatment-article .block__title {
+    margin-bottom: 35px;
+  }
+}
+
 @media (max-width: 920px) {
   .our-lab__statistics-content .stat__cont-item-icon {
     display: none;
@@ -20695,6 +20923,25 @@ header {
 
   .intro .intro-mod-bottom .intro__inner-content img {
     height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+@media (max-width: 780px) {
+  .footer__content-top > .right-side {
+    width: 50%;
+  }
+
+  .footer__content-top {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer__content-top > .right-side {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -21002,6 +21249,20 @@ header {
     margin-top: 30px;
   }
 
+  .diagnose-article,
+  .our-labaratory,
+  .questions,
+  .treatment-article .block__title {
+    margin-bottom: 35px;
+  }
+
+  .diagnose-article .js-filter,
+  .our-labaratory .js-filter,
+  .questions .js-filter,
+  .treatment-article .js-filter {
+    width: 100%;
+  }
+
   .lab-res .block__wrapper {
     padding: 20px 30px 20px 30px;
   }
@@ -21144,6 +21405,11 @@ header {
   .intro .intro__item-title {
     font-size: 20px;
   }
+
+  .intro .intro__items:last-child .intro__item-header .intro__item-title {
+    text-align: left;
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -21161,6 +21427,30 @@ header {
 }
 
 @media (max-width: 650px) {
+  .diagnose-article .accord__wrapper,
+  .our-labaratory .accord__wrapper,
+  .questions .accord__wrapper,
+  .treatment-article .accord__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .diagnose-article .accord__wrapper ul,
+  .our-labaratory .accord__wrapper ul,
+  .questions .accord__wrapper ul,
+  .treatment-article .accord__wrapper ul {
+    width: 100%;
+  }
+
+  .diagnose-article .block__title,
+  .our-labaratory .block__title,
+  .questions .block__title,
+  .treatment-article .block__title {
+    margin-bottom: 35px;
+  }
+
   .footer__content-bottom {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -21171,6 +21461,10 @@ header {
 
   .footer__content-bottom > .like__button {
     display: none;
+  }
+
+  .footer__content-bottom {
+    height: auto;
   }
 }
 
@@ -21229,6 +21523,27 @@ header {
 
   .intro .intro__item-inner {
     margin-bottom: 20px;
+  }
+
+  .intro .intro__items:last-child {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .intro .intro__items:last-child .intro__item-content,
+  .intro .intro__items:last-child .intro__item-header {
+    width: 100%;
+  }
+
+  .intro .intro__items:last-child .intro__item-header .intro__item-title {
+    font-size: 26px;
+    margin-top: 0;
+  }
+
+  .intro .intro__items:last-child {
+    margin-top: -25px;
   }
 }
 
@@ -21302,6 +21617,33 @@ header {
     margin-top: -105px;
   }
 
+  .our-team .block__card {
+    margin-top: 100px;
+  }
+
+  .diagnose-article .accord__wrapper .uk-accordion-title,
+  .questions .accord__wrapper .uk-accordion-title,
+  .our-labaratory .accord__wrapper .uk-accordion-title,
+  .treatment-article .accord__wrapper .uk-accordion-title {
+    font-size: 19px;
+  }
+
+  .diagnose-article .uk-subnav,
+  .questions .uk-subnav,
+  .our-labaratory .uk-subnav,
+  .treatment-article .uk-subnav {
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+  }
+
+  .diagnose-article .uk-subnav li,
+  .questions .uk-subnav li,
+  .our-labaratory .uk-subnav li,
+  .treatment-article .uk-subnav li {
+    margin-bottom: 10px;
+  }
+
   .treatment-location .block__card {
     padding: 10px;
   }
@@ -21312,6 +21654,20 @@ header {
 
   .treatment-location .block__card-btn {
     border-radius: 10px;
+  }
+
+  .footer .footer__content-bottom {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+
+  .footer .footer__content-bottom .footer__right,
+  .footer .footer__content-bottom .footer__left {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    text-align: center;
   }
 }
 
@@ -21547,6 +21903,12 @@ header {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer__content-top > .right-side {
+    width: 100%;
   }
 }
 
