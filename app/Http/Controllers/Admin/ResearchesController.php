@@ -85,4 +85,10 @@ class ResearchesController extends Controller
     {
         return $this->researchService->deleteData($id);
     }
+
+    public function setPosition(ResearchRequest $request, int $id)
+    {
+        $position = $request->only('position');
+        return $this->researchService->setPosition($id, $position);
+    }
 }

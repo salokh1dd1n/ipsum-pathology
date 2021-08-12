@@ -23,6 +23,7 @@ class ResearchesRepository extends CoreRepository
             'id',
             'title',
             'image',
+            'position',
             'short_desc'
         ];
 
@@ -37,7 +38,7 @@ class ResearchesRepository extends CoreRepository
     {
         $result = $this
             ->getAllResearches()
-            ->orderByDesc('id')
+            ->orderBy('position')
             ->paginate($number);
 
         return $result;

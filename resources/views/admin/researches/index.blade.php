@@ -18,7 +18,8 @@
                 <tr>
                     <th>Заголовок</th>
                     <th>Краткое описание</th>
-                    <th>Действия</th>
+                    <th class="text-center">Сортировка</th>
+                    <th class="text-center">Действия</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,7 +27,20 @@
                     <tr>
                         <td>{{ $research->title }}</td>
                         <td>{{ $research->short_desc }}</td>
-                        <td>
+                        <td style="width: 1px; white-space: nowrap" class="text-center">
+                            <form action="{{ route('researches.setPosition', $research->id) }}" method="post">
+                                @csrf
+                                @method('PATCH')
+                                <select class="form-control" id="select-position" onchange="this.form.submit()"
+                                        name="position">
+                                    @for ($i = 0; $i <= $researches->count(); $i++)
+                                        <option value="{{ $i }}"
+                                                @if($i == $research->position) selected @endif>{{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </form>
+                        </td>
+                        <td class="text-center">
                             <a class="btn btn-sm btn-primary mb-1" href="{{ route('researches.edit', $research->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use

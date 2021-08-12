@@ -17,7 +17,8 @@ class Research extends Model
         'image',
         'title',
         'short_desc',
-        'description'
+        'description',
+        'position',
     ];
 
     public function advantages()

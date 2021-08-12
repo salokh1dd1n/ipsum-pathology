@@ -45,6 +45,9 @@ class ResearchRequest extends FormRequest
                 'short_desc.*' => 'required',
                 'description.*' => 'required'
             ],
+            'researches.setPosition' => [
+                'position' => 'integer',
+            ]
         ];
 
         return $rules[$route];
