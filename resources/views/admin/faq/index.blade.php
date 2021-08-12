@@ -18,7 +18,8 @@
                 <tr>
                     <th>Заголовок</th>
                     <th>Теги</th>
-                    <th>Действия</th>
+                    <th class="text-center">Сортировка</th>
+                    <th class="text-center">Действия</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,7 +33,20 @@
                                 <span class="badge badge-secondary">-- Без роли --</span>
                             @endforelse
                         </td>
-                        <td>
+                        <td style="width: 1px; white-space: nowrap" class="text-center">
+                            <form action="{{ route('faq.setPosition', $faq->id) }}" method="post">
+                                @csrf
+                                @method('PATCH')
+                                <select class="form-control" id="select-position" onchange="this.form.submit()"
+                                        name="position">
+                                    @for ($i = 0; $i <= $faqs->count(); $i++)
+                                        <option value="{{ $i }}"
+                                                @if($i == $faq->position) selected @endif>{{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </form>
+                        </td>
+                        <td class="text-center">
                             <a class="btn btn-sm btn-primary mb-1" href="{{ route('faq.edit', $faq->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use

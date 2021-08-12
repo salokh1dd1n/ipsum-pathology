@@ -16,6 +16,7 @@ class Faq extends Model
         'id',
         'title',
         'description',
+        'position',
     ];
 
     public function tags()

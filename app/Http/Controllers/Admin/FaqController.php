@@ -80,4 +80,10 @@ class FaqController extends Controller
         return $this->faqService->deleteData($id);
     }
 
+    public function setPosition(FaqRequest $request, int $id)
+    {
+        $position = $request->only('position');
+        return $this->faqService->setPosition($id, $position);
+    }
+
 }

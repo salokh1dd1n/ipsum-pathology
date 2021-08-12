@@ -33,12 +33,14 @@ class FaqRequest extends FormRequest
                 'tag_id' => 'exists:tags,id|nullable',
                 'description.*' => 'required'
             ],
-
             'faq.store' => [
                 'title.*' => 'required|string|max:250|min:3',
                 "tag_id" => "exists:tags,id|nullable",
                 'description.*' => 'required'
             ],
+            'faq.setPosition' => [
+                'position' => 'integer',
+            ]
         ];
         return $rules[$route];
     }

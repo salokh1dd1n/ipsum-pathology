@@ -22,7 +22,8 @@ class FaqRepository extends CoreRepository
         $columns = [
             'id',
             'title',
-            'description'
+            'description',
+            'position'
         ];
 
         $result = $this
@@ -37,7 +38,7 @@ class FaqRepository extends CoreRepository
     {
         $result = $this
             ->getAllFaq()
-            ->orderByDesc('id')
+            ->orderBy('position')
             ->paginate(10);
 
         return $result;
