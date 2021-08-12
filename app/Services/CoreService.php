@@ -61,4 +61,10 @@ class CoreService
         return $this->redirectWithAlert($result, $this->prefix . '.index', 'delete', null, 'warning');
     }
 
+    public function setPosition($id, $position)
+    {
+        $result = $this->repository->edit($id, $position);
+        return $this->redirectWithAlert($result, $this->prefix . '.index', 'update');
+    }
+
 }

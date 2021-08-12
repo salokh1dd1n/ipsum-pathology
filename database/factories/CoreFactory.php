@@ -13,8 +13,8 @@ abstract class CoreFactory extends Factory
 
     protected function image()
     {
-        Storage::makeDirectory('uploads/images');
-        return $this->faker->image('public/storage/uploads/images', 640, 480, null, false);
+        Storage::makeDirectory('public/uploads/images');
+        return $this->faker->image(storage_path('app/public/uploads/images'), 640, 480, null, false);
     }
 
     protected function title()
