@@ -26,13 +26,23 @@ class ClinicsRequest extends FormRequest
      */
     public function rules()
     {
+        $route = $this->route()->getName();
         $rules = [
-            'phone_number' => ['required', 'string', new PhoneNumberRule()],
-            'title.*' => 'required|string|max:250|min:3',
-            'address' => 'required|string|max:250|min:3'
+            'clinics.update' => [
+                'phone_number' => ['required', 'string', new PhoneNumberRule()],
+                'title.*' => 'required|string|max:250|min:3',
+                'address' => 'required|string|max:250|min:3',
+            ],
+            'clinics.store' => [
+                'phone_number' => ['required', 'string', new PhoneNumberRule()],
+                'title.*' => 'required|string|max:250|min:3',
+                'address' => 'required|string|max:250|min:3',
+            ],
+            'clinics.setPosition' => [
+                'position' => 'integer'
+            ]
         ];
-
-        return $rules;
+        return $rules[$route];
     }
 
     public function attributes()

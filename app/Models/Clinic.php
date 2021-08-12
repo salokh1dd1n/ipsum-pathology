@@ -12,6 +12,6 @@ class Clinic extends Model
     use HasFactory, HasTranslations;
 
     protected $translatable = ['title', 'address'];
-    protected $fillable = ['title', 'address', 'phone_number', 'latitude', 'longitude'];
+    protected $fillable = ['title', 'address', 'phone_number', 'latitude', 'longitude', 'position'];
 
 }

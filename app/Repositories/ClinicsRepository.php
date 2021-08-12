@@ -25,6 +25,7 @@ class ClinicsRepository extends CoreRepository
             'address',
             'latitude',
             'longitude',
+            'position',
             'phone_number'
         ];
 
@@ -39,7 +40,7 @@ class ClinicsRepository extends CoreRepository
     {
         $result = $this
             ->getAllClinics()
-            ->orderByDesc('id')
+            ->orderBy('position')
             ->paginate($number);
 
         return $result;

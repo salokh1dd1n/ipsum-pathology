@@ -18,7 +18,8 @@
                 <tr>
                     <th>Заголовок</th>
                     <th>Телефонный номер</th>
-                    <th>Действия</th>
+                    <th class="text-center">Сортировка</th>
+                    <th class="text-center">Действия</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,7 +27,20 @@
                     <tr>
                         <td>{{ $clinic->title }}</td>
                         <td>{{ formattedPhoneNumber($clinic->phone_number) }}</td>
-                        <td>
+                        <td style="width: 1px; white-space: nowrap" class="text-center">
+                            <form action="{{ route('clinics.setPosition', $clinic->id) }}" method="post">
+                                @csrf
+                                @method('PATCH')
+                                <select class="form-control" id="select-position" onchange="this.form.submit()"
+                                        name="position">
+                                    @for ($i = 0; $i <= $clinics->count(); $i++)
+                                        <option value="{{ $i }}"
+                                                @if($i == $clinic->position) selected @endif>{{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </form>
+                        </td>
+                        <td class="text-center">
                             <a class="btn btn-sm btn-primary mb-1" href="{{ route('clinics.edit', $clinic->id) }}">
                                 <svg class="c-icon mr-1">
                                     <use
