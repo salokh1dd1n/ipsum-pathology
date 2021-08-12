@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Rules\UniqueRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -31,15 +30,17 @@ class NewsRequest extends FormRequest
         $rules = [
             'news.update' => [
                 'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                'title.*' => 'required|string|max:250|min:3|unique_translation:news,title,'.$this->get('id'),
-                'description.*' => 'required|'
+                'title.*' => 'required|string|max:250|min:3|unique_translation:news,title,' . $this->get('id'),
+                'description.*' => 'required|',
             ],
-
             'news.store' => [
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'title.*' => 'required|string|max:250|min:3|unique_translation:news',
                 'description.*' => 'required|'
             ],
+            'news.setPosition' => [
+                'position' => 'integer',
+            ]
         ];
         return $rules[$route];
 

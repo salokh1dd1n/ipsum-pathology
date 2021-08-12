@@ -23,6 +23,7 @@ class NewsRepository extends CoreRepository
         $columns = [
             'id',
             'title',
+            'position',
             'image',
             'description',
             'created_at'
@@ -39,7 +40,7 @@ class NewsRepository extends CoreRepository
     {
         $result = $this
             ->getAllNews()
-            ->orderByDesc('id')
+            ->orderBy('position')
             ->paginate($number);
 
         return $result;

@@ -92,4 +92,10 @@ class NewsController extends Controller
         return $this->newsService->deleteData($id);
     }
 
+    public function setPosition(NewsRequest $request, int $id)
+    {
+        $position = $request->only('position');
+        return $this->newsService->setPosition($id, $position);
+    }
+
 }
