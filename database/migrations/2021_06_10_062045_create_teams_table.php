@@ -19,6 +19,7 @@ class CreateTeamsTable extends Migration
             $table->string('role');
             $table->string('phone_number', 9);
             $table->json('description');
+            $table->integer('position')->default(0);
             $table->string('image');
             $table->timestamps();
 

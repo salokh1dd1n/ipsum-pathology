@@ -20,6 +20,7 @@ class CreateClinicsTable extends Migration
             $table->string('latitude');
             $table->string('longitude');
             $table->string('phone_number', 12);
+            $table->integer('position')->default(0);
             $table->timestamps();
         });
     }

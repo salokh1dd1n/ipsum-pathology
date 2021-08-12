@@ -18,6 +18,7 @@ class CreateFaqsTable extends Migration
             $table->id();
             $table->json('title');
             $table->json('description');
+            $table->integer('position')->default(0);
             $table->timestamps();
         });
     }

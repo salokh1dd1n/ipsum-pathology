@@ -20,6 +20,7 @@ class CreateResearchTable extends Migration
             $table->string('image');
             $table->json('short_desc');
             $table->json('description');
+            $table->integer('position')->default(0);
             $table->timestamps();
 
         });

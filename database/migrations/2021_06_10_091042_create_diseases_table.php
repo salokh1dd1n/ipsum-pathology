@@ -20,6 +20,7 @@ class CreateDiseasesTable extends Migration
             $table->json('description');
             $table->json('symptom_desc');
             $table->json('treatment_desc')->nullable();
+            $table->integer('position')->default(0);
             $table->timestamps();
         });
     }
