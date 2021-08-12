@@ -44,6 +44,9 @@ class TeamRequest extends FormRequest
                 'role.*' => 'required|string|max:250|min:3',
                 'phone_number' => ['required', 'string', new PhoneNumberRule],
             ],
+            'team.setPosition' => [
+                'position' => 'integer',
+            ]
         ];
         return $rules[$route];
     }

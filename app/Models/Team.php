@@ -17,6 +17,7 @@ class Team extends Model
         'role',
         'phone_number',
         'description',
+        'position',
         'image'
     ];
 }

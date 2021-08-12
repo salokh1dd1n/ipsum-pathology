@@ -25,7 +25,8 @@ class TeamRepository extends CoreRepository
             'role',
             'phone_number',
             'description',
-            'image'
+            'image',
+            'position',
         ];
 
         $result = $this
@@ -39,7 +40,7 @@ class TeamRepository extends CoreRepository
     {
         $result = $this
             ->getAllTeam()
-            ->orderByDesc('id')
+            ->orderBy('position')
             ->paginate($number);
 
         return $result;

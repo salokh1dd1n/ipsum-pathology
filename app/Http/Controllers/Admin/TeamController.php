@@ -79,4 +79,10 @@ class TeamController extends Controller
     {
         return $this->teamService->deleteData($id);
     }
+
+    public function setPosition(TeamRequest $request, int $id)
+    {
+        $position = $request->only('position');
+        return $this->teamService->setPosition($id, $position);
+    }
 }
