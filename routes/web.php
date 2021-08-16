@@ -21,7 +21,6 @@ $settings = [
 Route::get('/', function () {
     return redirect(app()->getLocale());
 });
-
 //Routes with locale
 Route::group($settings, function () {
     Route::get('/', [\App\Http\Controllers\Main\CoreController::class, 'index'])->name('index');
