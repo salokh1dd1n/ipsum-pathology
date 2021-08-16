@@ -57,22 +57,7 @@
                             </form>
                         </td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-primary mb-1" href="{{ route('diseases.edit', $disease->id) }}">
-                                <svg class="c-icon mr-1">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
-                                </svg>
-                                Изменить
-                            </a>
-                            <button class="btn btn-sm btn-danger mb-1" type="button" data-toggle="modal"
-                                    data-target="#deleteNewsItem{{ $disease->id }}">
-                                <svg class="c-icon mr-1">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-trash') }}"></use>
-                                </svg>
-                                Удалить
-                            </button>
-                            @include('admin.includes.deleteModel', ['route' => 'diseases', 'id' => $disease->id])
+                            @include('admin.includes.actionsModel', ['route' => 'diseases', 'id' => $disease->id])
                         </td>
                     </tr>
                 @empty
