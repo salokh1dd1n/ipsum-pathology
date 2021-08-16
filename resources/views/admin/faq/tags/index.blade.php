@@ -19,7 +19,7 @@
                     @foreach(Config::get('app.languages') as $lang)
                         <th>Заголовок ({{ $lang }})</th>
                     @endforeach
-                    <th>Действия</th>
+                    <th class="text-center">Действия</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,23 +28,8 @@
                         @foreach(array_keys(Config::get('app.languages')) as $key)
                             <td>{{ $tag->getTranslation('title', $key) }}</td>
                         @endforeach
-                        <td>
-                            <a class="btn btn-sm btn-primary mb-1" href="{{ route('tags.edit', $tag->id) }}">
-                                <svg class="c-icon mr-1">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
-                                </svg>
-                                Изменить
-                            </a>
-                            <button class="btn btn-sm btn-danger mb-1" type="button" data-toggle="modal"
-                                    data-target="#deleteNewsItem{{ $tag->id }}">
-                                <svg class="c-icon mr-1">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-trash') }}"></use>
-                                </svg>
-                                Удалить
-                            </button>
-                            @include('admin.includes.deleteModel', ['route' => 'tags', 'id' => $tag->id])
+                        <td class="text-center">
+                            @include('admin.includes.actionsModel', ['route' => 'tags', 'id' => $tag->id])
                         </td>
                     </tr>
                 @empty
