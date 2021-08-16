@@ -1,3 +1,18 @@
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a class="btn btn-sm btn-primary mb-1" href="{{ route($route.'.edit', $id) }}">
+        <svg class="c-icon mr-1">
+            <use
+                xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
+        </svg>
+    </a>
+    <button class="btn btn-sm btn-danger mb-1" type="button" data-toggle="modal"
+            data-target="#deleteNewsItem{{ $id }}">
+        <svg class="c-icon mr-1">
+            <use
+                xlink:href="{{ asset('dashboard/icons/free.svg#cil-trash') }}"></use>
+        </svg>
+    </button>
+</div>
 <div class="modal fade" id="deleteNewsItem{{ $id }}" tabindex="-1"
      role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
