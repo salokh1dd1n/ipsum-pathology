@@ -1,4 +1,4 @@
-<div class="btn-group" role="group" aria-label="Basic example">
+<div class="btn-group">
     <a class="btn btn-sm btn-primary mb-1" href="{{ route($route.'.edit', $id) }}">
         <svg class="c-icon mr-1">
             <use
