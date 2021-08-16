@@ -49,6 +49,10 @@ class DiseasesRequest extends FormRequest
                 'diagnostic_id' => 'required|exists:diagnostics,id',
                 'faq_id' => 'required|exists:faqs,id',
             ],
+
+            'diseases.setPosition' => [
+                'position' => 'integer',
+            ]
         ];
         return $rules[$route];
     }

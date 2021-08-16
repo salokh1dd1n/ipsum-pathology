@@ -28,7 +28,8 @@ class Disease extends Model
         'title',
         'description',
         'symptom_desc',
-        'treatment_desc'
+        'treatment_desc',
+        'position',
     ];
 
     /**

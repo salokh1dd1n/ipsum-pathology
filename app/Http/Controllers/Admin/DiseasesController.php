@@ -89,4 +89,10 @@ class DiseasesController extends Controller
     {
         return $this->diseasesService->deleteData($id);
     }
+
+    public function setPosition(DiseasesRequest $request, int $id)
+    {
+        $position = $request->only('position');
+        return $this->diseasesService->setPosition($id, $position);
+    }
 }

@@ -23,6 +23,7 @@ class DiseasesRepository extends CoreRepository
             'id',
             'title',
             'image',
+            'position',
             'description'
         ];
 
@@ -40,7 +41,7 @@ class DiseasesRepository extends CoreRepository
     {
         $result = $this
             ->getAllDiseases()
-            ->orderByDesc('id')
+            ->orderBy('position')
             ->paginate($number);
 
         return $result;

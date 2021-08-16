@@ -18,7 +18,9 @@ $settings = [
     'middleware' => 'setLocale'
 ];
 //Redirect with locale
-Route::redirect('/', app()->getLocale(), 301);
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
 
 //Routes with locale
 Route::group($settings, function () {
