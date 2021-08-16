@@ -34,28 +34,14 @@
                                 <select class="form-control" id="select-position" onchange="this.form.submit()"
                                         name="position">
                                     @for ($i = 0; $i <= $news->count(); $i++)
-                                        <option value="{{ $i }}" @if($i == $newsItem->position) selected @endif>{{ $i }}</option>
+                                        <option value="{{ $i }}"
+                                                @if($i == $newsItem->position) selected @endif>{{ $i }}</option>
                                     @endfor
                                 </select>
                             </form>
                         </td>
                         <td class="text-center">
-                            <a class="btn btn-sm btn-primary mb-1" href="{{ route('news.edit', $newsItem->id) }}">
-                                <svg class="c-icon mr-1">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
-                                </svg>
-                                Изменить
-                            </a>
-                            <button class="btn btn-sm btn-danger mb-1" type="button" data-toggle="modal"
-                                    data-target="#deleteNewsItem{{ $newsItem->id }}">
-                                <svg class="c-icon mr-1">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-trash') }}"></use>
-                                </svg>
-                                Удалить
-                            </button>
-                            @include('admin.includes.deleteModel', ['route' => 'news', 'id' => $newsItem->id])
+                            @include('admin.includes.actionsModel', ['route' => 'news', 'id' => $newsItem->id])
                         </td>
                     </tr>
                 @empty
