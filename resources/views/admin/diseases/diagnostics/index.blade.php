@@ -18,7 +18,7 @@
                 <tr>
                     <th>Заголовок</th>
                     <th>Цена</th>
-                    <th>Действия</th>
+                    <th class="text-center">Действия</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -26,23 +26,8 @@
                     <tr>
                         <td>{{ $diagnostic->title }}</td>
                         <td>{{ formattedPrice($diagnostic->price) }}</td>
-                        <td>
-                            <a class="btn btn-sm btn-primary mb-1" href="{{ route('diagnostics.edit', $diagnostic->id) }}">
-                                <svg class="c-icon mr-1">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-pencil') }}"></use>
-                                </svg>
-                                Изменить
-                            </a>
-                            <button class="btn btn-sm btn-danger mb-1" type="button" data-toggle="modal"
-                                    data-target="#deleteNewsItem{{ $diagnostic->id }}">
-                                <svg class="c-icon mr-1">
-                                    <use
-                                        xlink:href="{{ asset('dashboard/icons/free.svg#cil-trash') }}"></use>
-                                </svg>
-                                Удалить
-                            </button>
-                            @include('admin.includes.deleteModel', ['route' => 'diagnostics', 'id' => $diagnostic->id])
+                        <td class="text-center">
+                            @include('admin.includes.actionsModel', ['route' => 'diagnostics', 'id' => $diagnostic->id])
                         </td>
                     </tr>
                 @empty
